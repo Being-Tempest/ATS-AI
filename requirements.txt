@@ -1,0 +1,20 @@
+# 核心链路(必装)
+openai>=1.0          # ai_chat / expression_engine / scorer — LLM 对话与打分
+blivedm              # danmaku_bot — B站弹幕/礼物/SC 接收
+aiohttp              # danmaku_bot / vts_client — 异步 HTTP
+dashscope            # tts_engine / create_voice — CosyVoice 云端 TTS
+sounddevice          # tts_engine — 音频播放
+numpy                # tts_engine — 音频处理
+certifi              # main — Windows 下修正 SSL 证书路径
+
+# 画面评论(可选,vision_module)
+mss
+requests
+Pillow
+
+# TTS 附加(可选)
+scipy
+
+# 中控台(可选,dashboard)
+flask
+flask-socketio
