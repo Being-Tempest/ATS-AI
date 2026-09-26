@@ -4,3 +4,5 @@ __pycache__/
 logs/
 reference.wav
 *.wav
+reply_queue.txt
+subtitle.txt

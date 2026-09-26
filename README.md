@@ -74,6 +74,26 @@ python main.py
 └── config.py             # 从 .env 读配置,无密钥
 ```
 
+## Paper & Reproduction
+
+本仓库的调度器对应论文中的核心机制(括号内为代码位置):
+
+- **三队列级联调度 + 自适应升舱门槛** — `scheduler.py` `_pick_next()` / `_feed_danmaku_score()`(滑动窗口弹幕均分门槛,超阈值把 Q2/Q3 高价值消息提拔到 Q1)
+- **Q2 批量回应** — `scheduler.py` `_make_batch("q2d"/"q2g")`,低分积压到触发线(`Q2D_BATCH_MIN`/`Q2G_BATCH_MIN`)即 drain 合并成一次 LLM 批量回应
+- **Q3 合并(主臂 = 级联门控)** — 进入 Q3 分支且非空即 drain 合并(每批上限 `Q3_BATCH_CAP`);变体臂 `batch_q3_trigger`(Q3 积压触发)保留在代码中但默认关闭
+- **占坑(commit)机制** — 管线空闲时第一个到的消息评分前直接占坑,防异步评分竞速;实验臂可用 `disable_commit=True` 禁用
+- **高分保护(H6)** — 批量只卷 `<60` 分的弹幕,高分桶留队等升舱精回
+
+`benchmark/` 目录包含完整离线回放框架与论文全部实验数据(评分缓存 ~4600 条 + 合成弹幕流 + 关键结果 CSV),**零真实 API 调用**即可复现。
+
+一条命令复现主表(λ∈{3,6,12,24} × uniform/drift,5 策略,输出 `benchmark/results/merge_summary.md` 与 `coverage_vs_load.csv`):
+
+```bash
+python -X utf8 -m benchmark.merge_run
+```
+
+其他入口:`benchmark.overload_run`(六策略 × 占坑双臂主矩阵)、`benchmark.replay`(真实日志回放,需自备日志)。注意:离线回放仅需 `numpy` 等基础依赖,无需 B 站登录或任何 API 密钥。
+
 ## License
 
 [MIT License](LICENSE) — Copyright (c) 2026 Tempest
