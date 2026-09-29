@@ -1,0 +1,227 @@
+{
+ "R01": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 55
+ },
+ "R02": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 58
+ },
+ "R03": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R04": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R05": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 62
+ },
+ "R06": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ },
+ "R07": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R08": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ },
+ "R09": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R10": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R11": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ },
+ "R12": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R13": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R14": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R15": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 62
+ },
+ "R16": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R17": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 62
+ },
+ "R18": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R19": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R20": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R21": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R22": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R23": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 55
+ },
+ "R24": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R25": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 55
+ },
+ "R26": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 48
+ },
+ "R27": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 55
+ },
+ "R28": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 62
+ },
+ "R29": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R30": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R31": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 52
+ },
+ "R32": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R33": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R34": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R35": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 72
+ },
+ "R36": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R37": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R38": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 55
+ },
+ "R39": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 55
+ },
+ "R40": {
+  "cls": "greedy_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R41": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ },
+ "R42": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 65
+ },
+ "R43": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ },
+ "R44": {
+  "cls": "main_precise",
+  "source": "precise_fidelity_samples",
+  "judge_score": 72
+ },
+ "R45": {
+  "cls": "batch",
+  "source": "batch_blind",
+  "judge_score": 62
+ }
+}
