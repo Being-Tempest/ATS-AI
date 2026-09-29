@@ -6,3 +6,4 @@ reference.wav
 *.wav
 reply_queue.txt
 subtitle.txt
+benchmark/results/replay_debug.log

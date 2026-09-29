@@ -84,7 +84,7 @@ python main.py
 - **占坑(commit)机制** — 管线空闲时第一个到的消息评分前直接占坑,防异步评分竞速;实验臂可用 `disable_commit=True` 禁用
 - **高分保护(H6)** — 批量只卷 `<60` 分的弹幕,高分桶留队等升舱精回
 
-`benchmark/` 目录包含完整离线回放框架与论文全部实验数据(评分缓存 ~4600 条 + 合成弹幕流 + 关键结果 CSV),**零真实 API 调用**即可复现。
+`benchmark/` 目录包含完整离线回放框架与论文全部实验数据(评分缓存 ~7,200 条 + 生成缓存 + 合成弹幕流 + 关键结果 CSV),**零真实 API 调用**即可复现。
 
 一条命令复现主表(λ∈{3,6,12,24} × uniform/drift,5 策略,输出 `benchmark/results/merge_summary.md` 与 `coverage_vs_load.csv`):
 
@@ -93,6 +93,35 @@ python -X utf8 -m benchmark.merge_run
 ```
 
 其他入口:`benchmark.overload_run`(六策略 × 占坑双臂主矩阵)、`benchmark.replay`(真实日志回放,需自备日志)。注意:离线回放仅需 `numpy` 等基础依赖,无需 B 站登录或任何 API 密钥。
+
+## Paper Experiment Reproduction (IST submission)
+
+Every key number in the paper maps to one script and one result file below. All scoring calls are served from frozen caches (`benchmark/cache/`, ~7,200 entries); every script runs with **zero live API calls** (scripts that generated replies during the study ship their generation caches too, and pass a placeholder key so they work without `.env`). Run from the repo root, e.g. `python -X utf8 -m benchmark.regime_map`.
+
+| Paper claim / number | Script | Result file |
+|---|---|---|
+| Regime map: policies identical below ρ≈0.9; full−greedy −1.11 (λ=24) / −1.52 (λ=36) under drift; occupancy 85.2%→0.1% | `benchmark/regime_map.py` | `results/regime_map.md` + `regime_map.csv` (streams in `data/regime_*.jsonl`) |
+| Selection negative result: full−greedy −1.08±0.34, TOST equivalence within ±2 points, greedy high-value wait 36.4±23.3 s | `benchmark/tost_and_greedy_wait.py` | `results/tost_verification.md` (stdout recomputes the printed stats) |
+| aging degrades monotonically (−2.37/−5.20/−8.18); cμ ≡ greedy; policy-family spread 2.4 pts | `benchmark/aging_cmu_baselines.py` | `results/aging_baseline.md`, `results/cmu_baseline.md` |
+| Offline top-k bound: greedy within 0.3% (0.0–1.1%), full_commit 2.1% | `benchmark/offline_optimal.py` | `results/offline_optimal.md` |
+| Verified mention: batch fidelity 58.3%/59.6% (λ=24), 64.0%/61.1% (λ=12, 43 batches, batch-level CIs) | `benchmark/merge_fidelity.py` + `benchmark/merge_fidelity_l12.py` | `results/merge_fidelity_check.md`, `results/merge_fidelity_l12_check.md` |
+| Precise-reply fidelity (ID 21.7%/15.0%, topic 67.3%/70.7%); VMR 46.7%→63.5% | `benchmark/precise_fidelity.py` | `results/precise_fidelity_check.md` + `precise_fidelity_samples.jsonl` |
+| Nominal-vs-verified gap analysis (23/37 points) | (analysis doc) | `results/greedy_fidelity_check.md` |
+| Per-bucket coverage (high-bucket 389/389 precise at λ=12; variant guard violations at λ=24) | `benchmark/redreview_v3_stats.py` (stdout) | `results/bucket_breakdown.md` |
+| Coverage denominator audit (N = all arrivals, drain tail counted) | `benchmark/coverage_audit.py` | `results/coverage_denominator_audit.md` |
+| Batch length curve d_batch(n): 49.8+2.12n chars, k=2 slots throughout | `benchmark/batch_length_curve.py` | `results/batch_length_curve.md` + `batch_length_samples.jsonl` |
+| Service-rate calibration: production replies 17.5 chars (P50 17) → ≈8.4 s occupancy | (log analysis doc) | `results/reply_length_check.md` |
+| TTS production speech rate 3.83±0.72 chars/s, first-packet P50 543 ms | `benchmark/tts_objective.py` | `results/tts_objective.md` (input: pre-filtered `data/tts_production_lines.txt`; full production logs are not shipped) |
+| Main aggregation tables (69.4%→100% at 1.8μ; frontier at 3.6μ) | `benchmark/merge_run.py` | `results/merge_summary.md`, `results/coverage_vs_load.csv` |
+
+### Annotation packs (human-validity studies)
+
+`benchmark/annotation/` ships the two blind-annotation packs used for the human-validity experiments:
+
+- `reply_quality/` — 45 de-identified replies (greedy/main-arm precise + batch) for 1–5 quality rating; the companion LLM-judge scores live in `cache/reply_judge.jsonl`. After collection, per-item human means are correlated (Spearman) against the judge scores in the key file.
+- `tts_mos/` — 18 synthesized wavs (short precise / long batch / emotion-tagged) for naturalness/intelligibility/fatigue MOS.
+
+Each pack has its own README with instructions and the回收 format. **The dotfiles `.reply_quality_key.json` and `.tts_mos_key.json` contain the unblinding keys (arm/source/type labels and judge scores). They are research data, not secrets, and are included so the analysis is reproducible — but do NOT share them with annotators before collection.** Regeneration scripts: `make_reply_quality_pack.py`, `make_tts_mos_pack.py` (fully cached; zero API calls).
 
 ## License
 
