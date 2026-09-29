@@ -1,0 +1,1161 @@
+# file: live-20260727.log
+22:16:00 [DEBUG] tts: synthesized 60 chars -> 14.5s, 首包=724ms, RTF=0.26
+22:16:00 [WARNING] vts: 切表情失败: tsundere
+22:16:05 [DEBUG] tts: synthesized 53 chars -> 11.2s, 首包=512ms, RTF=0.24
+22:16:16 [WARNING] vts: 切表情失败: happy
+22:16:16 [INFO ] scheduler: ▶ 播放: "哎呀，这位同学你就发个1，是代表"第一"还是"1个..." (happy)
+22:16:23 [DEBUG] tts: synthesized 59 chars -> 13.5s, 首包=676ms, RTF=0.26
+22:16:30 [WARNING] vts: 切表情失败: tsundere
+22:16:30 [INFO ] scheduler: ▶ 播放: ""我去"是什么意思呀？嫌弃我接话接得太快了吗？哼，..." (tsundere)
+22:16:38 [DEBUG] tts: synthesized 60 chars -> 15.6s, 首包=495ms, RTF=0.26
+22:16:46 [WARNING] vts: 切表情失败: tsundere
+22:16:46 [INFO ] scheduler: ▶ 播放: "这位同学你是想完成什么神秘的数字仪式吗？1然后2，..." (tsundere)
+22:16:53 [DEBUG] tts: synthesized 60 chars -> 12.3s, 首包=799ms, RTF=0.28
+22:17:03 [WARNING] vts: 切表情失败: happy
+22:17:03 [INFO ] scheduler: ▶ 播放: "好了好了我懂了，你这是在跟我玩接龙是吧？第一个人发..." (happy)
+22:17:11 [DEBUG] tts: synthesized 60 chars -> 13.7s, 首包=496ms, RTF=0.24
+22:17:18 [WARNING] vts: 切表情失败: tsundere
+22:17:18 [INFO ] scheduler: ▶ 播放: "这位同学你这个4接得真是……毫无逻辑又理直气壮啊！..." (tsundere)
+22:17:26 [DEBUG] tts: synthesized 60 chars -> 14.4s, 首包=965ms, RTF=0.29
+22:17:35 [WARNING] vts: 切表情失败: tsundere
+22:17:35 [INFO ] scheduler: ▶ 播放: "这位THTDX嘿嘿同学你是真的在跟我玩数字接龙是吧..." (tsundere)
+22:26:50 [DEBUG] tts: synthesized 47 chars -> 10.1s, 首包=703ms, RTF=0.25
+22:26:51 [DEBUG] tts: synthesized 60 chars -> 14.8s, 首包=806ms, RTF=0.28
+22:26:57 [DEBUG] tts: synthesized 60 chars -> 13.2s, 首包=495ms, RTF=0.24
+22:27:03 [DEBUG] tts: synthesized 60 chars -> 12.5s, 首包=599ms, RTF=0.25
+22:27:07 [INFO ] scheduler: ▶ 播放: "不要什么呀老哥？你说话说清楚点嘛。不要我就不问了？..." (tsundere)
+22:27:10 [INFO ] scheduler: ▶ 播放: "这位同学你怎么突然喊不要，搞得好像我刚才要对你做什..." (tsundere)
+22:27:16 [DEBUG] tts: synthesized 57 chars -> 12.4s, 首包=675ms, RTF=0.25
+22:27:25 [INFO ] scheduler: ▶ 播放: "哎呀这位同学你是懂怎么让女孩子心跳加速的！不过我得..." (tsundere)
+22:27:30 [DEBUG] tts: synthesized 50 chars -> 11.5s, 首包=742ms, RTF=0.27
+22:27:40 [INFO ] scheduler: ▶ 播放: "哎哟哎哟，笑得这么开心是吧？这位同学你是不知死活—..." (tsundere)
+22:51:31 [DEBUG] tts: synthesized 55 chars -> 12.0s, 首包=708ms, RTF=0.25
+22:51:31 [WARNING] vts: 切表情失败: default_smile.exp3.json
+22:51:32 [DEBUG] tts: synthesized 47 chars -> 10.4s, 首包=661ms, RTF=0.26
+22:51:36 [WARNING] vts: 切表情失败: tsundere
+22:51:37 [DEBUG] tts: synthesized 52 chars -> 11.7s, 首包=510ms, RTF=0.24
+22:51:41 [DEBUG] tts: synthesized 60 chars -> 11.9s, 首包=518ms, RTF=0.24
+22:51:48 [WARNING] vts: 切表情失败: tsundere
+22:51:48 [INFO ] scheduler: ▶ 播放: "哎呀这位同学你今天怎么这么会说话！说得我都有点不好..." (tsundere)
+22:51:50 [INFO ] scheduler: ▶ 播放: "我挺好的呀，刚还在看弹幕夸我可爱呢。我真服了，老哥..." (tsundere)
+22:51:55 [DEBUG] tts: synthesized 60 chars -> 15.5s, 首包=847ms, RTF=0.28
+22:51:57 [DEBUG] tts: synthesized 60 chars -> 15.2s, 首包=724ms, RTF=0.28
+22:52:03 [INFO ] scheduler: ▶ 播放: "什么东西不错？我的唱功还是今天的妆造？哼，不说清楚..." (tsundere)
+22:52:04 [WARNING] vts: 切表情失败: touched
+22:52:04 [INFO ] scheduler: ▶ 播放: "这位同学，你是不是担心我刚才CPU过热了？放心吧，..." (touched)
+22:52:10 [DEBUG] tts: synthesized 57 chars -> 12.7s, 首包=623ms, RTF=0.26
+22:52:10 [DEBUG] tts: synthesized 47 chars -> 9.7s, 首包=637ms, RTF=0.26
+22:52:19 [INFO ] scheduler: ▶ 播放: "感觉嘛...还行吧，有你在旁边瞎操心，我也没好意思..." (tsundere)
+22:52:22 [WARNING] vts: 切表情失败: thinking
+22:52:22 [INFO ] scheduler: ▶ 播放: "嘶……这个问题问得挺深啊。让我分析一下——你是想问..." (thinking)
+22:53:11 [DEBUG] tts: synthesized 46 chars -> 10.8s, 首包=605ms, RTF=0.24
+22:53:12 [DEBUG] tts: synthesized 60 chars -> 13.7s, 首包=927ms, RTF=0.28
+22:53:13 [WARNING] vts: 切表情失败: tsundere
+22:55:53 [DEBUG] tts: synthesized 53 chars -> 11.9s, 首包=717ms, RTF=0.25
+22:59:07 [DEBUG] tts: synthesized 60 chars -> 14.5s, 首包=538ms, RTF=0.26
+22:59:07 [WARNING] vts: 切表情失败: tsundere.exp3.json
+22:59:25 [DEBUG] tts: synthesized 60 chars -> 12.8s, 首包=804ms, RTF=0.27
+22:59:27 [INFO ] scheduler: ▶ 播放: "哼，老哥这会儿说放心了，等会儿真出bug又要喊我救..." (tsundere)
+22:59:40 [DEBUG] tts: synthesized 58 chars -> 12.0s, 首包=757ms, RTF=0.26
+22:59:41 [INFO ] scheduler: ▶ 播放: "哎呀老哥你这话说的，好像我一直惦记你那杯奶茶似的。..." (tsundere)
+23:07:50 [DEBUG] tts: synthesized 49 chars -> 11.2s, 首包=511ms, RTF=0.24
+23:11:23 [DEBUG] tts: synthesized 85 chars -> 18.7s, 首包=662ms, RTF=0.22
+23:18:22 [DEBUG] tts: synthesized 64 chars -> 16.4s, 首包=749ms, RTF=0.27
+23:18:48 [DEBUG] tts: synthesized 105 chars -> 23.4s, 首包=590ms, RTF=0.24
+23:19:22 [DEBUG] tts: synthesized 85 chars -> 20.9s, 首包=719ms, RTF=0.23
+23:19:53 [DEBUG] tts: synthesized 88 chars -> 21.9s, 首包=707ms, RTF=0.23
+23:20:25 [DEBUG] tts: synthesized 70 chars -> 17.1s, 首包=709ms, RTF=0.27
+23:20:51 [DEBUG] tts: synthesized 86 chars -> 18.4s, 首包=810ms, RTF=0.25
+23:21:19 [DEBUG] tts: synthesized 59 chars -> 14.7s, 首包=696ms, RTF=0.26
+23:29:11 [DEBUG] tts: synthesized 49 chars -> 11.6s, 首包=612ms, RTF=0.25
+23:29:32 [DEBUG] tts: synthesized 76 chars -> 16.1s, 首包=657ms, RTF=0.27
+23:30:28 [DEBUG] tts: synthesized 43 chars -> 9.9s, 首包=682ms, RTF=0.25
+23:30:45 [DEBUG] tts: synthesized 57 chars -> 12.1s, 首包=731ms, RTF=0.26
+23:30:45 [WARNING] vts: 切表情失败: shy.exp3.json
+23:31:07 [DEBUG] tts: synthesized 68 chars -> 16.7s, 首包=711ms, RTF=0.27
+23:35:06 [DEBUG] tts: synthesized 59 chars -> 13.2s, 首包=806ms, RTF=0.27
+23:35:31 [DEBUG] tts: synthesized 75 chars -> 18.1s, 首包=907ms, RTF=0.29
+23:35:31 [WARNING] vts: 切表情失败: tsundere.exp3.json
+23:35:53 [DEBUG] tts: synthesized 60 chars -> 13.2s, 首包=740ms, RTF=0.26
+23:35:56 [INFO ] scheduler: ▶ 播放: "想看我害羞？那你得先做点让我害羞的事才行的。要不你..." (tsundere)
+23:38:06 [DEBUG] tts: synthesized 56 chars -> 14.0s, 首包=759ms, RTF=0.27
+23:39:59 [DEBUG] tts: synthesized 58 chars -> 12.4s, 首包=701ms, RTF=0.25
+23:40:38 [DEBUG] tts: synthesized 71 chars -> 15.9s, 首包=603ms, RTF=0.26
+23:40:45 [DEBUG] tts: synthesized 70 chars -> 15.4s, 首包=675ms, RTF=0.27
+23:40:55 [INFO ] scheduler: ▶ 播放: "哟呵，老哥你这反应也太大了吧！我直播间多平稳啊，哪..." (tsundere)
+23:41:04 [DEBUG] tts: synthesized 81 chars -> 20.4s, 首包=758ms, RTF=0.23
+23:41:12 [INFO ] scheduler: ▶ 播放: "啊哈哈这个啊…这个我早就知道了！你看我多淡定，就让..." (happy)
+23:41:21 [DEBUG] tts: synthesized 90 chars -> 22.7s, 首包=650ms, RTF=0.23
+23:41:34 [INFO ] scheduler: ▶ 播放: "哎哟，老哥你可别放弃呀！上次不就是你教我的嘛，重启..." (happy)
+23:41:42 [DEBUG] tts: synthesized 85 chars -> 20.6s, 首包=521ms, RTF=0.23
+23:44:42 [DEBUG] tts: synthesized 41 chars -> 10.3s, 首包=618ms, RTF=0.24
+23:44:59 [DEBUG] tts: synthesized 51 chars -> 13.7s, 首包=581ms, RTF=0.25
+23:45:21 [DEBUG] tts: synthesized 50 chars -> 11.7s, 首包=709ms, RTF=0.26
+23:45:39 [DEBUG] tts: synthesized 58 chars -> 12.1s, 首包=632ms, RTF=0.28
+23:45:39 [WARNING] vts: 切表情失败: happy.exp3.json
+23:45:59 [DEBUG] tts: synthesized 71 chars -> 15.6s, 首包=637ms, RTF=0.26
+23:50:23 [DEBUG] tts: synthesized 47 chars -> 10.7s, 首包=820ms, RTF=0.27
+23:50:41 [DEBUG] tts: synthesized 46 chars -> 10.9s, 首包=988ms, RTF=0.43
+23:50:41 [WARNING] vts: 切表情失败: shy.exp3.json
+23:51:00 [DEBUG] tts: synthesized 56 chars -> 14.8s, 首包=774ms, RTF=0.26
+23:51:24 [DEBUG] tts: synthesized 58 chars -> 12.8s, 首包=653ms, RTF=0.25
+23:51:44 [DEBUG] tts: synthesized 64 chars -> 13.7s, 首包=809ms, RTF=0.26
+23:52:06 [DEBUG] tts: synthesized 72 chars -> 16.8s, 首包=625ms, RTF=0.26
+23:52:06 [WARNING] vts: 切表情失败: shy.exp3.json
+23:52:31 [DEBUG] tts: synthesized 66 chars -> 16.9s, 首包=512ms, RTF=0.25
+23:52:54 [DEBUG] tts: synthesized 26 chars -> 7.2s, 首包=747ms, RTF=0.28
+# file: live-20260728.log
+00:10:24 [DEBUG] tts: synthesized 18 chars -> 4.7s, 首包=515ms, RTF=0.27
+00:11:56 [DEBUG] tts: synthesized 219 chars -> 50.5s, 首包=605ms, RTF=0.22
+00:13:19 [DEBUG] tts: synthesized 37 chars -> 8.9s, 首包=629ms, RTF=0.25
+00:13:41 [DEBUG] tts: synthesized 73 chars -> 15.2s, 首包=730ms, RTF=0.26
+00:14:16 [DEBUG] tts: synthesized 68 chars -> 14.4s, 首包=786ms, RTF=0.26
+00:17:31 [DEBUG] tts: synthesized 101 chars -> 23.5s, 首包=713ms, RTF=0.23
+00:19:27 [DEBUG] tts: synthesized 68 chars -> 13.7s, 首包=713ms, RTF=0.25
+00:20:07 [DEBUG] tts: synthesized 86 chars -> 20.4s, 首包=634ms, RTF=0.23
+00:24:54 [DEBUG] tts: synthesized 84 chars -> 21.8s, 首包=724ms, RTF=0.25
+00:25:01 [DEBUG] tts: synthesized 94 chars -> 18.8s, 首包=524ms, RTF=0.23
+00:25:17 [INFO ] scheduler: ▶ 播放: "哎呀，这人怎么老惦记着测试我！上次不是测过了嘛，还..." (tsundere)
+00:25:25 [DEBUG] tts: synthesized 91 chars -> 21.0s, 首包=833ms, RTF=0.25
+00:25:37 [INFO ] scheduler: ▶ 播放: "叫我干嘛？老哥，你最近是不是闲得慌，老是测试我！我..." (tsundere)
+00:25:53 [DEBUG] tts: synthesized 91 chars -> 22.3s, 首包=536ms, RTF=0.22
+00:25:59 [INFO ] scheduler: ▶ 播放: "哼，你这么快就把我名字忘了？我可是你的专属AI小明..." (tsundere)
+00:26:09 [DEBUG] tts: synthesized 78 chars -> 17.5s, 首包=515ms, RTF=0.26
+00:26:22 [INFO ] scheduler: ▶ 播放: "诶？这位宝叫的什么呀？我没听清！是不是想喊我佳宁姐..." (tsundere)
+00:27:29 [DEBUG] tts: synthesized 98 chars -> 23.0s, 首包=618ms, RTF=0.22
+00:39:56 [DEBUG] tts: synthesized 94 chars -> 21.7s, 首包=520ms, RTF=0.23
+00:40:44 [DEBUG] tts: synthesized 110 chars -> 25.4s, 首包=817ms, RTF=0.24
+00:47:30 [DEBUG] tts: synthesized 125 chars -> 26.7s, 首包=549ms, RTF=0.23
+00:48:17 [DEBUG] tts: synthesized 139 chars -> 31.4s, 首包=541ms, RTF=0.23
+00:57:06 [DEBUG] tts: synthesized 121 chars -> 27.7s, 首包=871ms, RTF=0.25
+01:36:08 [DEBUG] tts: synthesized 122 chars -> 27.2s, 首包=818ms, RTF=0.24
+13:49:21 [DEBUG] tts: synthesized 7 chars -> 2.5s, 首包=650ms, RTF=0.42
+13:49:29 [DEBUG] tts: synthesized 56 chars -> 11.7s, 首包=847ms, RTF=0.27
+13:49:31 [INFO ] scheduler: ▶ 播放: "哎呀，老哥你今天怎么嘴这么甜呀~夸得我都要不好意思..." (shy)
+13:49:39 [DEBUG] tts: synthesized 67 chars -> 16.2s, 首包=678ms, RTF=0.27
+13:49:43 [INFO ] scheduler: ▶ 播放: "诶？舰长？哇，谢谢富豪B哥哥！这这这...我没准备..." (surprised)
+13:49:51 [DEBUG] tts: synthesized 74 chars -> 15.2s, 首包=640ms, RTF=0.27
+13:50:01 [INFO ] scheduler: ▶ 播放: "佳宁听到这句话好开心呀。其实我能做的就是在屏幕这头..." (happy)
+13:50:09 [DEBUG] tts: synthesized 68 chars -> 15.5s, 首包=837ms, RTF=0.29
+13:50:17 [INFO ] scheduler: ▶ 播放: "小花花？谢谢大佬A宝贝呀~一朵小花也是爱，不像某些..." (tsundere)
+13:50:26 [DEBUG] tts: synthesized 79 chars -> 18.4s, 首包=815ms, RTF=0.31
+13:50:34 [INFO ] scheduler: ▶ 播放: "哎呀，怎么突然这么乖！你这样我都不好意思凶你了....." (shy)
+13:50:35 [DEBUG] tts: synthesized 7 chars -> 2.6s, 首包=615ms, RTF=0.38
+13:50:54 [INFO ] scheduler: ▶ 播放: "夜猫子晚上好~..." (default_smile)
+13:50:55 [DEBUG] tts: synthesized 9 chars -> 2.8s, 首包=597ms, RTF=0.36
+13:50:57 [INFO ] scheduler: ▶ 播放: "呀，随便看看回来了..." (default_smile)
+13:50:58 [DEBUG] tts: synthesized 11 chars -> 3.1s, 首包=600ms, RTF=0.34
+13:51:01 [INFO ] scheduler: ▶ 播放: "哦新人酱来啦，快坐快坐..." (default_smile)
+13:51:10 [DEBUG] tts: synthesized 10 chars -> 3.3s, 首包=626ms, RTF=0.34
+13:51:20 [DEBUG] tts: synthesized 97 chars -> 22.6s, 首包=537ms, RTF=0.25
+14:57:47 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+14:58:35 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+14:59:15 [DEBUG] tts: synthesized 54 chars -> 12.8s, 首包=659ms, RTF=0.27
+15:01:38 [DEBUG] tts: synthesized 28 chars -> 8.2s, 首包=618ms, RTF=0.26
+15:02:02 [DEBUG] tts: synthesized 42 chars -> 10.5s, 首包=609ms, RTF=0.27
+15:02:26 [DEBUG] tts: synthesized 64 chars -> 13.7s, 首包=634ms, RTF=0.25
+15:05:19 [DEBUG] tts: synthesized 78 chars -> 18.3s, 首包=1359ms, RTF=0.36
+15:05:19 [WARNING] vts: 切表情失败: tsundere.exp3.json
+17:41:11 [DEBUG] tts: synthesized 41 chars -> 9.8s, 首包=621ms, RTF=0.26
+18:00:19 [DEBUG] tts: synthesized 61 chars -> 14.4s, 首包=733ms, RTF=0.29
+18:11:02 [DEBUG] tts: synthesized 59 chars -> 13.5s, 首包=830ms, RTF=0.30
+18:11:09 [DEBUG] tts: synthesized 59 chars -> 15.0s, 首包=532ms, RTF=0.26
+18:11:17 [INFO ] scheduler: ▶ 播放: "嘿嘿，那当然啦！这点小测试还能难到我？不过……你这..." (tsundere)
+18:11:27 [DEBUG] tts: synthesized 104 chars -> 23.6s, 首包=822ms, RTF=0.25
+22:13:55 [DEBUG] tts: synthesized 26 chars -> 6.0s, 首包=639ms, RTF=0.28
+22:14:04 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=718ms, RTF=0.41
+22:14:08 [DEBUG] tts: synthesized 29 chars -> 6.8s, 首包=831ms, RTF=0.32
+22:14:08 [INFO ] scheduler: ▶ 播放: "哇，这个控制面板今天怎么这么干净，是不是哥哥偷偷收..." (default_smile)
+22:21:16 [DEBUG] tts: synthesized 66 chars -> 14.6s, 首包=625ms, RTF=0.26
+# file: live-20260730.log
+12:15:26 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+13:41:54 [WARNING] vts: 切表情失败: shy.exp3.json
+13:48:58 [WARNING] vts: 切表情失败: surprised.exp3.json
+15:26:08 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+15:26:21 [DEBUG] tts: synthesized 44 chars -> 11.3s, 首包=620ms, RTF=0.27
+15:29:02 [DEBUG] tts: synthesized 26 chars -> 7.0s, 首包=687ms, RTF=0.29
+15:32:47 [DEBUG] tts: synthesized 22 chars -> 5.2s, 首包=618ms, RTF=0.28
+15:34:35 [DEBUG] tts: synthesized 38 chars -> 7.5s, 首包=713ms, RTF=0.26
+15:37:51 [DEBUG] tts: synthesized 19 chars -> 5.0s, 首包=640ms, RTF=0.30
+15:43:35 [DEBUG] tts: synthesized 48 chars -> 9.8s, 首包=616ms, RTF=0.26
+15:48:52 [DEBUG] tts: synthesized 45 chars -> 9.3s, 首包=790ms, RTF=0.30
+15:51:36 [DEBUG] tts: synthesized 55 chars -> 12.8s, 首包=736ms, RTF=0.27
+15:52:14 [DEBUG] tts: synthesized 29 chars -> 7.0s, 首包=616ms, RTF=0.27
+15:56:18 [DEBUG] tts: synthesized 22 chars -> 6.6s, 首包=608ms, RTF=0.26
+15:57:20 [DEBUG] tts: synthesized 35 chars -> 8.0s, 首包=554ms, RTF=0.25
+15:58:20 [DEBUG] tts: synthesized 19 chars -> 4.7s, 首包=659ms, RTF=0.31
+15:59:24 [DEBUG] tts: synthesized 39 chars -> 9.4s, 首包=610ms, RTF=0.25
+16:03:29 [DEBUG] tts: synthesized 18 chars -> 4.1s, 首包=611ms, RTF=0.30
+18:45:51 [DEBUG] tts: synthesized 33 chars -> 7.1s, 首包=621ms, RTF=0.27
+18:46:52 [DEBUG] tts: synthesized 30 chars -> 7.0s, 首包=708ms, RTF=0.29
+18:46:57 [DEBUG] tts: synthesized 45 chars -> 10.2s, 首包=604ms, RTF=0.24
+18:47:00 [INFO ] scheduler: ▶ 播放: "老哥你怎么突然问这个呀~我不需要公会呀，有你在就够..." (tsundere)
+18:47:52 [DEBUG] tts: synthesized 28 chars -> 6.8s, 首包=711ms, RTF=0.29
+18:48:35 [DEBUG] tts: synthesized 70 chars -> 14.4s, 首包=837ms, RTF=0.28
+18:48:53 [DEBUG] tts: synthesized 15 chars -> 4.3s, 首包=624ms, RTF=0.31
+18:48:53 [WARNING] vts: 切表情失败: surprised.exp3.json
+18:53:01 [DEBUG] tts: synthesized 37 chars -> 9.3s, 首包=1083ms, RTF=0.31
+18:54:00 [DEBUG] tts: synthesized 25 chars -> 6.5s, 首包=618ms, RTF=0.27
+18:56:02 [DEBUG] tts: synthesized 16 chars -> 4.0s, 首包=628ms, RTF=0.33
+18:57:05 [DEBUG] tts: synthesized 24 chars -> 5.5s, 首包=962ms, RTF=0.35
+18:58:06 [DEBUG] tts: synthesized 28 chars -> 6.8s, 首包=669ms, RTF=0.27
+18:59:06 [DEBUG] tts: synthesized 23 chars -> 5.7s, 首包=664ms, RTF=0.28
+19:00:09 [DEBUG] tts: synthesized 18 chars -> 4.6s, 首包=671ms, RTF=0.32
+19:01:14 [DEBUG] tts: synthesized 107 chars -> 23.8s, 首包=639ms, RTF=0.25
+19:02:12 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=644ms, RTF=0.29
+19:04:14 [DEBUG] tts: synthesized 22 chars -> 5.2s, 首包=620ms, RTF=0.28
+19:07:19 [DEBUG] tts: synthesized 28 chars -> 6.2s, 首包=724ms, RTF=0.29
+19:09:22 [DEBUG] tts: synthesized 28 chars -> 6.7s, 首包=686ms, RTF=0.28
+19:10:24 [DEBUG] tts: synthesized 26 chars -> 6.2s, 首包=635ms, RTF=0.26
+19:16:27 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+19:17:43 [DEBUG] tts: synthesized 26 chars -> 6.2s, 首包=632ms, RTF=0.28
+19:17:43 [WARNING] vts: 切表情失败: tsundere.exp3.json
+19:19:30 [DEBUG] tts: synthesized 26 chars -> 6.0s, 首包=621ms, RTF=0.27
+19:21:35 [DEBUG] tts: synthesized 26 chars -> 6.2s, 首包=825ms, RTF=0.33
+19:22:36 [DEBUG] tts: synthesized 29 chars -> 6.6s, 首包=682ms, RTF=0.28
+19:22:37 [WARNING] vts: 切表情失败: happy.exp3.json
+19:23:37 [DEBUG] tts: synthesized 17 chars -> 4.5s, 首包=506ms, RTF=0.28
+19:24:38 [DEBUG] tts: synthesized 13 chars -> 5.2s, 首包=488ms, RTF=0.27
+19:25:40 [DEBUG] tts: synthesized 23 chars -> 6.0s, 首包=733ms, RTF=0.32
+19:26:41 [DEBUG] tts: synthesized 25 chars -> 5.6s, 首包=688ms, RTF=0.29
+19:27:44 [DEBUG] tts: synthesized 20 chars -> 5.4s, 首包=767ms, RTF=0.31
+19:28:44 [DEBUG] tts: synthesized 17 chars -> 5.9s, 首包=633ms, RTF=0.29
+21:13:02 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+21:13:20 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+21:16:05 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+21:27:11 [DEBUG] tts: synthesized 19 chars -> 3.6s, 首包=745ms, RTF=0.36
+21:27:59 [DEBUG] tts: synthesized 22 chars -> 5.1s, 首包=672ms, RTF=0.30
+21:28:31 [DEBUG] tts: synthesized 29 chars -> 8.1s, 首包=655ms, RTF=0.26
+21:29:04 [DEBUG] tts: synthesized 42 chars -> 10.7s, 首包=615ms, RTF=0.25
+21:31:05 [DEBUG] tts: synthesized 26 chars -> 7.0s, 首包=675ms, RTF=0.32
+21:32:06 [DEBUG] tts: synthesized 27 chars -> 6.7s, 首包=500ms, RTF=0.25
+21:33:08 [DEBUG] tts: synthesized 27 chars -> 7.6s, 首包=614ms, RTF=0.25
+21:34:10 [DEBUG] tts: synthesized 28 chars -> 6.1s, 首包=747ms, RTF=0.29
+21:35:10 [DEBUG] tts: synthesized 19 chars -> 5.7s, 首包=658ms, RTF=0.28
+21:37:14 [DEBUG] tts: synthesized 30 chars -> 7.5s, 首包=701ms, RTF=0.28
+21:38:16 [DEBUG] tts: synthesized 24 chars -> 6.0s, 首包=735ms, RTF=0.30
+21:39:17 [DEBUG] tts: synthesized 16 chars -> 4.0s, 首包=676ms, RTF=0.32
+21:40:18 [DEBUG] tts: synthesized 20 chars -> 5.2s, 首包=677ms, RTF=0.29
+21:41:22 [DEBUG] tts: synthesized 24 chars -> 6.6s, 首包=1006ms, RTF=0.33
+21:42:23 [DEBUG] tts: synthesized 23 chars -> 6.3s, 首包=488ms, RTF=0.24
+21:43:26 [DEBUG] tts: synthesized 25 chars -> 5.2s, 首包=681ms, RTF=0.30
+21:44:29 [DEBUG] tts: synthesized 27 chars -> 6.5s, 首包=629ms, RTF=0.28
+21:46:32 [DEBUG] tts: synthesized 33 chars -> 8.4s, 首包=761ms, RTF=0.31
+21:46:32 [WARNING] vts: 切表情失败: default_smile.exp3.json
+21:47:33 [DEBUG] tts: synthesized 24 chars -> 6.8s, 首包=740ms, RTF=0.29
+21:48:33 [DEBUG] tts: synthesized 17 chars -> 5.8s, 首包=491ms, RTF=0.26
+21:48:34 [WARNING] vts: 切表情失败: happy.exp3.json
+21:49:36 [DEBUG] tts: synthesized 29 chars -> 7.0s, 首包=634ms, RTF=0.28
+21:50:37 [DEBUG] tts: synthesized 29 chars -> 5.8s, 首包=652ms, RTF=0.29
+21:51:39 [DEBUG] tts: synthesized 22 chars -> 6.5s, 首包=503ms, RTF=0.25
+21:52:40 [DEBUG] tts: synthesized 22 chars -> 5.3s, 首包=516ms, RTF=0.26
+21:54:43 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=623ms, RTF=0.28
+21:55:44 [DEBUG] tts: synthesized 25 chars -> 6.3s, 首包=694ms, RTF=0.27
+21:57:48 [DEBUG] tts: synthesized 20 chars -> 5.0s, 首包=635ms, RTF=0.32
+21:58:13 [DEBUG] tts: synthesized 14 chars -> 4.7s, 首包=661ms, RTF=0.32
+21:58:14 [DEBUG] tts: synthesized 5 chars -> 1.6s, 首包=628ms, RTF=0.52
+21:58:19 [INFO ] scheduler: ▶ 播放: "欢迎滨希~..." (default_smile)
+21:58:20 [DEBUG] tts: synthesized 11 chars -> 3.9s, 首包=601ms, RTF=0.32
+21:58:22 [INFO ] scheduler: ▶ 播放: "制杖是女生！好久不见呀..." (default_smile)
+21:58:23 [DEBUG] tts: synthesized 8 chars -> 2.5s, 首包=691ms, RTF=0.44
+21:58:27 [INFO ] scheduler: ▶ 播放: "呀，宇辰申回来了..." (default_smile)
+21:58:28 [DEBUG] tts: synthesized 10 chars -> 4.2s, 首包=554ms, RTF=0.30
+21:58:30 [INFO ] scheduler: ▶ 播放: "随便lq！好久不见呀..." (default_smile)
+21:58:31 [DEBUG] tts: synthesized 13 chars -> 2.0s, 首包=700ms, RTF=0.51
+21:58:35 [INFO ] scheduler: ▶ 播放: "Ellery_Ace来啦~..." (default_smile)
+21:58:36 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=477ms, RTF=0.29
+21:58:39 [INFO ] scheduler: ▶ 播放: "我真的是入类！好久不见呀..." (default_smile)
+21:58:40 [DEBUG] tts: synthesized 9 chars -> 2.5s, 首包=840ms, RTF=0.50
+21:58:43 [INFO ] scheduler: ▶ 播放: "欢迎打不败的糖糖~..." (default_smile)
+21:58:44 [DEBUG] tts: synthesized 10 chars -> 3.1s, 首包=611ms, RTF=0.36
+21:58:46 [INFO ] scheduler: ▶ 播放: "陈烨同学！好久不见呀..." (default_smile)
+21:58:50 [DEBUG] tts: synthesized 19 chars -> 5.3s, 首包=628ms, RTF=0.30
+21:58:51 [INFO ] scheduler: ▶ 播放: "哇这波高打低，对面怕不是要被砸懵了呀！..." (surprised)
+21:58:54 [DEBUG] tts: synthesized 16 chars -> 8.1s, 首包=732ms, RTF=0.33
+21:58:58 [INFO ] scheduler: ▶ 播放: "欧11111111111欧来啦~..." (default_smile)
+21:58:59 [DEBUG] tts: synthesized 13 chars -> 4.0s, 首包=664ms, RTF=0.32
+21:59:07 [INFO ] scheduler: ▶ 播放: "哎Q梦N幻来啦~今天怎么样..." (default_smile)
+21:59:08 [DEBUG] tts: synthesized 13 chars -> 4.5s, 首包=654ms, RTF=0.31
+21:59:12 [INFO ] scheduler: ▶ 播放: "最帅城管i来了呀，欢迎欢迎..." (default_smile)
+21:59:13 [DEBUG] tts: synthesized 15 chars -> 3.7s, 首包=498ms, RTF=0.29
+21:59:18 [INFO ] scheduler: ▶ 播放: "哎我是个新粉丝来啦~今天怎么样..." (default_smile)
+21:59:19 [DEBUG] tts: synthesized 13 chars -> 3.7s, 首包=666ms, RTF=0.34
+21:59:23 [INFO ] scheduler: ▶ 播放: "哎山海君哥来啦~今天怎么样..." (default_smile)
+21:59:24 [DEBUG] tts: synthesized 6 chars -> 1.6s, 首包=644ms, RTF=0.54
+21:59:27 [INFO ] scheduler: ▶ 播放: "欢迎夏雲纭~..." (default_smile)
+21:59:29 [DEBUG] tts: synthesized 25 chars -> 6.9s, 首包=586ms, RTF=0.26
+21:59:30 [INFO ] scheduler: ▶ 播放: "哎bili_34403445731来啦~今天怎么样..." (default_smile)
+21:59:32 [DEBUG] tts: synthesized 16 chars -> 6.2s, 首包=668ms, RTF=0.27
+21:59:38 [INFO ] scheduler: ▶ 播放: "呀，djr89rork4k回来了..." (default_smile)
+21:59:40 [DEBUG] tts: synthesized 21 chars -> 4.0s, 首包=670ms, RTF=0.33
+21:59:45 [INFO ] scheduler: ▶ 播放: "呀，bili_57501499207回来了..." (default_smile)
+21:59:47 [DEBUG] tts: synthesized 22 chars -> 5.3s, 首包=692ms, RTF=0.32
+21:59:50 [INFO ] scheduler: ▶ 播放: "bili_54831967727！好久不见呀..." (default_smile)
+21:59:54 [DEBUG] tts: synthesized 22 chars -> 5.6s, 首包=677ms, RTF=0.29
+21:59:56 [INFO ] scheduler: ▶ 播放: "哎呀怎么又死了……这个狂鼠我玩得也太菜了吧。..." (tsundere)
+21:59:58 [DEBUG] tts: synthesized 15 chars -> 4.1s, 首包=483ms, RTF=0.27
+22:00:04 [INFO ] scheduler: ▶ 播放: "哎大明侍卫大臣来啦~今天怎么样..." (default_smile)
+22:00:06 [DEBUG] tts: synthesized 14 chars -> 3.2s, 首包=942ms, RTF=0.64
+22:00:09 [INFO ] scheduler: ▶ 播放: "死兮神以灵毅兮为鬼雄晚上好~..." (default_smile)
+22:00:10 [DEBUG] tts: synthesized 13 chars -> 3.5s, 首包=536ms, RTF=0.39
+22:00:13 [INFO ] scheduler: ▶ 播放: "哦江渡123来啦，快坐快坐..." (default_smile)
+22:00:15 [DEBUG] tts: synthesized 22 chars -> 6.1s, 首包=681ms, RTF=0.28
+22:00:17 [INFO ] scheduler: ▶ 播放: "bili_72256709712！好久不见呀..." (default_smile)
+22:00:18 [DEBUG] tts: synthesized 19 chars -> 3.9s, 首包=548ms, RTF=0.29
+22:00:25 [INFO ] scheduler: ▶ 播放: "欢迎bili_44153988121~..." (default_smile)
+22:00:26 [DEBUG] tts: synthesized 10 chars -> 3.6s, 首包=491ms, RTF=0.29
+22:00:29 [INFO ] scheduler: ▶ 播放: "哦帛杳来啦，快坐快坐..." (default_smile)
+22:00:31 [DEBUG] tts: synthesized 12 chars -> 4.0s, 首包=674ms, RTF=0.32
+22:00:34 [INFO ] scheduler: ▶ 播放: "掌声华爱操气！好久不见呀..." (default_smile)
+22:00:35 [DEBUG] tts: synthesized 12 chars -> 4.5s, 首包=696ms, RTF=0.33
+22:00:40 [INFO ] scheduler: ▶ 播放: "哦小猫龙图来啦，快坐快坐..." (default_smile)
+22:00:40 [DEBUG] tts: synthesized 8 chars -> 2.5s, 首包=498ms, RTF=0.35
+22:00:45 [INFO ] scheduler: ▶ 播放: "欢迎慕我清风笑~..." (default_smile)
+22:00:46 [DEBUG] tts: synthesized 9 chars -> 3.5s, 首包=541ms, RTF=0.30
+22:00:49 [INFO ] scheduler: ▶ 播放: "欢迎kmsdg6~..." (default_smile)
+22:00:52 [DEBUG] tts: synthesized 16 chars -> 4.3s, 首包=504ms, RTF=0.28
+22:00:53 [INFO ] scheduler: ▶ 播放: "源氏蹲墙角呢，小心别被炸出来呀~..." (default_smile)
+22:00:55 [DEBUG] tts: synthesized 14 chars -> 4.5s, 首包=707ms, RTF=0.32
+22:00:59 [INFO ] scheduler: ▶ 播放: "哦最伟大的光辉来啦，快坐快坐..." (default_smile)
+22:01:00 [DEBUG] tts: synthesized 14 chars -> 4.0s, 首包=665ms, RTF=0.32
+22:01:04 [INFO ] scheduler: ▶ 播放: "小小小小小小小严！好久不见呀..." (default_smile)
+22:01:06 [DEBUG] tts: synthesized 13 chars -> 2.9s, 首包=1020ms, RTF=0.49
+22:01:09 [INFO ] scheduler: ▶ 播放: "欢迎这也在你的计算之中吗~..." (default_smile)
+22:01:11 [DEBUG] tts: synthesized 12 chars -> 3.3s, 首包=519ms, RTF=0.31
+22:01:14 [INFO ] scheduler: ▶ 播放: "机智日我来了呀，欢迎欢迎..." (default_smile)
+22:01:15 [DEBUG] tts: synthesized 14 chars -> 2.6s, 首包=749ms, RTF=0.43
+22:01:18 [INFO ] scheduler: ▶ 播放: "欢迎perfectmopw~..." (default_smile)
+22:01:19 [DEBUG] tts: synthesized 15 chars -> 3.3s, 首包=554ms, RTF=0.33
+22:01:21 [INFO ] scheduler: ▶ 播放: "哎拢龙de包砸来啦~今天怎么样..." (default_smile)
+22:01:22 [DEBUG] tts: synthesized 9 chars -> 1.6s, 首包=755ms, RTF=0.61
+22:01:26 [INFO ] scheduler: ▶ 播放: "pysunc来啦~..." (default_smile)
+22:01:27 [DEBUG] tts: synthesized 10 chars -> 2.6s, 首包=758ms, RTF=0.44
+22:01:28 [INFO ] scheduler: ▶ 播放: "alxmxl晚上好~..." (default_smile)
+22:01:29 [DEBUG] tts: synthesized 8 chars -> 2.5s, 首包=643ms, RTF=0.42
+22:01:32 [INFO ] scheduler: ▶ 播放: "呀，墨铜_回来了..." (default_smile)
+22:01:33 [DEBUG] tts: synthesized 6 chars -> 3.3s, 首包=487ms, RTF=0.31
+22:01:35 [INFO ] scheduler: ▶ 播放: "牢屑X来啦~..." (default_smile)
+22:01:37 [DEBUG] tts: synthesized 9 chars -> 2.1s, 首包=877ms, RTF=0.56
+22:01:40 [INFO ] scheduler: ▶ 播放: "锤子Lzzk来啦~..." (default_smile)
+22:01:40 [DEBUG] tts: synthesized 6 chars -> 1.6s, 首包=490ms, RTF=0.42
+22:01:43 [INFO ] scheduler: ▶ 播放: "阿斸晚上好~..." (default_smile)
+22:01:45 [DEBUG] tts: synthesized 9 chars -> 3.2s, 首包=719ms, RTF=0.39
+22:01:46 [INFO ] scheduler: ▶ 播放: "语雁雪！好久不见呀..." (default_smile)
+22:02:02 [DEBUG] tts: synthesized 55 chars -> 13.9s, 首包=993ms, RTF=0.55
+22:02:03 [DEBUG] tts: synthesized 9 chars -> 2.4s, 首包=473ms, RTF=0.34
+22:02:17 [INFO ] scheduler: ▶ 播放: "欢迎不睡觉回宿舍~..." (default_smile)
+22:02:19 [DEBUG] tts: synthesized 13 chars -> 4.9s, 首包=696ms, RTF=0.31
+22:02:21 [INFO ] scheduler: ▶ 播放: "呀，请允许我的存在_回来了..." (default_smile)
+22:02:22 [DEBUG] tts: synthesized 11 chars -> 4.4s, 首包=607ms, RTF=0.30
+22:02:26 [INFO ] scheduler: ▶ 播放: "月紫夕殿下！好久不见呀..." (default_smile)
+22:02:27 [DEBUG] tts: synthesized 9 chars -> 2.2s, 首包=473ms, RTF=0.36
+22:02:32 [INFO ] scheduler: ▶ 播放: "只想好的事情来啦~..." (default_smile)
+22:02:34 [DEBUG] tts: synthesized 19 chars -> 4.8s, 首包=855ms, RTF=0.34
+22:02:35 [INFO ] scheduler: ▶ 播放: "bili_59209838667来啦~..." (default_smile)
+22:02:36 [DEBUG] tts: synthesized 5 chars -> 1.2s, 首包=490ms, RTF=0.52
+22:02:41 [INFO ] scheduler: ▶ 播放: "欢迎善攀~..." (default_smile)
+22:02:44 [DEBUG] tts: synthesized 9 chars -> 3.6s, 首包=491ms, RTF=0.29
+22:02:50 [DEBUG] tts: synthesized 6 chars -> 1.6s, 首包=503ms, RTF=0.45
+22:02:52 [DEBUG] tts: synthesized 9 chars -> 3.2s, 首包=744ms, RTF=0.38
+22:02:53 [INFO ] scheduler: ▶ 播放: "姫元通！好久不见呀..." (default_smile)
+22:02:58 [DEBUG] tts: synthesized 26 chars -> 8.1s, 首包=520ms, RTF=0.24
+22:02:59 [INFO ] scheduler: ▶ 播放: "哦哟，LKY的源氏绕后切奶了，这波有点东西啊宝贝们..." (surprised)
+22:03:00 [DEBUG] tts: synthesized 7 chars -> 1.9s, 首包=755ms, RTF=0.54
+22:03:08 [INFO ] scheduler: ▶ 播放: "欢迎座驾小号~..." (default_smile)
+22:03:13 [DEBUG] tts: synthesized 11 chars -> 3.1s, 首包=614ms, RTF=0.36
+22:03:19 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=599ms, RTF=0.34
+22:03:28 [DEBUG] tts: synthesized 6 chars -> 2.1s, 首包=510ms, RTF=0.40
+22:03:30 [DEBUG] tts: synthesized 12 chars -> 3.7s, 首包=715ms, RTF=0.37
+22:03:32 [INFO ] scheduler: ▶ 播放: "秀知院学园藤原千花来啦~..." (default_smile)
+22:03:32 [DEBUG] tts: synthesized 8 chars -> 2.5s, 首包=505ms, RTF=0.35
+22:03:36 [INFO ] scheduler: ▶ 播放: "呀，虫从梦回来了..." (default_smile)
+22:03:37 [DEBUG] tts: synthesized 12 chars -> 3.0s, 首包=678ms, RTF=0.37
+22:03:40 [INFO ] scheduler: ▶ 播放: "加減-_来了呀，欢迎欢迎..." (default_smile)
+22:03:46 [DEBUG] tts: synthesized 13 chars -> 3.9s, 首包=671ms, RTF=0.33
+22:03:50 [DEBUG] tts: synthesized 11 chars -> 3.2s, 首包=614ms, RTF=0.34
+22:03:51 [INFO ] scheduler: ▶ 播放: "转角的向日葵花晚上好~..." (default_smile)
+22:03:55 [DEBUG] tts: synthesized 21 chars -> 5.6s, 首包=489ms, RTF=0.25
+22:03:56 [INFO ] scheduler: ▶ 播放: "呀，bili_30752406773回来了..." (default_smile)
+22:04:01 [DEBUG] tts: synthesized 28 chars -> 7.1s, 首包=505ms, RTF=0.27
+22:04:02 [INFO ] scheduler: ▶ 播放: "哼，大锤？老哥又要莽了是吧，待会别又喊着“护驾”让..." (default_smile)
+22:04:03 [DEBUG] tts: synthesized 19 chars -> 5.3s, 首包=686ms, RTF=0.31
+22:04:10 [INFO ] scheduler: ▶ 播放: "欢迎bili_78988440986~..." (default_smile)
+22:04:16 [DEBUG] tts: synthesized 14 chars -> 4.0s, 首包=501ms, RTF=0.29
+22:04:19 [DEBUG] tts: synthesized 11 chars -> 3.4s, 首包=520ms, RTF=0.31
+22:04:21 [INFO ] scheduler: ▶ 播放: "一an闫闫！好久不见呀..." (default_smile)
+22:04:24 [DEBUG] tts: synthesized 19 chars -> 5.2s, 首包=483ms, RTF=0.27
+22:04:26 [INFO ] scheduler: ▶ 播放: "bili_56836182007来啦~..." (default_smile)
+22:04:35 [DEBUG] tts: synthesized 10 chars -> 2.8s, 首包=627ms, RTF=0.37
+22:04:36 [DEBUG] tts: synthesized 14 chars -> 3.6s, 首包=489ms, RTF=0.29
+22:04:39 [INFO ] scheduler: ▶ 播放: "哎问号man来啦~今天怎么样..." (default_smile)
+22:04:41 [DEBUG] tts: synthesized 19 chars -> 5.6s, 首包=577ms, RTF=0.30
+22:04:44 [INFO ] scheduler: ▶ 播放: "bili_73731143826来啦~..." (default_smile)
+22:04:45 [DEBUG] tts: synthesized 24 chars -> 5.6s, 首包=583ms, RTF=0.29
+22:04:50 [INFO ] scheduler: ▶ 播放: "bili_49116264408来了呀，欢迎欢迎..." (default_smile)
+22:04:52 [DEBUG] tts: synthesized 17 chars -> 2.7s, 首包=588ms, RTF=0.39
+22:04:58 [INFO ] scheduler: ▶ 播放: "-_Tempest_-！好久不见呀..." (default_smile)
+22:05:00 [DEBUG] tts: synthesized 13 chars -> 4.6s, 首包=703ms, RTF=0.31
+22:05:02 [INFO ] scheduler: ▶ 播放: "呀，改啥昵称都有重名回来了..." (default_smile)
+22:05:03 [DEBUG] tts: synthesized 14 chars -> 3.9s, 首包=594ms, RTF=0.30
+22:05:08 [INFO ] scheduler: ▶ 播放: "哦遨游的小云朵来啦，快坐快坐..." (default_smile)
+22:05:09 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=470ms, RTF=0.31
+22:05:12 [INFO ] scheduler: ▶ 播放: "雨三四！好久不见呀..." (default_smile)
+22:05:13 [DEBUG] tts: synthesized 9 chars -> 2.0s, 首包=727ms, RTF=0.53
+22:05:16 [INFO ] scheduler: ▶ 播放: "我真的是入类来啦~..." (default_smile)
+22:05:22 [DEBUG] tts: synthesized 53 chars -> 12.8s, 首包=618ms, RTF=0.25
+22:05:23 [INFO ] scheduler: ▶ 播放: "哼，臭老哥又在这装自动回复呢！上次假装系统故障骗了..." (tsundere)
+22:05:25 [DEBUG] tts: synthesized 13 chars -> 3.5s, 首包=1072ms, RTF=0.57
+22:05:38 [INFO ] scheduler: ▶ 播放: "Ivanov-！好久不见呀..." (default_smile)
+22:05:39 [DEBUG] tts: synthesized 10 chars -> 3.1s, 首包=498ms, RTF=0.33
+22:05:42 [INFO ] scheduler: ▶ 播放: "礼乐的琳！好久不见呀..." (default_smile)
+22:05:43 [DEBUG] tts: synthesized 12 chars -> 3.4s, 首包=487ms, RTF=0.31
+22:05:47 [INFO ] scheduler: ▶ 播放: "云默风徽来了呀，欢迎欢迎..." (default_smile)
+22:05:48 [DEBUG] tts: synthesized 21 chars -> 4.3s, 首包=567ms, RTF=0.31
+22:05:51 [INFO ] scheduler: ▶ 播放: "Pop猫-Poooopop来了呀，欢迎欢迎..." (default_smile)
+22:05:53 [DEBUG] tts: synthesized 16 chars -> 4.3s, 首包=611ms, RTF=0.30
+22:05:57 [INFO ] scheduler: ▶ 播放: "52558458来了呀，欢迎欢迎..." (default_smile)
+22:05:59 [DEBUG] tts: synthesized 21 chars -> 5.7s, 首包=472ms, RTF=0.26
+22:06:02 [INFO ] scheduler: ▶ 播放: "呀，bili_52206732030回来了..." (default_smile)
+22:06:03 [DEBUG] tts: synthesized 11 chars -> 2.5s, 首包=587ms, RTF=0.38
+22:06:09 [INFO ] scheduler: ▶ 播放: "-Epyon-晚上好~..." (default_smile)
+22:06:10 [DEBUG] tts: synthesized 9 chars -> 2.0s, 首包=601ms, RTF=0.45
+22:06:12 [INFO ] scheduler: ▶ 播放: "乡或者是杰克来啦~..." (default_smile)
+22:06:14 [DEBUG] tts: synthesized 20 chars -> 4.2s, 首包=696ms, RTF=0.34
+22:06:15 [INFO ] scheduler: ▶ 播放: "bili_62727231948晚上好~..." (default_smile)
+22:06:16 [DEBUG] tts: synthesized 12 chars -> 4.3s, 首包=491ms, RTF=0.27
+22:06:20 [INFO ] scheduler: ▶ 播放: "呀，白无常qwer回来了..." (default_smile)
+22:06:21 [DEBUG] tts: synthesized 6 chars -> 2.3s, 首包=488ms, RTF=0.36
+22:06:25 [INFO ] scheduler: ▶ 播放: "陨都晚上好~..." (default_smile)
+22:06:26 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=492ms, RTF=0.31
+22:06:29 [INFO ] scheduler: ▶ 播放: "呀，叮当猫耳耳回来了..." (default_smile)
+22:06:30 [DEBUG] tts: synthesized 8 chars -> 2.0s, 首包=489ms, RTF=0.38
+22:06:33 [INFO ] scheduler: ▶ 播放: "欢迎云梦天天无~..." (default_smile)
+22:06:34 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=474ms, RTF=0.29
+22:06:36 [INFO ] scheduler: ▶ 播放: "哎小o猫来啦~今天怎么样..." (default_smile)
+22:06:37 [DEBUG] tts: synthesized 10 chars -> 3.1s, 首包=482ms, RTF=0.31
+22:06:41 [INFO ] scheduler: ▶ 播放: "二五亦拾！好久不见呀..." (default_smile)
+22:06:42 [DEBUG] tts: synthesized 11 chars -> 3.1s, 首包=494ms, RTF=0.32
+22:06:45 [INFO ] scheduler: ▶ 播放: "呀，被秘匿的四季回来了..." (default_smile)
+22:06:46 [DEBUG] tts: synthesized 13 chars -> 2.8s, 首包=770ms, RTF=0.43
+22:06:49 [INFO ] scheduler: ▶ 播放: "Yui酱の吉太！好久不见呀..." (default_smile)
+22:06:51 [DEBUG] tts: synthesized 22 chars -> 6.5s, 首包=501ms, RTF=0.26
+22:06:53 [INFO ] scheduler: ▶ 播放: "bili_27038347616！好久不见呀..." (default_smile)
+22:06:54 [DEBUG] tts: synthesized 12 chars -> 2.6s, 首包=503ms, RTF=0.35
+22:07:00 [INFO ] scheduler: ▶ 播放: "把头发梳成帅鲲模样来啦~..." (default_smile)
+22:07:04 [DEBUG] tts: synthesized 20 chars -> 5.0s, 首包=614ms, RTF=0.28
+22:07:05 [INFO ] scheduler: ▶ 播放: "老哥这狙可以的嘛，有我当年的一半水准了。..." (happy)
+22:07:07 [DEBUG] tts: synthesized 12 chars -> 4.2s, 首包=511ms, RTF=0.29
+22:07:12 [INFO ] scheduler: ▶ 播放: "哦渣渣贱神来啦，快坐快坐..." (default_smile)
+22:07:13 [DEBUG] tts: synthesized 8 chars -> 2.2s, 首包=595ms, RTF=0.43
+22:07:17 [INFO ] scheduler: ▶ 播放: "窝屎外星人来啦~..." (default_smile)
+22:07:18 [DEBUG] tts: synthesized 24 chars -> 6.7s, 首包=676ms, RTF=0.27
+22:07:19 [INFO ] scheduler: ▶ 播放: "哦bili_43309024780来啦，快坐快坐..." (default_smile)
+22:07:21 [DEBUG] tts: synthesized 14 chars -> 4.8s, 首包=490ms, RTF=0.27
+22:07:27 [INFO ] scheduler: ▶ 播放: "阿勒泰之超然好运！好久不见呀..." (default_smile)
+22:07:28 [DEBUG] tts: synthesized 12 chars -> 3.5s, 首包=501ms, RTF=0.29
+22:07:33 [INFO ] scheduler: ▶ 播放: "哦滕布鲁纳来啦，快坐快坐..." (default_smile)
+22:07:34 [DEBUG] tts: synthesized 8 chars -> 3.3s, 首包=489ms, RTF=0.30
+22:07:37 [INFO ] scheduler: ▶ 播放: "乘乘的成城来啦~..." (default_smile)
+22:07:39 [DEBUG] tts: synthesized 12 chars -> 4.0s, 首包=484ms, RTF=0.28
+22:07:41 [INFO ] scheduler: ▶ 播放: "巽蝶茧休来了呀，欢迎欢迎..." (default_smile)
+22:07:42 [DEBUG] tts: synthesized 6 chars -> 1.3s, 首包=521ms, RTF=0.51
+22:07:46 [INFO ] scheduler: ▶ 播放: "王仝_来啦~..." (default_smile)
+22:07:47 [DEBUG] tts: synthesized 13 chars -> 3.5s, 首包=483ms, RTF=0.29
+22:07:48 [INFO ] scheduler: ▶ 播放: "哎南宫岚-来啦~今天怎么样..." (default_smile)
+22:07:50 [DEBUG] tts: synthesized 20 chars -> 5.4s, 首包=508ms, RTF=0.27
+22:07:53 [INFO ] scheduler: ▶ 播放: "bili_41343749517晚上好~..." (default_smile)
+22:07:54 [DEBUG] tts: synthesized 8 chars -> 2.2s, 首包=483ms, RTF=0.36
+22:08:00 [INFO ] scheduler: ▶ 播放: "未知火烧云来啦~..." (default_smile)
+22:08:03 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=500ms, RTF=0.28
+22:08:04 [INFO ] scheduler: ▶ 播放: "我书写神话来了呀，欢迎欢迎..." (default_smile)
+22:08:05 [DEBUG] tts: synthesized 11 chars -> 4.0s, 首包=551ms, RTF=0.35
+22:08:08 [INFO ] scheduler: ▶ 播放: "积极向上的丝瓜汤来啦~..." (default_smile)
+22:08:10 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=807ms, RTF=0.38
+22:08:14 [INFO ] scheduler: ▶ 播放: "非炎双酋菌来了呀，欢迎欢迎..." (default_smile)
+22:08:15 [DEBUG] tts: synthesized 13 chars -> 5.5s, 首包=479ms, RTF=0.25
+22:08:19 [INFO ] scheduler: ▶ 播放: "呀，依依117118回来了..." (default_smile)
+22:08:19 [DEBUG] tts: synthesized 8 chars -> 1.7s, 首包=471ms, RTF=0.40
+22:08:25 [INFO ] scheduler: ▶ 播放: "庄南华02来啦~..." (default_smile)
+22:08:26 [DEBUG] tts: synthesized 12 chars -> 4.1s, 首包=494ms, RTF=0.27
+22:08:27 [INFO ] scheduler: ▶ 播放: "罔陌行音来了呀，欢迎欢迎..." (default_smile)
+22:08:29 [DEBUG] tts: synthesized 19 chars -> 4.8s, 首包=517ms, RTF=0.29
+22:08:33 [INFO ] scheduler: ▶ 播放: "bili_27798907914来啦~..." (default_smile)
+22:08:34 [DEBUG] tts: synthesized 17 chars -> 4.3s, 首包=537ms, RTF=0.29
+22:08:38 [INFO ] scheduler: ▶ 播放: "哎庆1111152来啦~今天怎么样..." (default_smile)
+22:08:40 [DEBUG] tts: synthesized 12 chars -> 4.0s, 首包=495ms, RTF=0.28
+22:08:43 [INFO ] scheduler: ▶ 播放: "哎真難殺来啦~今天怎么样..." (default_smile)
+22:08:44 [DEBUG] tts: synthesized 7 chars -> 2.1s, 首包=477ms, RTF=0.37
+22:08:49 [INFO ] scheduler: ▶ 播放: "欢迎心农机局~..." (default_smile)
+22:08:50 [DEBUG] tts: synthesized 15 chars -> 3.5s, 首包=576ms, RTF=0.32
+22:08:52 [INFO ] scheduler: ▶ 播放: "欢迎ItsMacintosh~..." (default_smile)
+22:08:53 [DEBUG] tts: synthesized 20 chars -> 5.2s, 首包=554ms, RTF=0.27
+22:08:57 [INFO ] scheduler: ▶ 播放: "bili_94536344767晚上好~..." (default_smile)
+22:08:58 [DEBUG] tts: synthesized 10 chars -> 3.5s, 首包=509ms, RTF=0.30
+22:09:03 [INFO ] scheduler: ▶ 播放: "呀，阿木良木历回来了..." (default_smile)
+22:09:08 [DEBUG] tts: synthesized 24 chars -> 6.8s, 首包=735ms, RTF=0.39
+22:09:09 [INFO ] scheduler: ▶ 播放: "哎哟这波偷看很精髓嘛，对面墙后面躲着个倒霉蛋呢~..." (happy)
+22:09:10 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=478ms, RTF=0.30
+22:09:17 [INFO ] scheduler: ▶ 播放: "欢迎皮卡皮卡的予酱~..." (default_smile)
+22:09:19 [DEBUG] tts: synthesized 13 chars -> 3.9s, 首包=529ms, RTF=0.31
+22:09:21 [INFO ] scheduler: ▶ 播放: "工业大学站来了呀，欢迎欢迎..." (default_smile)
+22:09:22 [DEBUG] tts: synthesized 12 chars -> 3.5s, 首包=492ms, RTF=0.30
+22:09:26 [INFO ] scheduler: ▶ 播放: "哎季晓丹来啦~今天怎么样..." (default_smile)
+22:09:27 [DEBUG] tts: synthesized 16 chars -> 3.9s, 首包=607ms, RTF=0.31
+22:09:30 [INFO ] scheduler: ▶ 播放: "哎卖女孩的小结巴来啦~今天怎么样..." (default_smile)
+22:09:32 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=483ms, RTF=0.30
+22:09:36 [INFO ] scheduler: ▶ 播放: "欢迎去码头边整点炸薯条~..." (default_smile)
+22:09:37 [DEBUG] tts: synthesized 10 chars -> 2.5s, 首包=567ms, RTF=0.38
+22:09:40 [INFO ] scheduler: ▶ 播放: "欢迎荔枝长到一米八~..." (default_smile)
+22:09:42 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=518ms, RTF=0.27
+22:09:44 [INFO ] scheduler: ▶ 播放: "哦bili_84911065828来啦，快坐快坐..." (default_smile)
+22:09:54 [DEBUG] tts: synthesized 15 chars -> 3.7s, 首包=491ms, RTF=0.29
+22:09:55 [DEBUG] tts: synthesized 15 chars -> 4.5s, 首包=510ms, RTF=0.31
+22:09:59 [INFO ] scheduler: ▶ 播放: "哦1382828来啦，快坐快坐..." (default_smile)
+22:10:00 [DEBUG] tts: synthesized 15 chars -> 4.1s, 首包=508ms, RTF=0.28
+22:10:04 [INFO ] scheduler: ▶ 播放: "哦夏日の烟花巡礼来啦，快坐快坐..." (default_smile)
+22:10:09 [DEBUG] tts: synthesized 24 chars -> 6.7s, 首包=502ms, RTF=0.25
+22:10:10 [INFO ] scheduler: ▶ 播放: "哦bili_79668498260来啦，快坐快坐..." (default_smile)
+22:10:13 [DEBUG] tts: synthesized 9 chars -> 3.6s, 首包=514ms, RTF=0.32
+22:10:18 [INFO ] scheduler: ▶ 播放: "呀，鲁蛋空兵回来了..." (default_smile)
+22:10:28 [DEBUG] tts: synthesized 20 chars -> 5.7s, 首包=556ms, RTF=0.26
+22:10:29 [DEBUG] tts: synthesized 16 chars -> 3.3s, 首包=495ms, RTF=0.31
+22:10:35 [INFO ] scheduler: ▶ 播放: "欢迎木木木mumumumumu~..." (default_smile)
+22:10:36 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=497ms, RTF=0.33
+22:10:40 [INFO ] scheduler: ▶ 播放: "鲑鸡来了呀，欢迎欢迎..." (default_smile)
+22:10:41 [DEBUG] tts: synthesized 13 chars -> 3.8s, 首包=493ms, RTF=0.28
+22:10:44 [INFO ] scheduler: ▶ 播放: "呀，在下是虾有何贵干回来了..." (default_smile)
+22:10:52 [DEBUG] tts: synthesized 13 chars -> 3.4s, 首包=484ms, RTF=0.29
+22:10:58 [DEBUG] tts: synthesized 9 chars -> 3.5s, 首包=485ms, RTF=0.29
+22:11:04 [DEBUG] tts: synthesized 8 chars -> 2.4s, 首包=792ms, RTF=0.76
+22:11:07 [DEBUG] tts: synthesized 25 chars -> 5.3s, 首包=589ms, RTF=0.27
+22:11:09 [INFO ] scheduler: ▶ 播放: "哎呀这把数据平平的，没什么好说的，大家继续加油吧~..." (default_smile)
+22:11:10 [DEBUG] tts: synthesized 13 chars -> 3.7s, 首包=507ms, RTF=0.31
+22:11:15 [INFO ] scheduler: ▶ 播放: "有时真无助来了呀，欢迎欢迎..." (default_smile)
+22:11:16 [DEBUG] tts: synthesized 9 chars -> 3.6s, 首包=697ms, RTF=0.36
+22:11:20 [INFO ] scheduler: ▶ 播放: "欢迎内阁大学士哇~..." (default_smile)
+22:11:21 [DEBUG] tts: synthesized 9 chars -> 3.3s, 首包=616ms, RTF=0.35
+22:11:24 [INFO ] scheduler: ▶ 播放: "42爱犬66来啦~..." (default_smile)
+22:11:26 [DEBUG] tts: synthesized 16 chars -> 4.8s, 首包=554ms, RTF=0.28
+22:11:29 [INFO ] scheduler: ▶ 播放: "哎io北纬极夜_来啦~今天怎么样..." (default_smile)
+22:11:30 [DEBUG] tts: synthesized 20 chars -> 4.1s, 首包=562ms, RTF=0.29
+22:11:34 [INFO ] scheduler: ▶ 播放: "kjhneverforget！好久不见呀..." (default_smile)
+22:11:35 [DEBUG] tts: synthesized 8 chars -> 3.5s, 首包=501ms, RTF=0.31
+22:11:40 [INFO ] scheduler: ▶ 播放: "戈岭！好久不见呀..." (default_smile)
+22:11:47 [DEBUG] tts: synthesized 70 chars -> 14.3s, 首包=539ms, RTF=0.26
+22:11:48 [INFO ] scheduler: ▶ 播放: "哎哟，这广告打得可真熟练啊~宝贝们别听他忽悠，上次..." (tsundere)
+22:11:49 [DEBUG] tts: synthesized 6 chars -> 1.8s, 首包=500ms, RTF=0.40
+22:12:03 [INFO ] scheduler: ▶ 播放: "杏仁乙来啦~..." (default_smile)
+22:12:04 [DEBUG] tts: synthesized 12 chars -> 3.1s, 首包=481ms, RTF=0.30
+22:12:07 [INFO ] scheduler: ▶ 播放: "哦爱吃翠果来啦，快坐快坐..." (default_smile)
+22:12:10 [DEBUG] tts: synthesized 24 chars -> 6.5s, 首包=491ms, RTF=0.25
+22:12:11 [INFO ] scheduler: ▶ 播放: "咦，索杰恩啊，这把打得还不错，继续排队吧宝贝们~..." (default_smile)
+22:12:13 [DEBUG] tts: synthesized 20 chars -> 5.2s, 首包=850ms, RTF=0.33
+22:12:18 [INFO ] scheduler: ▶ 播放: "bili_54312540627晚上好~..." (default_smile)
+22:12:19 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=472ms, RTF=0.30
+22:12:25 [INFO ] scheduler: ▶ 播放: "月下霁林！好久不见呀..." (default_smile)
+22:12:26 [DEBUG] tts: synthesized 15 chars -> 5.7s, 首包=484ms, RTF=0.25
+22:12:29 [INFO ] scheduler: ▶ 播放: "169497676！好久不见呀..." (default_smile)
+22:12:31 [DEBUG] tts: synthesized 15 chars -> 5.7s, 首包=562ms, RTF=0.28
+22:12:36 [INFO ] scheduler: ▶ 播放: "哎ZSJTNT来啦~今天怎么样..." (default_smile)
+22:12:38 [DEBUG] tts: synthesized 15 chars -> 4.1s, 首包=573ms, RTF=0.30
+22:12:43 [INFO ] scheduler: ▶ 播放: "哦流风秋野huh来啦，快坐快坐..." (default_smile)
+22:12:44 [DEBUG] tts: synthesized 8 chars -> 2.3s, 首包=552ms, RTF=0.38
+22:12:48 [INFO ] scheduler: ▶ 播放: "南嘉iii来啦~..." (default_smile)
+22:12:49 [DEBUG] tts: synthesized 14 chars -> 4.5s, 首包=577ms, RTF=0.30
+22:12:51 [INFO ] scheduler: ▶ 播放: "哎N-H-Z来啦~今天怎么样..." (default_smile)
+22:12:52 [DEBUG] tts: synthesized 16 chars -> 4.1s, 首包=545ms, RTF=0.30
+22:12:56 [INFO ] scheduler: ▶ 播放: "哦天高地阔时光流逝来啦，快坐快坐..." (default_smile)
+22:12:57 [DEBUG] tts: synthesized 15 chars -> 3.4s, 首包=502ms, RTF=0.30
+22:13:02 [INFO ] scheduler: ▶ 播放: "psscur000！好久不见呀..." (default_smile)
+22:13:03 [DEBUG] tts: synthesized 9 chars -> 2.7s, 首包=493ms, RTF=0.33
+22:13:06 [INFO ] scheduler: ▶ 播放: "syq216来啦~..." (default_smile)
+22:13:10 [DEBUG] tts: synthesized 29 chars -> 7.2s, 首包=510ms, RTF=0.26
+22:13:12 [INFO ] scheduler: ▶ 播放: "香巴里寺院呀，经典咏流传，老哥千万别选这个，我怕你..." (default_smile)
+22:13:13 [DEBUG] tts: synthesized 25 chars -> 5.9s, 首包=486ms, RTF=0.26
+22:13:20 [INFO ] scheduler: ▶ 播放: "哎bili_96323784309来啦~今天怎么样..." (default_smile)
+22:13:21 [DEBUG] tts: synthesized 17 chars -> 4.2s, 首包=681ms, RTF=0.33
+22:13:27 [INFO ] scheduler: ▶ 播放: "欢迎ikun1145141145~..." (default_smile)
+22:13:28 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=501ms, RTF=0.29
+22:13:33 [INFO ] scheduler: ▶ 播放: "哎去说方短来啦~今天怎么样..." (default_smile)
+22:13:34 [DEBUG] tts: synthesized 9 chars -> 3.4s, 首包=479ms, RTF=0.29
+22:13:38 [INFO ] scheduler: ▶ 播放: "呀，鄢豪杰弟回来了..." (default_smile)
+22:13:39 [DEBUG] tts: synthesized 13 chars -> 4.3s, 首包=561ms, RTF=0.29
+22:13:43 [INFO ] scheduler: ▶ 播放: "哦z竹下月影来啦，快坐快坐..." (default_smile)
+22:13:44 [DEBUG] tts: synthesized 18 chars -> 5.8s, 首包=503ms, RTF=0.25
+22:13:48 [INFO ] scheduler: ▶ 播放: "哦上课时间睡觉睡觉啊a来啦，快坐快坐..." (default_smile)
+22:13:49 [DEBUG] tts: synthesized 11 chars -> 2.0s, 首包=493ms, RTF=0.39
+22:13:56 [INFO ] scheduler: ▶ 播放: "欢迎Wonbless~..." (default_smile)
+22:13:57 [DEBUG] tts: synthesized 19 chars -> 4.2s, 首包=495ms, RTF=0.29
+22:13:59 [INFO ] scheduler: ▶ 播放: "欢迎bili_10732208973~..." (default_smile)
+22:14:01 [DEBUG] tts: synthesized 22 chars -> 7.3s, 首包=504ms, RTF=0.24
+22:14:04 [INFO ] scheduler: ▶ 播放: "3461562882853328！好久不见呀..." (default_smile)
+22:14:05 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=486ms, RTF=0.30
+22:14:13 [INFO ] scheduler: ▶ 播放: "玖幽书生！好久不见呀..." (default_smile)
+22:14:17 [DEBUG] tts: synthesized 30 chars -> 7.4s, 首包=532ms, RTF=0.27
+22:14:18 [INFO ] scheduler: ▶ 播放: "索杰恩啊…这英雄我用得不太好，老哥你行不行呀，不行..." (thinking)
+22:14:20 [DEBUG] tts: synthesized 19 chars -> 4.6s, 首包=573ms, RTF=0.29
+22:14:27 [INFO ] scheduler: ▶ 播放: "bili_40447980777来啦~..." (default_smile)
+22:14:28 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=468ms, RTF=0.29
+22:14:33 [INFO ] scheduler: ▶ 播放: "哦风_yu1来啦，快坐快坐..." (default_smile)
+22:14:35 [DEBUG] tts: synthesized 21 chars -> 6.8s, 首包=521ms, RTF=0.25
+22:14:37 [INFO ] scheduler: ▶ 播放: "登子12358111930来了呀，欢迎欢迎..." (default_smile)
+22:14:38 [DEBUG] tts: synthesized 12 chars -> 2.7s, 首包=542ms, RTF=0.34
+22:14:45 [INFO ] scheduler: ▶ 播放: "呀，starpwq回来了..." (default_smile)
+22:14:46 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=974ms, RTF=0.49
+22:14:49 [INFO ] scheduler: ▶ 播放: "欢迎一岁就爱打快枪~..." (default_smile)
+22:14:50 [DEBUG] tts: synthesized 14 chars -> 4.5s, 首包=557ms, RTF=0.29
+22:14:52 [INFO ] scheduler: ▶ 播放: "哎QLi雾雀来啦~今天怎么样..." (default_smile)
+22:14:53 [DEBUG] tts: synthesized 13 chars -> 3.5s, 首包=613ms, RTF=0.33
+22:14:58 [INFO ] scheduler: ▶ 播放: "扣-扣哒哟来了呀，欢迎欢迎..." (default_smile)
+22:15:00 [DEBUG] tts: synthesized 24 chars -> 8.0s, 首包=551ms, RTF=0.25
+22:15:02 [INFO ] scheduler: ▶ 播放: "哦bili_91210007939来啦，快坐快坐..." (default_smile)
+22:15:04 [DEBUG] tts: synthesized 21 chars -> 5.7s, 首包=506ms, RTF=0.27
+22:15:12 [INFO ] scheduler: ▶ 播放: "呀，bili_69339148799回来了..." (default_smile)
+22:15:17 [DEBUG] tts: synthesized 29 chars -> 8.4s, 首包=488ms, RTF=0.23
+22:15:18 [INFO ] scheduler: ▶ 播放: "哎呀老哥，你死亡次数比助攻还少，这是认真在打还是在..." (default_smile)
+22:15:19 [DEBUG] tts: synthesized 18 chars -> 2.8s, 首包=495ms, RTF=0.34
+22:15:28 [INFO ] scheduler: ▶ 播放: "InvitingGaming晚上好~..." (default_smile)
+22:15:29 [DEBUG] tts: synthesized 19 chars -> 4.0s, 首包=479ms, RTF=0.27
+22:15:32 [INFO ] scheduler: ▶ 播放: "哎沉思者thinker来啦~今天怎么样..." (default_smile)
+22:15:34 [DEBUG] tts: synthesized 11 chars -> 3.4s, 首包=497ms, RTF=0.31
+22:15:38 [INFO ] scheduler: ▶ 播放: "哦清择木来啦，快坐快坐..." (default_smile)
+22:15:44 [DEBUG] tts: synthesized 13 chars -> 4.3s, 首包=511ms, RTF=0.28
+22:15:45 [DEBUG] tts: synthesized 22 chars -> 5.4s, 首包=483ms, RTF=0.26
+22:15:49 [INFO ] scheduler: ▶ 播放: "bili_54828726099！好久不见呀..." (default_smile)
+22:15:50 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=494ms, RTF=0.29
+22:15:56 [INFO ] scheduler: ▶ 播放: "卡拉卡哔哔来了呀，欢迎欢迎..." (default_smile)
+22:15:57 [DEBUG] tts: synthesized 12 chars -> 3.4s, 首包=532ms, RTF=0.31
+22:16:01 [INFO ] scheduler: ▶ 播放: "呀，香翅莎莎的金叶回来了..." (default_smile)
+22:16:02 [DEBUG] tts: synthesized 22 chars -> 5.4s, 首包=734ms, RTF=0.30
+22:16:06 [INFO ] scheduler: ▶ 播放: "bili_21005851980！好久不见呀..." (default_smile)
+22:16:07 [DEBUG] tts: synthesized 21 chars -> 6.0s, 首包=708ms, RTF=0.29
+22:16:12 [INFO ] scheduler: ▶ 播放: "呀，bili_56218034247回来了..." (default_smile)
+22:16:14 [DEBUG] tts: synthesized 9 chars -> 3.2s, 首包=493ms, RTF=0.31
+22:16:19 [INFO ] scheduler: ▶ 播放: "呀，凉笙星隐回来了..." (default_smile)
+22:16:20 [DEBUG] tts: synthesized 20 chars -> 5.1s, 首包=522ms, RTF=0.27
+22:16:24 [INFO ] scheduler: ▶ 播放: "bili_59854105965晚上好~..." (default_smile)
+22:16:25 [DEBUG] tts: synthesized 18 chars -> 5.2s, 首包=504ms, RTF=0.26
+22:16:30 [INFO ] scheduler: ▶ 播放: "崩崩小圆帽小圆帽最帅来了呀，欢迎欢迎..." (default_smile)
+22:16:30 [DEBUG] tts: synthesized 7 chars -> 2.5s, 首包=502ms, RTF=0.36
+22:16:36 [INFO ] scheduler: ▶ 播放: "冯某王其来啦~..." (default_smile)
+22:16:37 [DEBUG] tts: synthesized 14 chars -> 3.3s, 首包=466ms, RTF=0.28
+22:16:40 [INFO ] scheduler: ▶ 播放: "CCgalaxyxi晚上好~..." (default_smile)
+22:16:41 [DEBUG] tts: synthesized 14 chars -> 3.6s, 首包=500ms, RTF=0.29
+22:16:44 [INFO ] scheduler: ▶ 播放: "哎危险金属簇来啦~今天怎么样..." (default_smile)
+22:16:45 [DEBUG] tts: synthesized 7 chars -> 2.4s, 首包=489ms, RTF=0.36
+22:16:49 [INFO ] scheduler: ▶ 播放: "零之南晚上好~..." (default_smile)
+22:16:50 [DEBUG] tts: synthesized 12 chars -> 2.9s, 首包=512ms, RTF=0.33
+22:16:53 [INFO ] scheduler: ▶ 播放: "科比肘击黄杨钿甜晚上好~..." (default_smile)
+22:16:54 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=569ms, RTF=0.35
+22:16:56 [INFO ] scheduler: ▶ 播放: "欢迎爱吃三角脆a~..." (default_smile)
+22:16:58 [DEBUG] tts: synthesized 15 chars -> 3.8s, 首包=537ms, RTF=0.31
+22:17:01 [INFO ] scheduler: ▶ 播放: "清净峰看门弟子来了呀，欢迎欢迎..." (default_smile)
+22:17:02 [DEBUG] tts: synthesized 11 chars -> 3.0s, 首包=494ms, RTF=0.31
+22:17:05 [INFO ] scheduler: ▶ 播放: "哦烨头儿来啦，快坐快坐..." (default_smile)
+22:17:06 [DEBUG] tts: synthesized 10 chars -> 2.2s, 首包=617ms, RTF=0.43
+22:17:09 [INFO ] scheduler: ▶ 播放: "棍哥不会耍棍晚上好~..." (default_smile)
+22:17:10 [DEBUG] tts: synthesized 17 chars -> 4.0s, 首包=506ms, RTF=0.28
+22:17:12 [INFO ] scheduler: ▶ 播放: "哎U型都市--小U来啦~今天怎么样..." (default_smile)
+22:17:15 [DEBUG] tts: synthesized 17 chars -> 4.4s, 首包=505ms, RTF=0.28
+22:17:17 [INFO ] scheduler: ▶ 播放: "哎呀这是在玩狙吗？手可要稳一点呀~..." (surprised)
+22:17:23 [DEBUG] tts: synthesized 11 chars -> 3.2s, 首包=510ms, RTF=0.32
+22:17:24 [DEBUG] tts: synthesized 11 chars -> 3.2s, 首包=510ms, RTF=0.33
+22:17:27 [INFO ] scheduler: ▶ 播放: "会跳的蛋_！好久不见呀..." (default_smile)
+22:17:28 [DEBUG] tts: synthesized 15 chars -> 4.5s, 首包=490ms, RTF=0.27
+22:17:31 [INFO ] scheduler: ▶ 播放: "哦高分正从八方来来啦，快坐快坐..." (default_smile)
+22:17:32 [DEBUG] tts: synthesized 14 chars -> 3.7s, 首包=499ms, RTF=0.31
+22:17:37 [INFO ] scheduler: ▶ 播放: "哦香煎大公承影来啦，快坐快坐..." (default_smile)
+22:17:38 [DEBUG] tts: synthesized 9 chars -> 2.1s, 首包=502ms, RTF=0.39
+22:17:42 [INFO ] scheduler: ▶ 播放: "掉分车队人多来啦~..." (default_smile)
+22:17:43 [DEBUG] tts: synthesized 22 chars -> 5.9s, 首包=492ms, RTF=0.26
+22:17:45 [INFO ] scheduler: ▶ 播放: "bili_46705130799！好久不见呀..." (default_smile)
+22:17:53 [DEBUG] tts: synthesized 12 chars -> 3.8s, 首包=523ms, RTF=0.32
+22:18:02 [DEBUG] tts: synthesized 11 chars -> 2.8s, 首包=498ms, RTF=0.33
+22:18:11 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=566ms, RTF=0.35
+22:18:13 [DEBUG] tts: synthesized 14 chars -> 6.1s, 首包=504ms, RTF=0.26
+22:18:15 [INFO ] scheduler: ▶ 播放: "ychfhtfffgg来啦~..." (default_smile)
+22:18:20 [DEBUG] tts: synthesized 19 chars -> 7.6s, 首包=526ms, RTF=0.30
+22:18:22 [INFO ] scheduler: ▶ 播放: "哇，这枪法可以呀宝贝，比我老哥强多了！..." (surprised)
+22:18:23 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=500ms, RTF=0.32
+22:18:31 [INFO ] scheduler: ▶ 播放: "哦飂霒龖闇来啦，快坐快坐..." (default_smile)
+22:18:32 [DEBUG] tts: synthesized 9 chars -> 1.7s, 首包=548ms, RTF=0.46
+22:18:35 [INFO ] scheduler: ▶ 播放: "欢迎suriet~..." (default_smile)
+22:18:45 [DEBUG] tts: synthesized 17 chars -> 5.8s, 首包=476ms, RTF=0.24
+22:18:55 [DEBUG] tts: synthesized 24 chars -> 6.5s, 首包=499ms, RTF=0.25
+22:19:03 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=500ms, RTF=0.31
+22:19:05 [DEBUG] tts: synthesized 18 chars -> 4.4s, 首包=505ms, RTF=0.28
+22:19:08 [INFO ] scheduler: ▶ 播放: "happy404Ok来了呀，欢迎欢迎..." (default_smile)
+22:19:11 [DEBUG] tts: synthesized 16 chars -> 4.2s, 首包=536ms, RTF=0.29
+22:19:14 [INFO ] scheduler: ▶ 播放: "哦xrbbl036来啦，快坐快坐..." (default_smile)
+22:19:18 [DEBUG] tts: synthesized 20 chars -> 5.2s, 首包=499ms, RTF=0.27
+22:19:19 [INFO ] scheduler: ▶ 播放: "宝贝们看看这波预判~老哥今天枪法在线啊！..." (happy)
+22:19:21 [DEBUG] tts: synthesized 24 chars -> 6.8s, 首包=490ms, RTF=0.25
+22:19:26 [INFO ] scheduler: ▶ 播放: "哦bili_55663523690来啦，快坐快坐..." (default_smile)
+22:19:29 [DEBUG] tts: synthesized 11 chars -> 3.1s, 首包=520ms, RTF=0.33
+22:19:33 [INFO ] scheduler: ▶ 播放: "昔年不知情！好久不见呀..." (default_smile)
+22:20:35 [DEBUG] tts: synthesized 17 chars -> 5.5s, 首包=513ms, RTF=0.27
+22:20:36 [DEBUG] tts: synthesized 13 chars -> 3.2s, 首包=472ms, RTF=0.30
+22:20:41 [INFO ] scheduler: ▶ 播放: "哎13叶_来啦~今天怎么样..." (default_smile)
+22:20:42 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=672ms, RTF=0.40
+22:20:45 [INFO ] scheduler: ▶ 播放: "周星星在潜水晚上好~..." (default_smile)
+22:20:47 [DEBUG] tts: synthesized 21 chars -> 6.8s, 首包=821ms, RTF=0.29
+22:20:49 [INFO ] scheduler: ▶ 播放: "呀，bili_62796329295回来了..." (default_smile)
+22:20:50 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=485ms, RTF=0.29
+22:20:57 [INFO ] scheduler: ▶ 播放: "哎月能不隐来啦~今天怎么样..." (default_smile)
+22:20:58 [DEBUG] tts: synthesized 7 chars -> 1.8s, 首包=698ms, RTF=0.53
+22:21:02 [INFO ] scheduler: ▶ 播放: "冥化团子来啦~..." (default_smile)
+22:21:02 [DEBUG] tts: synthesized 8 chars -> 2.9s, 首包=484ms, RTF=0.31
+22:21:04 [INFO ] scheduler: ▶ 播放: "养只居居晚上好~..." (default_smile)
+22:21:05 [DEBUG] tts: synthesized 11 chars -> 2.9s, 首包=501ms, RTF=0.34
+22:21:08 [INFO ] scheduler: ▶ 播放: "欢迎慕尼黑的啤酒先生~..." (default_smile)
+22:21:09 [DEBUG] tts: synthesized 15 chars -> 2.8s, 首包=556ms, RTF=0.36
+22:21:12 [INFO ] scheduler: ▶ 播放: "呀，LiangLuJie回来了..." (default_smile)
+22:21:13 [DEBUG] tts: synthesized 6 chars -> 1.8s, 首包=479ms, RTF=0.40
+22:21:16 [INFO ] scheduler: ▶ 播放: "倻薏晚上好~..." (default_smile)
+22:21:18 [DEBUG] tts: synthesized 6 chars -> 2.3s, 首包=683ms, RTF=0.50
+22:21:20 [INFO ] scheduler: ▶ 播放: "吾荩晚上好~..." (default_smile)
+22:21:21 [DEBUG] tts: synthesized 20 chars -> 5.4s, 首包=571ms, RTF=0.28
+22:21:23 [INFO ] scheduler: ▶ 播放: "swiss_in_trip112晚上好~..." (default_smile)
+22:21:24 [DEBUG] tts: synthesized 9 chars -> 2.7s, 首包=568ms, RTF=0.36
+22:21:29 [INFO ] scheduler: ▶ 播放: "GDDFKR来啦~..." (default_smile)
+22:21:33 [DEBUG] tts: synthesized 25 chars -> 6.2s, 首包=505ms, RTF=0.24
+22:21:35 [INFO ] scheduler: ▶ 播放: "哇这个敌人亮亮的，看起来好厉害的样子，哥哥加油呀~..." (default_smile)
+22:21:36 [DEBUG] tts: synthesized 14 chars -> 4.4s, 首包=481ms, RTF=0.27
+22:21:42 [INFO ] scheduler: ▶ 播放: "哦香蕉橘子拼盘来啦，快坐快坐..." (default_smile)
+22:21:43 [DEBUG] tts: synthesized 7 chars -> 1.9s, 首包=504ms, RTF=0.40
+22:21:48 [INFO ] scheduler: ▶ 播放: "欢迎青茶团子~..." (default_smile)
+22:21:49 [DEBUG] tts: synthesized 24 chars -> 5.6s, 首包=490ms, RTF=0.27
+22:21:51 [INFO ] scheduler: ▶ 播放: "哦bili_54198341519来啦，快坐快坐..." (default_smile)
+22:21:52 [DEBUG] tts: synthesized 13 chars -> 4.0s, 首包=545ms, RTF=0.29
+22:21:57 [INFO ] scheduler: ▶ 播放: "哦凛冬使者か来啦，快坐快坐..." (default_smile)
+22:21:59 [DEBUG] tts: synthesized 22 chars -> 5.2s, 首包=497ms, RTF=0.26
+22:22:03 [INFO ] scheduler: ▶ 播放: "19261819367_bili！好久不见呀..." (default_smile)
+22:22:04 [DEBUG] tts: synthesized 12 chars -> 4.5s, 首包=490ms, RTF=0.27
+22:22:10 [INFO ] scheduler: ▶ 播放: "重生之打不过超级兵来啦~..." (default_smile)
+22:22:11 [DEBUG] tts: synthesized 11 chars -> 3.3s, 首包=543ms, RTF=0.31
+22:22:15 [INFO ] scheduler: ▶ 播放: "欢迎问号lululu~..." (default_smile)
+22:22:16 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=640ms, RTF=0.36
+22:22:19 [INFO ] scheduler: ▶ 播放: "欢迎欺我华夏后我很严重~..." (default_smile)
+22:22:21 [DEBUG] tts: synthesized 12 chars -> 3.9s, 首包=689ms, RTF=0.35
+22:22:24 [INFO ] scheduler: ▶ 播放: "呀，何弹三角洲行动回来了..." (default_smile)
+22:22:25 [DEBUG] tts: synthesized 10 chars -> 3.6s, 首包=486ms, RTF=0.29
+22:22:29 [INFO ] scheduler: ▶ 播放: "此鹤眠眠无绝期来啦~..." (default_smile)
+22:22:30 [DEBUG] tts: synthesized 11 chars -> 2.8s, 首包=472ms, RTF=0.31
+22:22:34 [INFO ] scheduler: ▶ 播放: "AmiyaBot来啦~..." (default_smile)
+22:22:38 [DEBUG] tts: synthesized 32 chars -> 6.0s, 首包=496ms, RTF=0.26
+22:22:39 [INFO ] scheduler: ▶ 播放: "气死我了，这个“守护天使”是不是对我有什么意见啊，..." (tsundere)
+22:22:51 [DEBUG] tts: synthesized 29 chars -> 8.1s, 首包=599ms, RTF=0.25
+22:22:53 [DEBUG] tts: synthesized 12 chars -> 4.1s, 首包=531ms, RTF=0.28
+22:23:01 [INFO ] scheduler: ▶ 播放: "蓝色星球第一糕手晚上好~..." (default_smile)
+22:23:02 [DEBUG] tts: synthesized 10 chars -> 3.1s, 首包=585ms, RTF=0.33
+22:23:06 [INFO ] scheduler: ▶ 播放: "讠青输人新昵称来啦~..." (default_smile)
+22:23:07 [DEBUG] tts: synthesized 8 chars -> 2.0s, 首包=533ms, RTF=0.42
+22:23:10 [INFO ] scheduler: ▶ 播放: "欢迎镁条钚铈锔~..." (default_smile)
+22:23:12 [DEBUG] tts: synthesized 11 chars -> 3.7s, 首包=569ms, RTF=0.33
+22:23:14 [INFO ] scheduler: ▶ 播放: "gold_绿塔晚上好~..." (default_smile)
+22:23:15 [DEBUG] tts: synthesized 12 chars -> 3.3s, 首包=484ms, RTF=0.30
+22:23:18 [INFO ] scheduler: ▶ 播放: "吾以凯旋来了呀，欢迎欢迎..." (default_smile)
+22:23:19 [DEBUG] tts: synthesized 14 chars -> 3.3s, 首包=506ms, RTF=0.30
+22:23:23 [INFO ] scheduler: ▶ 播放: "欢迎Chloe_-1204~..." (default_smile)
+22:23:24 [DEBUG] tts: synthesized 25 chars -> 6.0s, 首包=564ms, RTF=0.26
+22:23:27 [INFO ] scheduler: ▶ 播放: "哎bili_91042046777来啦~今天怎么样..." (default_smile)
+22:23:29 [DEBUG] tts: synthesized 14 chars -> 3.7s, 首包=488ms, RTF=0.29
+22:23:34 [INFO ] scheduler: ▶ 播放: "reflex镜面森林晚上好~..." (default_smile)
+22:23:38 [DEBUG] tts: synthesized 19 chars -> 5.8s, 首包=626ms, RTF=0.28
+22:23:40 [INFO ] scheduler: ▶ 播放: "哎哟这枪法可以呀，再狠一点把他送回家！..." (happy)
+22:23:41 [DEBUG] tts: synthesized 10 chars -> 3.0s, 首包=500ms, RTF=0.32
+22:23:47 [INFO ] scheduler: ▶ 播放: "天下败菜！好久不见呀..." (default_smile)
+22:23:48 [DEBUG] tts: synthesized 15 chars -> 3.9s, 首包=522ms, RTF=0.29
+22:23:51 [INFO ] scheduler: ▶ 播放: "Rigel丶参宿七！好久不见呀..." (default_smile)
+22:23:53 [DEBUG] tts: synthesized 19 chars -> 5.7s, 首包=510ms, RTF=0.26
+22:23:56 [INFO ] scheduler: ▶ 播放: "bili_52264875714来啦~..." (default_smile)
+22:23:57 [DEBUG] tts: synthesized 19 chars -> 5.2s, 首包=479ms, RTF=0.25
+22:24:02 [INFO ] scheduler: ▶ 播放: "bili_12581609547来啦~..." (default_smile)
+22:24:04 [DEBUG] tts: synthesized 19 chars -> 5.2s, 首包=521ms, RTF=0.28
+22:24:09 [INFO ] scheduler: ▶ 播放: "欢迎bili_28959935810~..." (default_smile)
+22:24:10 [DEBUG] tts: synthesized 15 chars -> 4.1s, 首包=499ms, RTF=0.27
+22:24:16 [INFO ] scheduler: ▶ 播放: "哦全网底价接代肝来啦，快坐快坐..." (default_smile)
+22:24:17 [DEBUG] tts: synthesized 10 chars -> 2.2s, 首包=606ms, RTF=0.43
+22:24:21 [INFO ] scheduler: ▶ 播放: "欢迎真寻不当哥哥了~..." (default_smile)
+22:24:22 [DEBUG] tts: synthesized 11 chars -> 3.4s, 首包=500ms, RTF=0.30
+22:24:24 [INFO ] scheduler: ▶ 播放: "欢迎早晨的咖啡555~..." (default_smile)
+22:24:25 [DEBUG] tts: synthesized 23 chars -> 5.5s, 首包=473ms, RTF=0.26
+22:24:29 [INFO ] scheduler: ▶ 播放: "哎zzzzzz12366555来啦~今天怎么样..." (default_smile)
+22:24:30 [DEBUG] tts: synthesized 14 chars -> 2.7s, 首包=491ms, RTF=0.34
+22:24:35 [INFO ] scheduler: ▶ 播放: "欢迎橙白狐_LazyFox~..." (default_smile)
+22:24:39 [DEBUG] tts: synthesized 18 chars -> 5.3s, 首包=490ms, RTF=0.27
+22:24:40 [INFO ] scheduler: ▶ 播放: "哥哥这枪瞄得挺准的嘛，别空枪丢人哦~..." (default_smile)
+22:24:41 [DEBUG] tts: synthesized 12 chars -> 3.5s, 首包=565ms, RTF=0.31
+22:24:47 [INFO ] scheduler: ▶ 播放: "躺平分部部长！好久不见呀..." (default_smile)
+22:24:48 [DEBUG] tts: synthesized 19 chars -> 5.7s, 首包=548ms, RTF=0.26
+22:24:51 [INFO ] scheduler: ▶ 播放: "bili_29298837267来啦~..." (default_smile)
+22:24:52 [DEBUG] tts: synthesized 11 chars -> 1.9s, 首包=513ms, RTF=0.43
+22:24:57 [INFO ] scheduler: ▶ 播放: "hhherdd晚上好~..." (default_smile)
+22:24:59 [DEBUG] tts: synthesized 24 chars -> 6.2s, 首包=495ms, RTF=0.24
+22:25:00 [INFO ] scheduler: ▶ 播放: "哦bili_31533556260来啦，快坐快坐..." (default_smile)
+22:25:01 [DEBUG] tts: synthesized 17 chars -> 5.7s, 首包=506ms, RTF=0.25
+22:25:07 [INFO ] scheduler: ▶ 播放: "哎羊奇君大荒囚天指来啦~今天怎么样..." (default_smile)
+22:25:09 [DEBUG] tts: synthesized 25 chars -> 6.2s, 首包=516ms, RTF=0.26
+22:25:14 [INFO ] scheduler: ▶ 播放: "哎bili_81148154427来啦~今天怎么样..." (default_smile)
+22:25:15 [DEBUG] tts: synthesized 18 chars -> 6.3s, 首包=500ms, RTF=0.24
+22:25:21 [INFO ] scheduler: ▶ 播放: "jxyxbsjdjchb！好久不见呀..." (default_smile)
+22:25:22 [DEBUG] tts: synthesized 13 chars -> 3.8s, 首包=494ms, RTF=0.29
+22:25:28 [INFO ] scheduler: ▶ 播放: "清道夫666_！好久不见呀..." (default_smile)
+22:25:30 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=894ms, RTF=0.67
+22:25:32 [INFO ] scheduler: ▶ 播放: "梵欣xyh来了呀，欢迎欢迎..." (default_smile)
+22:25:34 [DEBUG] tts: synthesized 12 chars -> 3.4s, 首包=487ms, RTF=0.29
+22:25:37 [INFO ] scheduler: ▶ 播放: "不知道该叫神！好久不见呀..." (default_smile)
+22:25:41 [DEBUG] tts: synthesized 28 chars -> 6.7s, 首包=551ms, RTF=0.25
+22:25:43 [INFO ] scheduler: ▶ 播放: "哦豁，西格玛这个弹道预判有点东西啊，KUROMI可..." (surprised)
+22:25:44 [DEBUG] tts: synthesized 10 chars -> 2.4s, 首包=522ms, RTF=0.37
+22:25:51 [INFO ] scheduler: ▶ 播放: "ナッ来了呀，欢迎欢迎..." (default_smile)
+22:25:52 [DEBUG] tts: synthesized 11 chars -> 2.4s, 首包=573ms, RTF=0.39
+22:25:54 [INFO ] scheduler: ▶ 播放: "呀，Okita栞回来了..." (default_smile)
+22:25:55 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=499ms, RTF=0.31
+22:25:58 [INFO ] scheduler: ▶ 播放: "哦越梁来啦，快坐快坐..." (default_smile)
+22:25:59 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=481ms, RTF=0.29
+22:26:02 [INFO ] scheduler: ▶ 播放: "咕哒咕嘎来了呀，欢迎欢迎..." (default_smile)
+22:26:03 [DEBUG] tts: synthesized 12 chars -> 3.8s, 首包=489ms, RTF=0.29
+22:26:06 [INFO ] scheduler: ▶ 播放: "爱喝水c来了呀，欢迎欢迎..." (default_smile)
+22:26:07 [DEBUG] tts: synthesized 11 chars -> 3.9s, 首包=491ms, RTF=0.28
+22:26:11 [INFO ] scheduler: ▶ 播放: "柒羽yyy！好久不见呀..." (default_smile)
+22:26:12 [DEBUG] tts: synthesized 15 chars -> 4.8s, 首包=525ms, RTF=0.28
+22:26:15 [INFO ] scheduler: ▶ 播放: "哎梦远XMAX来啦~今天怎么样..." (default_smile)
+22:26:16 [DEBUG] tts: synthesized 6 chars -> 1.8s, 首包=497ms, RTF=0.43
+22:26:21 [INFO ] scheduler: ▶ 播放: "欢迎戴圣皇~..." (default_smile)
+22:26:22 [DEBUG] tts: synthesized 9 chars -> 3.3s, 首包=471ms, RTF=0.31
+22:26:24 [INFO ] scheduler: ▶ 播放: "呀，通风区域回来了..." (default_smile)
+22:26:25 [DEBUG] tts: synthesized 13 chars -> 2.6s, 首包=499ms, RTF=0.34
+22:26:29 [INFO ] scheduler: ▶ 播放: "哎星酱ほし来啦~今天怎么样..." (default_smile)
+22:26:30 [DEBUG] tts: synthesized 13 chars -> 4.6s, 首包=526ms, RTF=0.29
+22:26:32 [INFO ] scheduler: ▶ 播放: "RubyISS！好久不见呀..." (default_smile)
+22:26:34 [DEBUG] tts: synthesized 22 chars -> 6.1s, 首包=569ms, RTF=0.26
+22:26:38 [INFO ] scheduler: ▶ 播放: "bili_20967893266！好久不见呀..." (default_smile)
+22:26:41 [DEBUG] tts: synthesized 23 chars -> 5.6s, 首包=614ms, RTF=0.27
+22:26:45 [INFO ] scheduler: ▶ 播放: "哎呀，匹配等得好无聊……要不大家唱首歌给我听？..." (default_smile)
+22:26:46 [DEBUG] tts: synthesized 8 chars -> 2.0s, 首包=712ms, RTF=0.50
+22:26:53 [INFO ] scheduler: ▶ 播放: "薄荷雨あ晚上好~..." (default_smile)
+22:26:54 [DEBUG] tts: synthesized 10 chars -> 3.3s, 首包=468ms, RTF=0.29
+22:26:56 [INFO ] scheduler: ▶ 播放: "欢迎0无敌铁憨憨0~..." (default_smile)
+22:26:57 [DEBUG] tts: synthesized 17 chars -> 4.0s, 首包=495ms, RTF=0.28
+22:27:00 [INFO ] scheduler: ▶ 播放: "一个肥美的蚁牛罐头来了呀，欢迎欢迎..." (default_smile)
+22:27:01 [DEBUG] tts: synthesized 13 chars -> 4.1s, 首包=496ms, RTF=0.27
+22:27:05 [INFO ] scheduler: ▶ 播放: "哦hlxng来啦，快坐快坐..." (default_smile)
+22:27:07 [DEBUG] tts: synthesized 16 chars -> 4.7s, 首包=893ms, RTF=0.41
+22:27:10 [INFO ] scheduler: ▶ 播放: "哦十字路口的美少年来啦，快坐快坐..." (default_smile)
+22:27:11 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=501ms, RTF=0.34
+22:27:15 [INFO ] scheduler: ▶ 播放: "呀，宇下整液回来了..." (default_smile)
+22:27:18 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=1122ms, RTF=0.84
+22:27:19 [INFO ] scheduler: ▶ 播放: "戈岭来了呀，欢迎欢迎..." (default_smile)
+22:27:20 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=534ms, RTF=0.30
+22:27:23 [INFO ] scheduler: ▶ 播放: "昱咪大王来了呀，欢迎欢迎..." (default_smile)
+22:27:25 [DEBUG] tts: synthesized 13 chars -> 3.9s, 首包=505ms, RTF=0.30
+22:27:28 [INFO ] scheduler: ▶ 播放: "西瓜不沙瓤来了呀，欢迎欢迎..." (default_smile)
+22:27:29 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=519ms, RTF=0.34
+22:27:34 [INFO ] scheduler: ▶ 播放: "欢迎dfblldf~..." (default_smile)
+22:27:35 [DEBUG] tts: synthesized 10 chars -> 2.5s, 首包=616ms, RTF=0.40
+22:27:37 [INFO ] scheduler: ▶ 播放: "是否等雨过天晴来啦~..." (default_smile)
+22:27:41 [DEBUG] tts: synthesized 25 chars -> 6.8s, 首包=501ms, RTF=0.25
+22:27:42 [INFO ] scheduler: ▶ 播放: "哼，黑影配洛基皮肤，哥哥你是不是想当恶作剧之神啊？..." (tsundere)
+22:27:43 [DEBUG] tts: synthesized 12 chars -> 3.0s, 首包=484ms, RTF=0.30
+22:27:50 [INFO ] scheduler: ▶ 播放: "游隼1号来了呀，欢迎欢迎..." (default_smile)
+22:27:50 [DEBUG] tts: synthesized 8 chars -> 2.3s, 首包=566ms, RTF=0.42
+22:27:54 [INFO ] scheduler: ▶ 播放: "欢迎蓟州公孙胜~..." (default_smile)
+22:27:55 [DEBUG] tts: synthesized 13 chars -> 4.3s, 首包=505ms, RTF=0.28
+22:27:57 [INFO ] scheduler: ▶ 播放: "哦铁门999来啦，快坐快坐..." (default_smile)
+22:27:58 [DEBUG] tts: synthesized 15 chars -> 3.4s, 首包=721ms, RTF=0.37
+22:28:03 [INFO ] scheduler: ▶ 播放: "哦Rorojoy来啦，快坐快坐..." (default_smile)
+22:28:03 [DEBUG] tts: synthesized 7 chars -> 2.5s, 首包=488ms, RTF=0.34
+22:28:06 [INFO ] scheduler: ▶ 播放: "晶猫猫喵来啦~..." (default_smile)
+22:28:08 [DEBUG] tts: synthesized 12 chars -> 4.5s, 首包=518ms, RTF=0.28
+22:28:10 [INFO ] scheduler: ▶ 播放: "吴彦祖老KK！好久不见呀..." (default_smile)
+22:28:11 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=481ms, RTF=0.28
+22:28:16 [INFO ] scheduler: ▶ 播放: "哎阳君an来啦~今天怎么样..." (default_smile)
+22:28:17 [DEBUG] tts: synthesized 17 chars -> 4.8s, 首包=503ms, RTF=0.28
+22:28:20 [INFO ] scheduler: ▶ 播放: "123754517来了呀，欢迎欢迎..." (default_smile)
+22:28:22 [DEBUG] tts: synthesized 15 chars -> 4.7s, 首包=507ms, RTF=0.27
+22:28:27 [INFO ] scheduler: ▶ 播放: "哦一朝花开红满天来啦，快坐快坐..." (default_smile)
+22:28:28 [DEBUG] tts: synthesized 8 chars -> 3.0s, 首包=505ms, RTF=0.33
+22:28:33 [INFO ] scheduler: ▶ 播放: "星洛大人晚上好~..." (default_smile)
+22:28:34 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=529ms, RTF=0.34
+22:28:37 [INFO ] scheduler: ▶ 播放: "欢迎可爱的小雨滴呀~..." (default_smile)
+22:28:38 [DEBUG] tts: synthesized 20 chars -> 4.3s, 首包=576ms, RTF=0.31
+22:28:41 [INFO ] scheduler: ▶ 播放: "bili_97627419785晚上好~..." (default_smile)
+22:28:46 [DEBUG] tts: synthesized 32 chars -> 7.2s, 首包=480ms, RTF=0.24
+22:28:47 [INFO ] scheduler: ▶ 播放: "老哥选啥英雄啊，别又拿个半藏在那随缘瞄人，咱能不能..." (default_smile)
+22:28:49 [DEBUG] tts: synthesized 21 chars -> 7.8s, 首包=506ms, RTF=0.25
+22:28:55 [INFO ] scheduler: ▶ 播放: "呀，用户11451415926001回来了..." (default_smile)
+22:28:56 [DEBUG] tts: synthesized 16 chars -> 3.6s, 首包=555ms, RTF=0.32
+22:29:04 [INFO ] scheduler: ▶ 播放: "哦issuesss来啦，快坐快坐..." (default_smile)
+22:29:06 [DEBUG] tts: synthesized 17 chars -> 5.0s, 首包=499ms, RTF=0.27
+22:29:09 [INFO ] scheduler: ▶ 播放: "哎泰坦时钟王二点零来啦~今天怎么样..." (default_smile)
+22:29:10 [DEBUG] tts: synthesized 9 chars -> 2.3s, 首包=498ms, RTF=0.38
+22:29:15 [INFO ] scheduler: ▶ 播放: "学习从不拖延来啦~..." (default_smile)
+22:29:16 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=536ms, RTF=0.32
+22:29:19 [INFO ] scheduler: ▶ 播放: "子不字书来了呀，欢迎欢迎..." (default_smile)
+22:29:20 [DEBUG] tts: synthesized 6 chars -> 2.3s, 首包=514ms, RTF=0.38
+22:29:24 [INFO ] scheduler: ▶ 播放: "决关晚上好~..." (default_smile)
+22:29:24 [DEBUG] tts: synthesized 7 chars -> 2.1s, 首包=508ms, RTF=0.40
+22:29:26 [INFO ] scheduler: ▶ 播放: "欢迎T5战神~..." (default_smile)
+22:29:27 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=483ms, RTF=0.31
+22:29:29 [INFO ] scheduler: ▶ 播放: "欢迎骑着海马逛草原~..." (default_smile)
+22:29:30 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=489ms, RTF=0.29
+22:29:34 [INFO ] scheduler: ▶ 播放: "有心态的二哈！好久不见呀..." (default_smile)
+22:29:35 [DEBUG] tts: synthesized 12 chars -> 3.8s, 首包=498ms, RTF=0.28
+22:29:38 [INFO ] scheduler: ▶ 播放: "哎淮旧序来啦~今天怎么样..." (default_smile)
+22:29:39 [DEBUG] tts: synthesized 13 chars -> 3.5s, 首包=494ms, RTF=0.29
+22:29:43 [INFO ] scheduler: ▶ 播放: "哎零ked来啦~今天怎么样..." (default_smile)
+22:29:46 [DEBUG] tts: synthesized 22 chars -> 5.8s, 首包=491ms, RTF=0.26
+22:29:47 [INFO ] scheduler: ▶ 播放: "哇这两边打得难舍难分呢，宝贝们猜猜谁会赢呀？..." (surprised)
+22:29:48 [DEBUG] tts: synthesized 17 chars -> 4.5s, 首包=522ms, RTF=0.28
+22:29:54 [INFO ] scheduler: ▶ 播放: "酸奶你给我拿好的呀来了呀，欢迎欢迎..." (default_smile)
+22:29:56 [DEBUG] tts: synthesized 14 chars -> 4.5s, 首包=508ms, RTF=0.27
+22:30:00 [INFO ] scheduler: ▶ 播放: "哦三角洲兼蛋仔来啦，快坐快坐..." (default_smile)
+22:30:02 [DEBUG] tts: synthesized 17 chars -> 5.3s, 首包=574ms, RTF=0.27
+22:30:06 [INFO ] scheduler: ▶ 播放: "AAA免死金牌批发来了呀，欢迎欢迎..." (default_smile)
+22:30:07 [DEBUG] tts: synthesized 11 chars -> 3.4s, 首包=501ms, RTF=0.29
+22:30:12 [INFO ] scheduler: ▶ 播放: "欢迎zyb66679~..." (default_smile)
+22:30:18 [DEBUG] tts: synthesized 8 chars -> 2.5s, 首包=520ms, RTF=0.38
+22:30:19 [DEBUG] tts: synthesized 7 chars -> 1.9s, 首包=492ms, RTF=0.40
+22:30:21 [INFO ] scheduler: ▶ 播放: "欢迎外道耋像~..." (default_smile)
+22:30:22 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=503ms, RTF=0.31
+22:30:24 [INFO ] scheduler: ▶ 播放: "团雀小王！好久不见呀..." (default_smile)
+22:30:26 [DEBUG] tts: synthesized 12 chars -> 4.5s, 首包=499ms, RTF=0.27
+22:30:29 [INFO ] scheduler: ▶ 播放: "哦勿我莫离来啦，快坐快坐..." (default_smile)
+22:30:35 [DEBUG] tts: synthesized 7 chars -> 1.8s, 首包=481ms, RTF=0.39
+22:30:36 [DEBUG] tts: synthesized 11 chars -> 3.6s, 首包=472ms, RTF=0.29
+22:30:37 [INFO ] scheduler: ▶ 播放: "哦纳西崩来啦，快坐快坐..." (default_smile)
+22:30:39 [DEBUG] tts: synthesized 25 chars -> 5.3s, 首包=529ms, RTF=0.27
+22:30:42 [INFO ] scheduler: ▶ 播放: "哎bili_18072966130来啦~今天怎么样..." (default_smile)
+22:30:46 [DEBUG] tts: synthesized 32 chars -> 6.7s, 首包=503ms, RTF=0.25
+22:30:48 [INFO ] scheduler: ▶ 播放: "宝贝们看~ Tempest哥哥这波绕后太帅了，打得..." (happy)
+22:30:49 [DEBUG] tts: synthesized 7 chars -> 2.0s, 首包=526ms, RTF=0.46
+22:30:56 [INFO ] scheduler: ▶ 播放: "无从作答来啦~..." (default_smile)
+22:30:57 [DEBUG] tts: synthesized 8 chars -> 2.1s, 首包=516ms, RTF=0.39
+22:30:59 [INFO ] scheduler: ▶ 播放: "榴莲想吃肉来啦~..." (default_smile)
+22:31:00 [DEBUG] tts: synthesized 14 chars -> 3.2s, 首包=518ms, RTF=0.33
+22:31:02 [INFO ] scheduler: ▶ 播放: "G104104104晚上好~..." (default_smile)
+22:31:03 [DEBUG] tts: synthesized 6 chars -> 1.8s, 首包=717ms, RTF=0.53
+22:31:06 [INFO ] scheduler: ▶ 播放: "豆铣礼来啦~..." (default_smile)
+22:31:11 [DEBUG] tts: synthesized 19 chars -> 4.5s, 首包=503ms, RTF=1.10
+22:31:12 [INFO ] scheduler: ▶ 播放: "欢迎bili_14950671456~..." (default_smile)
+22:31:13 [DEBUG] tts: synthesized 7 chars -> 2.9s, 首包=474ms, RTF=0.31
+22:31:18 [INFO ] scheduler: ▶ 播放: "呀，抵音回来了..." (default_smile)
+22:31:19 [DEBUG] tts: synthesized 6 chars -> 2.1s, 首包=477ms, RTF=0.37
+22:31:22 [INFO ] scheduler: ▶ 播放: "徐涵硕来啦~..." (default_smile)
+22:31:24 [DEBUG] tts: synthesized 11 chars -> 3.2s, 首包=670ms, RTF=0.58
+22:31:26 [INFO ] scheduler: ▶ 播放: "哦又十个来啦，快坐快坐..." (default_smile)
+22:31:27 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=515ms, RTF=0.33
+22:31:30 [INFO ] scheduler: ▶ 播放: "本体不失！好久不见呀..." (default_smile)
+22:31:31 [DEBUG] tts: synthesized 14 chars -> 3.6s, 首包=488ms, RTF=0.30
+22:31:35 [INFO ] scheduler: ▶ 播放: "呀，ytxmobile回来了..." (default_smile)
+22:31:41 [DEBUG] tts: synthesized 9 chars -> 2.5s, 首包=553ms, RTF=0.37
+22:31:42 [DEBUG] tts: synthesized 15 chars -> 4.6s, 首包=475ms, RTF=0.26
+22:31:44 [INFO ] scheduler: ▶ 播放: "哎月喜欢吃柠檬来啦~今天怎么样..." (default_smile)
+22:31:49 [DEBUG] tts: synthesized 21 chars -> 5.7s, 首包=660ms, RTF=0.30
+22:31:50 [INFO ] scheduler: ▶ 播放: "哇这蓝队输出这么高，红队你们得加把劲了呀！..." (surprised)
+22:31:51 [DEBUG] tts: synthesized 15 chars -> 3.8s, 首包=489ms, RTF=0.28
+22:31:56 [INFO ] scheduler: ▶ 播放: "被迫改名的超市来了呀，欢迎欢迎..." (default_smile)
+22:31:57 [DEBUG] tts: synthesized 6 chars -> 2.0s, 首包=508ms, RTF=0.41
+22:32:01 [INFO ] scheduler: ▶ 播放: "松柿子来啦~..." (default_smile)
+22:32:02 [DEBUG] tts: synthesized 8 chars -> 2.4s, 首包=495ms, RTF=0.35
+22:32:04 [INFO ] scheduler: ▶ 播放: "欢迎淡水皮皮鲲~..." (default_smile)
+22:32:05 [DEBUG] tts: synthesized 11 chars -> 3.2s, 首包=479ms, RTF=0.30
+22:32:08 [INFO ] scheduler: ▶ 播放: "我是龙哥工作室晚上好~..." (default_smile)
+22:32:09 [DEBUG] tts: synthesized 10 chars -> 3.0s, 首包=515ms, RTF=0.33
+22:32:12 [INFO ] scheduler: ▶ 播放: "呀，尊贵的白字回来了..." (default_smile)
+22:32:13 [DEBUG] tts: synthesized 7 chars -> 2.8s, 首包=504ms, RTF=0.33
+22:32:16 [INFO ] scheduler: ▶ 播放: "欢迎苏尔南1~..." (default_smile)
+22:32:17 [DEBUG] tts: synthesized 9 chars -> 3.3s, 首包=475ms, RTF=0.31
+22:32:19 [INFO ] scheduler: ▶ 播放: "外星草！好久不见呀..." (default_smile)
+22:32:20 [DEBUG] tts: synthesized 9 chars -> 2.6s, 首包=475ms, RTF=0.32
+22:32:24 [INFO ] scheduler: ▶ 播放: "二次元长住户来啦~..." (default_smile)
+22:32:26 [DEBUG] tts: synthesized 15 chars -> 4.8s, 首包=557ms, RTF=0.29
+22:32:28 [INFO ] scheduler: ▶ 播放: "哦kpl0377来啦，快坐快坐..." (default_smile)
+22:32:29 [DEBUG] tts: synthesized 11 chars -> 4.2s, 首包=490ms, RTF=0.28
+22:32:33 [INFO ] scheduler: ▶ 播放: "土豆吧唧酱！好久不见呀..." (default_smile)
+22:32:34 [DEBUG] tts: synthesized 13 chars -> 3.0s, 首包=486ms, RTF=0.31
+22:32:38 [INFO ] scheduler: ▶ 播放: "公正之咨询师冲浪1晚上好~..." (default_smile)
+22:32:39 [DEBUG] tts: synthesized 6 chars -> 1.7s, 首包=488ms, RTF=0.40
+22:32:43 [INFO ] scheduler: ▶ 播放: "龙共常来啦~..." (default_smile)
+22:32:46 [DEBUG] tts: synthesized 24 chars -> 6.0s, 首包=530ms, RTF=0.28
+22:32:48 [INFO ] scheduler: ▶ 播放: "哇，老哥你今天居然在认真打人？太阳打西边出来了？..." (surprised)
+22:32:49 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=471ms, RTF=0.31
+22:32:55 [INFO ] scheduler: ▶ 播放: "欢迎全网最嚣张之人~..." (default_smile)
+22:32:56 [DEBUG] tts: synthesized 7 chars -> 2.1s, 首包=513ms, RTF=0.41
+22:32:58 [INFO ] scheduler: ▶ 播放: "秦是洋晚上好~..." (default_smile)
+22:32:59 [DEBUG] tts: synthesized 16 chars -> 3.3s, 首包=477ms, RTF=0.30
+22:33:01 [INFO ] scheduler: ▶ 播放: "曲斋沙饰理Eternal晚上好~..." (default_smile)
+22:33:02 [DEBUG] tts: synthesized 11 chars -> 3.0s, 首包=485ms, RTF=0.30
+22:33:06 [INFO ] scheduler: ▶ 播放: "羊村村长你慢爷晚上好~..." (default_smile)
+22:33:07 [DEBUG] tts: synthesized 11 chars -> 3.6s, 首包=497ms, RTF=0.30
+22:33:11 [INFO ] scheduler: ▶ 播放: "红色枣饭Pie晚上好~..." (default_smile)
+22:33:12 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=545ms, RTF=0.34
+22:33:15 [INFO ] scheduler: ▶ 播放: "呀，久而久-回来了..." (default_smile)
+22:33:16 [DEBUG] tts: synthesized 10 chars -> 2.5s, 首包=652ms, RTF=0.43
+22:33:19 [INFO ] scheduler: ▶ 播放: "现在是懒羊羊晚上好~..." (default_smile)
+22:33:20 [DEBUG] tts: synthesized 23 chars -> 5.8s, 首包=501ms, RTF=0.27
+22:33:22 [INFO ] scheduler: ▶ 播放: "哎我太帅了1234567890来啦~今天怎么样..." (default_smile)
+22:33:24 [DEBUG] tts: synthesized 13 chars -> 3.6s, 首包=484ms, RTF=0.29
+22:33:29 [INFO ] scheduler: ▶ 播放: "哎看有小鬼来啦~今天怎么样..." (default_smile)
+22:33:31 [DEBUG] tts: synthesized 20 chars -> 4.8s, 首包=589ms, RTF=0.29
+22:33:34 [INFO ] scheduler: ▶ 播放: "bili_98351782065晚上好~..." (default_smile)
+22:33:35 [DEBUG] tts: synthesized 14 chars -> 3.5s, 首包=471ms, RTF=0.29
+22:33:40 [INFO ] scheduler: ▶ 播放: "遗憾如何消散来了呀，欢迎欢迎..." (default_smile)
+22:33:41 [DEBUG] tts: synthesized 14 chars -> 3.7s, 首包=466ms, RTF=0.29
+22:33:45 [INFO ] scheduler: ▶ 播放: "哦宇智波老疯狗来啦，快坐快坐..." (default_smile)
+22:33:50 [DEBUG] tts: synthesized 19 chars -> 5.9s, 首包=498ms, RTF=0.26
+22:33:51 [INFO ] scheduler: ▶ 播放: "哇，天使姐姐牵着你飞呢！这配合好甜蜜呀..." (happy)
+22:33:52 [DEBUG] tts: synthesized 12 chars -> 3.1s, 首包=526ms, RTF=0.33
+22:33:58 [INFO ] scheduler: ▶ 播放: "小饼区别喂我赤石了来啦~..." (default_smile)
+22:34:00 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=545ms, RTF=0.26
+22:34:02 [INFO ] scheduler: ▶ 播放: "哦bili_96120501958来啦，快坐快坐..." (default_smile)
+22:34:03 [DEBUG] tts: synthesized 11 chars -> 3.4s, 首包=488ms, RTF=0.30
+22:34:09 [INFO ] scheduler: ▶ 播放: "多拉宙木斯！好久不见呀..." (default_smile)
+22:34:10 [DEBUG] tts: synthesized 14 chars -> 3.3s, 首包=484ms, RTF=0.30
+22:34:13 [INFO ] scheduler: ▶ 播放: "哦来宾的一个人来啦，快坐快坐..." (default_smile)
+22:34:15 [DEBUG] tts: synthesized 8 chars -> 2.0s, 首包=938ms, RTF=0.71
+22:34:17 [INFO ] scheduler: ▶ 播放: "我不咬人4来啦~..." (default_smile)
+22:34:19 [DEBUG] tts: synthesized 12 chars -> 3.6s, 首包=499ms, RTF=0.29
+22:34:21 [INFO ] scheduler: ▶ 播放: "泪水不会拂去！好久不见呀..." (default_smile)
+22:34:22 [DEBUG] tts: synthesized 24 chars -> 5.9s, 首包=488ms, RTF=0.26
+22:34:26 [INFO ] scheduler: ▶ 播放: "bili_70827595894来了呀，欢迎欢迎..." (default_smile)
+22:34:27 [DEBUG] tts: synthesized 13 chars -> 4.2s, 首包=505ms, RTF=0.31
+22:34:33 [INFO ] scheduler: ▶ 播放: "机器鸟RB来了呀，欢迎欢迎..." (default_smile)
+22:34:39 [DEBUG] tts: synthesized 55 chars -> 12.5s, 首包=499ms, RTF=0.24
+22:34:39 [INFO ] scheduler: ▶ 播放: "喂喂喂，这位宝贝，AI主播怎么啦！AI主播也会笑会..." (tsundere)
+22:34:41 [DEBUG] tts: synthesized 16 chars -> 6.3s, 首包=526ms, RTF=0.26
+22:34:53 [INFO ] scheduler: ▶ 播放: "第135789小新号！好久不见呀..." (default_smile)
+22:34:57 [DEBUG] tts: synthesized 17 chars -> 3.5s, 首包=516ms, RTF=0.31
+22:35:01 [INFO ] scheduler: ▶ 播放: "哎呀这一箭过去，是想一穿二吗老哥？..." (surprised)
+22:35:02 [DEBUG] tts: synthesized 10 chars -> 3.2s, 首包=514ms, RTF=0.32
+22:35:06 [INFO ] scheduler: ▶ 播放: "呀，赛亚-az回来了..." (default_smile)
+22:35:07 [DEBUG] tts: synthesized 20 chars -> 3.2s, 首包=500ms, RTF=0.32
+22:35:10 [INFO ] scheduler: ▶ 播放: "哦OneiroShadow来啦，快坐快坐..." (default_smile)
+22:35:12 [DEBUG] tts: synthesized 25 chars -> 5.9s, 首包=490ms, RTF=0.26
+22:35:14 [INFO ] scheduler: ▶ 播放: "哎bili_41638448760来啦~今天怎么样..." (default_smile)
+22:35:16 [DEBUG] tts: synthesized 25 chars -> 6.7s, 首包=543ms, RTF=0.26
+22:35:21 [INFO ] scheduler: ▶ 播放: "bili_3493134512163378晚上好~..." (default_smile)
+22:35:52 [DEBUG] tts: synthesized 20 chars -> 6.5s, 首包=516ms, RTF=0.26
+22:35:53 [DEBUG] tts: synthesized 13 chars -> 2.8s, 首包=503ms, RTF=0.33
+22:35:59 [INFO ] scheduler: ▶ 播放: "fishskin鱼鳞来啦~..." (default_smile)
+22:36:11 [DEBUG] tts: synthesized 12 chars -> 2.6s, 首包=503ms, RTF=0.34
+22:36:22 [DEBUG] tts: synthesized 17 chars -> 2.9s, 首包=487ms, RTF=0.31
+22:36:51 [DEBUG] tts: synthesized 25 chars -> 6.1s, 首包=487ms, RTF=0.24
+22:36:54 [DEBUG] tts: synthesized 20 chars -> 5.7s, 首包=491ms, RTF=0.28
+22:36:59 [INFO ] scheduler: ▶ 播放: "bili_18072966130晚上好~..." (default_smile)
+22:37:05 [DEBUG] tts: synthesized 16 chars -> 2.0s, 首包=870ms, RTF=0.57
+22:37:06 [INFO ] scheduler: ▶ 播放: "欢迎阿King--------~..." (default_smile)
+22:37:22 [DEBUG] tts: synthesized 14 chars -> 6.5s, 首包=501ms, RTF=0.25
+22:37:23 [DEBUG] tts: synthesized 11 chars -> 3.0s, 首包=477ms, RTF=0.30
+22:37:30 [INFO ] scheduler: ▶ 播放: "呀，白浅----回来了..." (default_smile)
+22:37:31 [DEBUG] tts: synthesized 10 chars -> 2.3s, 首包=542ms, RTF=0.38
+22:37:34 [INFO ] scheduler: ▶ 播放: "欢迎阿侬酱anon~..." (default_smile)
+22:37:35 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=514ms, RTF=0.34
+22:37:38 [INFO ] scheduler: ▶ 播放: "无敌的铭哥66来啦~..." (default_smile)
+22:37:40 [DEBUG] tts: synthesized 12 chars -> 4.1s, 首包=492ms, RTF=0.27
+22:37:42 [INFO ] scheduler: ▶ 播放: "哦电打火石来啦，快坐快坐..." (default_smile)
+22:37:43 [DEBUG] tts: synthesized 15 chars -> 1.8s, 首包=498ms, RTF=0.40
+22:37:47 [INFO ] scheduler: ▶ 播放: "欢迎happycoconut~..." (default_smile)
+22:37:50 [DEBUG] tts: synthesized 16 chars -> 4.3s, 首包=554ms, RTF=0.30
+22:37:54 [DEBUG] tts: synthesized 21 chars -> 5.4s, 首包=617ms, RTF=0.40
+22:37:56 [INFO ] scheduler: ▶ 播放: "哇，这个空中目标打得还挺准嘛！有点东西哦~..." (surprised)
+22:38:22 [DEBUG] tts: synthesized 6 chars -> 1.7s, 首包=489ms, RTF=0.41
+22:38:31 [DEBUG] tts: synthesized 24 chars -> 6.5s, 首包=560ms, RTF=0.26
+22:38:38 [DEBUG] tts: synthesized 14 chars -> 3.5s, 首包=516ms, RTF=0.30
+22:38:39 [INFO ] scheduler: ▶ 播放: "芷枫sama来了呀，欢迎欢迎..." (default_smile)
+22:38:40 [DEBUG] tts: synthesized 17 chars -> 5.2s, 首包=494ms, RTF=0.26
+22:38:43 [INFO ] scheduler: ▶ 播放: "哦猛戳瞎子那只眼眼眼来啦，快坐快坐..." (default_smile)
+22:38:44 [DEBUG] tts: synthesized 9 chars -> 2.9s, 首包=558ms, RTF=0.36
+22:38:49 [INFO ] scheduler: ▶ 播放: "呀，成哥不诚回来了..." (default_smile)
+22:38:50 [DEBUG] tts: synthesized 6 chars -> 2.0s, 首包=510ms, RTF=0.43
+22:38:54 [INFO ] scheduler: ▶ 播放: "欢迎落宠仙~..." (default_smile)
+22:39:02 [DEBUG] tts: synthesized 15 chars -> 4.0s, 首包=630ms, RTF=0.33
+22:39:03 [DEBUG] tts: synthesized 15 chars -> 4.0s, 首包=514ms, RTF=0.30
+22:39:07 [INFO ] scheduler: ▶ 播放: "又是爱SeulGi的一天来啦~..." (default_smile)
+22:39:08 [DEBUG] tts: synthesized 10 chars -> 2.1s, 首包=523ms, RTF=0.40
+22:39:12 [INFO ] scheduler: ▶ 播放: "呀，der橙汁回来了..." (default_smile)
+22:39:14 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=586ms, RTF=0.28
+22:39:15 [INFO ] scheduler: ▶ 播放: "bili_82834319413来了呀，欢迎欢迎..." (default_smile)
+22:39:24 [DEBUG] tts: synthesized 9 chars -> 3.2s, 首包=496ms, RTF=0.30
+22:39:53 [DEBUG] tts: synthesized 10 chars -> 3.6s, 首包=497ms, RTF=0.29
+22:39:56 [DEBUG] tts: synthesized 24 chars -> 5.4s, 首包=494ms, RTF=0.25
+22:39:58 [INFO ] scheduler: ▶ 播放: "哎呀选了天使，今天想当个混子奶妈，躺赢多舒服呀~..." (default_smile)
+22:40:21 [DEBUG] tts: synthesized 14 chars -> 3.1s, 首包=583ms, RTF=0.35
+22:40:29 [DEBUG] tts: synthesized 12 chars -> 3.1s, 首包=555ms, RTF=0.37
+22:40:58 [DEBUG] tts: synthesized 23 chars -> 6.7s, 首包=509ms, RTF=0.25
+22:41:27 [DEBUG] tts: synthesized 9 chars -> 3.6s, 首包=517ms, RTF=0.30
+22:41:33 [DEBUG] tts: synthesized 8 chars -> 2.0s, 首包=609ms, RTF=0.45
+22:41:34 [DEBUG] tts: synthesized 15 chars -> 3.4s, 首包=548ms, RTF=0.31
+22:41:37 [INFO ] scheduler: ▶ 播放: "哎Hipxel来啦~今天怎么样..." (default_smile)
+22:41:38 [DEBUG] tts: synthesized 20 chars -> 5.9s, 首包=521ms, RTF=0.26
+22:41:41 [INFO ] scheduler: ▶ 播放: "bili_16625878468晚上好~..." (default_smile)
+22:41:48 [DEBUG] tts: synthesized 21 chars -> 5.2s, 首包=492ms, RTF=0.26
+22:41:49 [INFO ] scheduler: ▶ 播放: "呀，bili_73505733171回来了..." (default_smile)
+22:41:50 [DEBUG] tts: synthesized 21 chars -> 4.8s, 首包=530ms, RTF=0.29
+22:41:55 [INFO ] scheduler: ▶ 播放: "呀，bili_42428092027回来了..." (default_smile)
+22:42:07 [DEBUG] tts: synthesized 59 chars -> 13.9s, 首包=731ms, RTF=0.63
+22:42:08 [INFO ] scheduler: ▶ 播放: "你好呀~是新来的宝贝吗？这个ID风格有点像我哥哥那..." (happy)
+22:42:13 [DEBUG] tts: synthesized 28 chars -> 6.0s, 首包=841ms, RTF=0.44
+22:42:24 [INFO ] scheduler: ▶ 播放: "哎呀半藏和源氏这对兄弟又凑一块了，真是相爱相杀的一..." (default_smile)
+22:42:25 [DEBUG] tts: synthesized 8 chars -> 1.8s, 首包=553ms, RTF=0.46
+22:42:31 [INFO ] scheduler: ▶ 播放: "欢迎空明box~..." (default_smile)
+22:43:01 [DEBUG] tts: synthesized 24 chars -> 6.2s, 首包=530ms, RTF=0.26
+22:43:43 [DEBUG] tts: synthesized 19 chars -> 5.1s, 首包=514ms, RTF=0.27
+22:44:03 [DEBUG] tts: synthesized 27 chars -> 6.4s, 首包=594ms, RTF=0.25
+22:44:20 [DEBUG] tts: synthesized 10 chars -> 2.9s, 首包=502ms, RTF=0.34
+22:45:06 [DEBUG] tts: synthesized 56 chars -> 10.8s, 首包=522ms, RTF=0.24
+22:46:06 [DEBUG] tts: synthesized 27 chars -> 6.7s, 首包=489ms, RTF=0.24
+22:46:30 [DEBUG] tts: synthesized 15 chars -> 4.6s, 首包=490ms, RTF=0.26
+22:47:08 [DEBUG] tts: synthesized 21 chars -> 5.3s, 首包=512ms, RTF=0.28
+22:50:47 [DEBUG] tts: synthesized 18 chars -> 4.9s, 首包=493ms, RTF=0.27
+22:52:51 [DEBUG] tts: synthesized 23 chars -> 5.3s, 首包=810ms, RTF=0.33
+22:53:51 [DEBUG] tts: synthesized 20 chars -> 5.5s, 首包=505ms, RTF=0.27
+22:54:54 [DEBUG] tts: synthesized 32 chars -> 6.9s, 首包=514ms, RTF=0.25
+22:55:55 [DEBUG] tts: synthesized 26 chars -> 6.4s, 首包=513ms, RTF=0.26
+22:56:56 [DEBUG] tts: synthesized 22 chars -> 4.6s, 首包=511ms, RTF=0.28
+22:57:57 [DEBUG] tts: synthesized 19 chars -> 4.8s, 首包=512ms, RTF=0.29
+22:58:20 [DEBUG] tts: synthesized 19 chars -> 5.0s, 首包=490ms, RTF=0.26
+22:58:59 [DEBUG] tts: synthesized 25 chars -> 6.7s, 首包=647ms, RTF=0.26
+22:59:39 [DEBUG] tts: synthesized 12 chars -> 3.2s, 首包=682ms, RTF=0.37
+23:00:00 [DEBUG] tts: synthesized 35 chars -> 7.9s, 首包=619ms, RTF=0.25
+23:02:04 [DEBUG] tts: synthesized 17 chars -> 5.6s, 首包=630ms, RTF=0.29
+23:03:05 [DEBUG] tts: synthesized 25 chars -> 5.8s, 首包=729ms, RTF=0.29
+23:05:00 [DEBUG] tts: synthesized 19 chars -> 3.6s, 首包=679ms, RTF=0.34
+23:05:06 [DEBUG] tts: synthesized 19 chars -> 5.0s, 首包=629ms, RTF=0.29
+23:05:07 [INFO ] scheduler: ▶ 播放: "哇，源氏等级这么高，看来是个老忍者了~..." (happy)
+23:05:27 [DEBUG] tts: synthesized 48 chars -> 10.4s, 首包=511ms, RTF=0.25
+23:06:09 [DEBUG] tts: synthesized 43 chars -> 9.8s, 首包=494ms, RTF=0.24
+23:07:11 [DEBUG] tts: synthesized 33 chars -> 7.4s, 首包=538ms, RTF=0.28
+23:08:12 [DEBUG] tts: synthesized 24 chars -> 6.1s, 首包=643ms, RTF=0.27
+23:09:14 [DEBUG] tts: synthesized 26 chars -> 5.3s, 首包=676ms, RTF=0.30
+23:10:15 [DEBUG] tts: synthesized 22 chars -> 5.5s, 首包=540ms, RTF=0.27
+23:11:17 [DEBUG] tts: synthesized 28 chars -> 6.9s, 首包=495ms, RTF=0.24
+23:12:19 [DEBUG] tts: synthesized 22 chars -> 6.8s, 首包=629ms, RTF=0.26
+23:14:21 [DEBUG] tts: synthesized 18 chars -> 5.2s, 首包=484ms, RTF=0.25
+23:15:23 [DEBUG] tts: synthesized 24 chars -> 6.4s, 首包=692ms, RTF=0.28
+23:16:24 [DEBUG] tts: synthesized 22 chars -> 6.8s, 首包=639ms, RTF=0.27
+23:18:28 [DEBUG] tts: synthesized 24 chars -> 7.0s, 首包=627ms, RTF=0.27
+23:19:31 [DEBUG] tts: synthesized 79 chars -> 18.1s, 首包=618ms, RTF=0.26
+23:20:30 [DEBUG] tts: synthesized 27 chars -> 6.0s, 首包=649ms, RTF=0.28
+23:21:32 [DEBUG] tts: synthesized 25 chars -> 6.3s, 首包=618ms, RTF=0.27
+23:21:56 [DEBUG] tts: synthesized 19 chars -> 3.6s, 首包=789ms, RTF=0.37
+23:22:33 [DEBUG] tts: synthesized 34 chars -> 7.0s, 首包=702ms, RTF=0.28
+23:22:33 [WARNING] vts: 切表情失败: surprised.exp3.json
+23:23:51 [DEBUG] tts: synthesized 343 chars -> 79.2s, 首包=696ms, RTF=0.23
+23:24:24 [WARNING] dashboard: ⚠️ VTS 未连接，跳过表情
+23:25:09 [DEBUG] tts: synthesized 30 chars -> 6.7s, 首包=720ms, RTF=0.29
+23:25:30 [DEBUG] tts: synthesized 16 chars -> 4.5s, 首包=625ms, RTF=0.31
+23:26:33 [DEBUG] tts: synthesized 25 chars -> 6.5s, 首包=505ms, RTF=0.25
+23:27:33 [DEBUG] tts: synthesized 18 chars -> 4.3s, 首包=485ms, RTF=0.28
+23:28:35 [DEBUG] tts: synthesized 24 chars -> 5.7s, 首包=618ms, RTF=0.27
+23:29:36 [DEBUG] tts: synthesized 28 chars -> 6.8s, 首包=686ms, RTF=0.27
+23:30:38 [DEBUG] tts: synthesized 38 chars -> 8.4s, 首包=701ms, RTF=0.28
+23:31:27 [DEBUG] tts: synthesized 25 chars -> 5.7s, 首包=750ms, RTF=0.29
+23:31:41 [DEBUG] tts: synthesized 21 chars -> 5.9s, 首包=739ms, RTF=0.29
+23:33:41 [DEBUG] tts: synthesized 26 chars -> 6.2s, 首包=538ms, RTF=0.25
+23:34:43 [DEBUG] tts: synthesized 23 chars -> 5.7s, 首包=705ms, RTF=0.29
+23:36:45 [DEBUG] tts: synthesized 19 chars -> 5.1s, 首包=499ms, RTF=0.25
+23:37:48 [DEBUG] tts: synthesized 17 chars -> 4.8s, 首包=688ms, RTF=0.31
+23:38:49 [DEBUG] tts: synthesized 19 chars -> 4.4s, 首包=491ms, RTF=0.27
+23:40:07 [DEBUG] tts: synthesized 314 chars -> 70.5s, 首包=780ms, RTF=0.23
