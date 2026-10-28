@@ -1,4 +1,4 @@
-"""红审 v3：λ=12 批量保真补测 + 批级 Wilson 置信区间（含 λ=24 既有结果重算 CI）。
+"""补充分析：λ=12 批量保真补测 + 批级 Wilson 置信区间（含 λ=24 既有结果重算 CI）。
 
 λ=12_drift 种子42 主臂（full_merge；变体臂在该负载下决策逐种子相同，见 bucket_breakdown.md），
 批量 prompt 走真实 DeepSeek 生成（ApiCache merge_gen，与 merge_fidelity 同命名空间）。
@@ -91,7 +91,7 @@ async def main():
     w_tp = wilson(tot_tp_h, tot_tp_n)
 
     lines = [
-        "# λ=12 批量保真补测 + 批级置信区间（红审 v3）",
+        "# λ=12 批量保真补测 + 批级置信区间（补充分析）",
         "",
         f"- 流：`{SRC}` 种子42 主臂 full_merge（变体臂 λ=12 决策与其逐条相同，不重复测）",
         "- 方法同 merge_fidelity_check.md：批量 prompt 真实 DeepSeek 生成（merge_gen 缓存），ID/话题同口径",

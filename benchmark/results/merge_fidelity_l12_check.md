@@ -1,4 +1,4 @@
-# λ=12 批量保真补测 + 批级置信区间（红审 v3）
+# λ=12 批量保真补测 + 批级置信区间
 
 - 流：`ovl_l12_drift` 种子42 主臂 full_merge（变体臂 λ=12 决策与其逐条相同，不重复测）
 - 方法同 merge_fidelity_check.md：批量 prompt 真实 DeepSeek 生成（merge_gen 缓存），ID/话题同口径

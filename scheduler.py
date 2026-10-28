@@ -19,7 +19,7 @@ from score_queue import ScoreQueue, QueueItem
 from scorer import score_danmaku, score_gift
 from ai_chat import ChatBot
 from entry_welcome import random_welcome
-from config import VTS_SWAY, VTS_IDLE_EAT_ID, VTS_IDLE_SLEEP_ID, VTS_IDLE_EAT_INTERVAL, VTS_IDLE_SLEEP_AFTER, DEEPSEEK_MODEL
+from config import VTS_SWAY, VTS_IDLE_EAT_INTERVAL, VTS_IDLE_SLEEP_AFTER, DEEPSEEK_MODEL, UNIFIED_LLM
 from persona import SYSTEM_PROMPT
 from reply_indicator import update_top3, show_subtitle, clear_subtitle, clear_all
 from logger import get_logger
@@ -39,15 +39,15 @@ Q2_TO_Q3_WAIT = 20
 Q2D_BATCH_MIN = 4    # Q2-D 积压 ≥4 条 → drain 全部，一次批量总结
 Q2G_BATCH_MIN = 3    # Q2-G 积压 ≥3 条 → drain 全部，一次批量感谢
 Q3D_BATCH_MIN = 8    # full_merge_q3 变体臂：Q3-D 积压 ≥8 → 积压触发合并（主臂 Q3 保持级联门控）
-Q3_BATCH_CAP = 10    # Q3 drain-all 每批上限（超出留队下批，红审4.5 P0 写死）
-BATCH_PRECISE_FLOOR = 60   # 抢占批量不卷 ≥60（高分桶）弹幕，留给升舱/Q1 精回（H6 保护）
+Q3_BATCH_CAP = 10    # Q3 drain-all 每批上限，超出留队下批
+BATCH_PRECISE_FLOOR = 60   # 抢占批量不卷 ≥60（高分桶）弹幕，留给升舱/Q1 精回
 # Q3 主臂：进入 Q3 分支且非空即 drain（每批 ≤10 条）
 
 # 句间停顿（秒）— 模拟真人思考
 REPLY_GAP_MIN = 0.5
 REPLY_GAP_MAX = 1.5
 
-# 回复播放时长换算（字/秒），无 TTS 时按字数估时长；校准系数见 preregistration §8.2
+# 回复播放时长换算（字/秒），无 TTS 时按字数估时长；校准系数由语音实测确定
 REPLY_CHARS_PER_SEC = 5.0
 
 
@@ -58,16 +58,24 @@ class Scheduler:
                  time_fn=None, score_fn=None, reply_fn=None,
                  on_decision=None, on_promote=None, fixed_threshold=None,
                  disable_commit=False, batch_merge=True,
-                 batch_q2d_min=None, batch_q2g_min=None, batch_q3_trigger=None):
+                 batch_q2d_min=None, batch_q2g_min=None, batch_q3_trigger=None,
+                 unified_llm=None, avatar=None, duration_fn=None):
         self.chatbot = chatbot
         self.tts = tts
-        self.vts = vts  # VTSClient，已连接；None 则跳过表情
+        self.avatar = avatar if avatar is not None else vts  # vts 参数仅为旧入口兼容
         self.speech_client = speech_client  # RealtimeClient（端到端语音），非 None 时替代 chatbot+tts
 
         # ── 可注入接口（离线回放/实验用，直播时全部为 None 走默认）──
         self._now = time_fn or time.time          # 时间源：回放时注入虚拟时钟
         self._score_fn = score_fn or score_danmaku  # 弹幕评分：回放时注入缓存版
         self._reply_fn = reply_fn                  # 回复生成：None 时用 chatbot.reply
+        self._duration_fn = duration_fn            # 无 TTS 的离线服务时间模型 fn(item, reply)
+        use_unified = UNIFIED_LLM if unified_llm is None else unified_llm
+        self._score_reply_fn = (
+            getattr(chatbot, "score_and_reply", None)
+            if use_unified and chatbot and score_fn is None and reply_fn is None
+            else None
+        )
         self.on_decision = on_decision             # 决策回调 fn(item, reply, ts, duration)
         self.on_promote = on_promote               # 升舱回调 fn(kind, item, threshold, ts)
         self._fixed_threshold = fixed_threshold    # 非 None 时弹幕升舱门槛固定，关闭滑动窗口
@@ -89,8 +97,9 @@ class Scheduler:
         self.q3_g = ScoreQueue(Q3_CAP, "Q3-G")
 
         # 流水线状态
-        self.playing_until = 0.0               # 当前播放结束时间戳
-        self.next_ready: tuple | None = None   # (audio, reply_text) 已合成待播放
+        self.playing_until = 0.0               # 非流式播放结束时间戳；流式仅作估算展示
+        self.current_playback = None            # 有真实完成状态的流式播放
+        self.next_ready: tuple | None = None   # (item, audio/handle, reply, emotion)
         self.preparing: asyncio.Task | None = None  # 后台准备任务
 
         # 端到端语音模式
@@ -137,16 +146,16 @@ class Scheduler:
                 "认真": "thinking", "惊讶": "surprised", "不悦": "tsundere",
                 "普通": "default_smile",
             }
-            vts_key = tag_map.get(emotion, "default_smile")
-            log.info(f"🎭 表情回调触发: {emotion} → {vts_key}, vts={self.vts is not None}, ready={self.vts.ready if self.vts else False}")
-            if self.vts and self.vts.ready:
+            emotion_key = tag_map.get(emotion, "default_smile")
+            log.info(f"🎭 表情回调: {emotion} → {emotion_key}")
+            if self.avatar and self.avatar.ready:
                 try:
-                    await self.vts.switch_expression(vts_key)
-                    log.info(f"🎭 表情切换成功: {vts_key}")
+                    await self.avatar.set_emotion(emotion_key)
+                    log.info(f"🎭 表情切换成功: {emotion_key}")
                 except Exception as e:
                     log.error(f"🎭 表情切换失败: {e}")
             else:
-                log.warning(f"🎭 VTS 不可用，跳过表情切换")
+                log.warning("🎭 Avatar 不可用，跳过表情切换")
 
         async def _on_text(text: str):
             show_subtitle(text)
@@ -255,32 +264,41 @@ class Scheduler:
         log.info(f"🚪 [{username}] 进入直播间 → {dest}")
         self._update_indicator()
 
+    async def _score_with_draft(self, username: str, text: str, meta: dict | None) -> QueueItem:
+        if self._score_reply_fn is not None:
+            try:
+                result = await self._score_reply_fn(username, text)
+            except Exception as e:
+                log.warning(f"合一调用异常，回退独立评分: {e}")
+                result = None
+            if result is not None:
+                score, reply, emotion = result
+                self._feed_danmaku_score(score)
+                return QueueItem(score=score, item_type="danmaku", username=username,
+                                 text=text, reply=reply, emotion=emotion, meta=meta)
+        score = await self._score_fn(text)
+        self._feed_danmaku_score(score)
+        return QueueItem(score=score, item_type="danmaku", username=username,
+                         text=text, meta=meta)
+
     async def enqueue_danmaku(self, username: str, text: str, meta: dict | None = None):
-        """弹幕 → DS打分 → 入队。管线空闲时评分前就占坑，防竞速。
-        meta: 回放注入的事件溯源（id/到达时间），随 QueueItem 携带"""
-        # ── 评分前就占坑 ──
+        """生产模式一次生成评分与回复草稿；实验注入仍走独立评分。"""
         self.stats["enqueue_danmaku"] += 1
         if self._should_commit():
             self.stats["commit"] += 1
             self._committed_reserved = True
             try:
-                score = await self._score_fn(text)
+                item = await self._score_with_draft(username, text, meta)
             except Exception:
                 self._committed_reserved = False
                 return
-            self._feed_danmaku_score(score)
-            item = QueueItem(score=score, item_type="danmaku", username=username, text=text,
-                             meta=meta)
             self._committed_item = item
             self._committed_reserved = False
             log.info(f"🔒 占坑 ({item.score}分) [{username}]：{text}")
         else:
-            score = await self._score_fn(text)
-            self._feed_danmaku_score(score)
-            item = QueueItem(score=score, item_type="danmaku", username=username, text=text,
-                             meta=meta)
+            item = await self._score_with_draft(username, text, meta)
             dest = self._route(item)
-            log.info(f"📩 ({score}分) [{username}]：{text} → {dest}")
+            log.info(f"📩 ({item.score}分) [{username}]：{text} → {dest}")
         self._update_indicator()
 
     def enqueue_gift(self, username: str, gift_name: str, price: int, num: int = 1,
@@ -308,17 +326,17 @@ class Scheduler:
             log.info(f"🎁 ({score}分) [{username}] 送 {info} ¥{rmb:.0f} → {dest}")
         self._update_indicator()
 
-    def enqueue_vision(self, description: str):
-        """画面评论入队 — 最高优先级，跳过评分"""
-        item = QueueItem(score=200, item_type="vision", username="主播",
-                         text=description)
-        # 不走 _route，直接插 Q1 弹幕队列最前面
+    def enqueue_vision(self, description: str, reply: str | None = None,
+                       emotion: str | None = None):
+        """画面评论入队；新链路直接携带 DeepSeek 已生成的评论。"""
+        item = QueueItem(score=200, item_type="vision", username="佳宁",
+                         text=description, reply=reply, emotion=emotion)
         self.q1_d.push(item)
-        log.info(f"🖼 画面评论入队 (最高优先)")
+        log.info("🖼 画面评论入队 (最高优先)")
         self._update_indicator()
 
     async def _vision_comment(self, description: str) -> str | None:
-        """基于画面描述 → DS生成主播评论，不值得说返回 None"""
+        """基于画面描述 → DS生成佳宁评论，不值得说返回 None"""
         prompt = (
             f"你现在看着直播画面，画面内容：{description}\n"
             f"如果画面有值得评论的内容（游戏动态、有趣的事），"
@@ -437,13 +455,13 @@ class Scheduler:
 
         return "丢弃"
 
-    # ===== 身体晃动（P2 参数注入，叠加在 P4 表情上）=====
+    # ===== Avatar 身体微动与闲置动作 =====
 
-    def _start_body_sway(self, duration: float, emotion_key: str = "default_smile"):
-        """播放期间注入随机身体微动参数，新播放自动取消旧的"""
+    def _start_body_sway(self, duration: float, emotion_key: str = "default_smile", playback=None):
+        """播放期间做随机微动，新播放自动取消旧的。"""
         if self._anim_task and not self._anim_task.done():
             self._anim_task.cancel()
-        if not self.vts:
+        if not self.avatar:
             return
         sw = VTS_SWAY.get(emotion_key, VTS_SWAY["default_smile"])
         async def _loop():
@@ -451,7 +469,8 @@ class Scheduler:
                 vals = {"x": 0.0, "y": 0.0, "z": 0.0}
                 targets = {"x": 0.0, "y": 0.0, "z": 0.0}
                 start = self._now()
-                while self._now() - start < duration - 0.1:
+                while (playback is not None and not playback.done) or (
+                        playback is None and self._now() - start < duration - 0.1):
                     await asyncio.sleep(0.06)
                     for axis, amp in [("x", sw["amp_x"]), ("y", sw["amp_y"]), ("z", sw["amp_z"])]:
                         if abs(vals[axis] - targets[axis]) < amp * 0.2 or random.random() < 0.08:
@@ -459,20 +478,16 @@ class Scheduler:
                         if random.random() < 0.03:
                             vals[axis] += random.uniform(-amp * 0.6, amp * 0.6)
                         vals[axis] += (targets[axis] - vals[axis]) * 0.35
-                    await self.vts.inject_parameters([
-                        {"id": "FaceAngleX", "value": vals["x"], "weight": 0.35},
-                        {"id": "FaceAngleY", "value": vals["y"], "weight": 0.35},
-                        {"id": "FaceAngleZ", "value": vals["z"], "weight": 0.35},
-                    ], mode="set")
+                    await self.avatar.set_head_pose(vals["x"], vals["y"], vals["z"], mix=0.35)
             except asyncio.CancelledError:
                 pass
         self._anim_task = asyncio.create_task(_loop())
 
     def _start_idle_anims(self):
-        """闲置时：微晃动 + 定时 eat/sleep"""
+        """闲置时：微晃动 + 定时 eat/sleep。"""
         if self._idle_task and not self._idle_task.done():
-            return  # 已经在跑了
-        if not self.vts:
+            return
+        if not self.avatar:
             return
         self._idle_since = self._now()
         async def _loop():
@@ -481,22 +496,15 @@ class Scheduler:
                 while True:
                     await asyncio.sleep(0.2)
                     t = self._now() - self._idle_since
-                    # 慢速正弦波叠加（像发呆/呼吸）
                     x = math.sin(t * 0.4) * 8 + math.sin(t * 0.7 + 1.2) * 3
                     y = math.sin(t * 0.5 + 0.8) * 6 + math.sin(t * 1.1) * 2
                     z = math.sin(t * 0.6 + 2.0) * 5 + math.sin(t * 0.3) * 4
-                    await self.vts.inject_parameters([
-                        {"id": "FaceAngleX", "value": x, "weight": 0.6},
-                        {"id": "FaceAngleY", "value": y, "weight": 0.6},
-                        {"id": "FaceAngleZ", "value": z, "weight": 0.6},
-                    ], mode="set")
-                    # 每 N 秒 eat
+                    await self.avatar.set_head_pose(x, y, z, mix=0.6)
                     if self._now() - eat_last >= VTS_IDLE_EAT_INTERVAL:
                         eat_last = self._now()
-                        await self.vts.trigger_hotkey(VTS_IDLE_EAT_ID)
-                    # 60s sleep
+                        await self.avatar.play_action("eat")
                     if t >= VTS_IDLE_SLEEP_AFTER:
-                        await self.vts.trigger_hotkey(VTS_IDLE_SLEEP_ID)
+                        await self.avatar.play_action("sleep")
                         break
             except asyncio.CancelledError:
                 pass
@@ -739,14 +747,53 @@ class Scheduler:
             log.error(f"批量回应生成失败[{kind}]: {e}")
             return None
 
-    async def _generate_reply(self, username: str, text: str) -> tuple[str, str] | None:
-        """回复生成入口：注入的 reply_fn 优先（实验回放用），否则走 chatbot"""
+    async def _generate_reply(self, item: QueueItem) -> tuple[str, str] | None:
+        """实验注入优先；生产优先消费入队时已生成的草稿。"""
         if self._reply_fn is not None:
-            return await self._reply_fn(username, text)
-        return await self.chatbot.reply(username, text)
+            return await self._reply_fn(item.username, item.text)
+        if item.reply:
+            self.chatbot.commit_exchange(item.username, item.text, item.reply)
+            return item.reply, item.emotion or "default_smile"
+        return await self.chatbot.reply(item.username, item.text)
+
+    def _reply_duration(self, item: QueueItem, reply: str) -> float:
+        if self._duration_fn is not None:
+            duration = float(self._duration_fn(item, reply))
+            if not math.isfinite(duration) or duration <= 0:
+                raise ValueError(f"非法回复时长: {duration}")
+            return duration
+        return max(2, len(reply) / REPLY_CHARS_PER_SEC)
+
+    def _prepare_tts(self, text: str):
+        prepare = getattr(self.tts, "prepare", None)
+        if callable(prepare):
+            return prepare(text)
+        return self.tts.synthesize(text)
+
+    def _start_audio(self, audio):
+        if hasattr(audio, "start") and hasattr(audio, "done"):
+            self.current_playback = audio
+            audio.start()
+            return audio
+        return None
+
+    async def close(self):
+        for task in (self._anim_task, self._idle_task, self.preparing):
+            if task is not None and not task.done():
+                task.cancel()
+        handles = [self.current_playback]
+        if self.next_ready is not None:
+            handles.append(self.next_ready[1])
+        for handle in handles:
+            if handle is not None and hasattr(handle, "stop"):
+                handle.stop()
+        self.current_playback = None
+        self.next_ready = None
+        if self.avatar:
+            await self.avatar.set_mouth_open(0)
 
     async def _prepare_next(self, item: QueueItem) -> tuple | None:
-        """后台任务：AI生成 + 并行{TTS合成, 情绪分类} → 返回 (item, audio, reply_text, emotion_key)"""
+        """后台任务：消费回复草稿或生成回复，再启动流式 TTS 预缓冲。"""
         loop = asyncio.get_running_loop()
         try:
             log.debug(f"后台准备: ({item.score}分) [{item.username}] {item.text[:20]}")
@@ -758,21 +805,22 @@ class Scheduler:
                 emotion = "default_smile"
                 audio = None
                 if self.tts:
-                    audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
+                    audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
                 log.debug(f"后台就绪: ({item.score}分) 欢迎 \"{reply}\" → {emotion}")
                 return (item, audio, reply, emotion)
 
-            # ── 画面评论：VLM描述 → DS生成主播评论，跳过则返回 None ──
+            # ── 画面评论：优先消费 DeepSeek 多模态请求已生成的评论 ──
             if item.item_type == "vision":
-                reply = await self._vision_comment(item.text)
-                if reply is None:
-                    log.debug("Vision: DS 判定跳过")
-                    return None
-                # _vision_comment 返回的 text 可能带情绪标签，解析一下
-                reply, emotion = self._parse_emotion_tag(reply)
+                if item.reply:
+                    reply, emotion = item.reply, item.emotion or "default_smile"
+                else:
+                    reply = await self._vision_comment(item.text)
+                    if reply is None:
+                        return None
+                    reply, emotion = self._parse_emotion_tag(reply)
                 audio = None
                 if self.tts:
-                    audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
+                    audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
                 log.debug(f"后台就绪: ({item.score}分) 画面 \"{reply[:25]}...\" → {emotion}")
                 return (item, audio, reply, emotion)
 
@@ -784,17 +832,17 @@ class Scheduler:
                 reply, emotion = result
                 audio = None
                 if self.tts:
-                    audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
+                    audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
                 log.debug(f"后台就绪: 批量[{item.text}] {len(item.covered or [])}条 \"{reply[:25]}...\"")
                 return (item, audio, reply, emotion)
 
-            result = await self._generate_reply(item.username, item.text)
+            result = await self._generate_reply(item)
             if result is None or result[0] is None:
                 return None
             reply, emotion = result
 
             if self.tts:
-                audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
+                audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
             else:
                 audio = None
 
@@ -820,11 +868,22 @@ class Scheduler:
         while True:
             now = self._now()
 
-            # ── 1. 播放结束标记 ──
-            if self.playing_until > 0 and now >= self.playing_until:
+            # ── 1. 流式按真实完成状态释放队列；旧路径保留估算时长 ──
+            stream_done = self.current_playback is not None and self.current_playback.done
+            estimated_done = self.current_playback is None \
+                and self.playing_until > 0 and now >= self.playing_until
+            if stream_done or estimated_done:
+                if stream_done and self.current_playback.error:
+                    log.error("流式播放失败: %s", self.current_playback.error)
+                self.current_playback = None
                 self.playing_until = 0
+                if self._anim_task and not self._anim_task.done():
+                    self._anim_task.cancel()
+                self._anim_task = None
+                if self.avatar:
+                    await self.avatar.set_mouth_open(0)
                 clear_subtitle()
-                continue  # 下轮统一处理
+                continue
 
             # ── 2. 空闲：消费 next_ready，或启动后台准备 ──
             if self.playing_until == 0 and self.preparing is None:
@@ -835,15 +894,18 @@ class Scheduler:
                     item, audio, reply, emotion = self.next_ready
                     self.next_ready = None
                     self._stop_idle_anims()
-                    if self.vts:
-                        await self.vts.switch_expression(emotion)
+                    if self.avatar:
+                        await self.avatar.set_emotion(emotion)
                     log.info(f"▶ 播放: \"{reply[:25]}...\" ({emotion})")
                     show_subtitle(reply)
-                    if self.tts and audio is not None:
+                    playback = self._start_audio(audio) if self.tts and audio is not None else None
+                    if playback is not None:
+                        duration = playback.duration
+                    elif self.tts and audio is not None:
                         duration = self.tts.play(audio)
                     else:
-                        duration = max(2, len(reply) / REPLY_CHARS_PER_SEC)
-                    self._start_body_sway(duration, emotion)
+                        duration = self._reply_duration(item, reply)
+                    self._start_body_sway(duration, emotion, playback=playback)
                     play_ts = self._now()
                     self.playing_until = play_ts + duration
                     if self.on_decision:
@@ -873,13 +935,16 @@ class Scheduler:
                     emotion = "default_smile"
                     audio = None
                     if self.tts:
-                        audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
-                # ── 画面评论：VLM描述 → DS生成主播评论 ──
+                        audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
+                # ── 画面评论：优先消费已生成的多模态评论 ──
                 elif item.item_type == "vision":
-                    reply = await self._vision_comment(item.text)
-                    if reply is None:
-                        continue
-                    reply, emotion = self._parse_emotion_tag(reply)
+                    if item.reply:
+                        reply, emotion = item.reply, item.emotion or "default_smile"
+                    else:
+                        reply = await self._vision_comment(item.text)
+                        if reply is None:
+                            continue
+                        reply, emotion = self._parse_emotion_tag(reply)
                     audio = None
                 # ── 批量合并：一次 LLM 批量回应 ──
                 elif item.item_type == "batch":
@@ -889,23 +954,26 @@ class Scheduler:
                     reply, emotion = result
                     audio = None
                 else:
-                    result = await self._generate_reply(item.username, item.text)
+                    result = await self._generate_reply(item)
                     if result is None or result[0] is None:
                         continue
                     reply, emotion = result
                     audio = None
 
                 if audio is None and self.tts:
-                    audio = await loop.run_in_executor(self._pool, self.tts.synthesize, reply)
+                    audio = await loop.run_in_executor(self._pool, self._prepare_tts, reply)
 
-                if self.vts:
-                    await self.vts.switch_expression(emotion)
+                if self.avatar:
+                    await self.avatar.set_emotion(emotion)
                 show_subtitle(reply)
-                if self.tts and audio is not None:
+                playback = self._start_audio(audio) if self.tts and audio is not None else None
+                if playback is not None:
+                    duration = playback.duration
+                elif self.tts and audio is not None:
                     duration = self.tts.play(audio)
                 else:
-                    duration = max(2, len(reply) / REPLY_CHARS_PER_SEC)
-                self._start_body_sway(duration, emotion)
+                    duration = self._reply_duration(item, reply)
+                self._start_body_sway(duration, emotion, playback=playback)
 
                 play_ts = self._now()
                 self.playing_until = play_ts + duration

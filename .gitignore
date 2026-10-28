@@ -7,3 +7,6 @@ reference.wav
 reply_queue.txt
 subtitle.txt
 benchmark/results/replay_debug.log
+.main.lock
+benchmark/results/robustness_recalculation.json
+benchmark/results/robustness_recalculation.md

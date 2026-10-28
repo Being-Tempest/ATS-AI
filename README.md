@@ -58,17 +58,24 @@ python main.py
 ## 目录
 
 ```
-├── main.py               # 入口:串起弹幕 + 调度 + AI + TTS + VTS
+├── main.py               # 入口:串起弹幕 + 调度 + AI + TTS + Avatar
 ├── scheduler.py          # 三队列调度器(流水线 + 升舱)★ 核心
 ├── score_queue.py        # 有界排序队列
 ├── scorer.py             # 本地权重 + LLM 评分
 ├── danmaku_bot.py        # B站弹幕/礼物/SC 接收
-├── ai_chat.py            # LLM 对话(带重试)
+├── ai_chat.py            # 统一评分回复或独立 LLM 对话(带重试)
 ├── tts_engine.py         # CosyVoice 云端 TTS
+├── tts_stream.py         # 流式音频播放与重采样
 ├── expression_engine.py  # 情绪分类
-├── vts_client.py         # VTube Studio HTTP 交互
+├── avatar.py             # 虚拟形象语义接口
+├── avatar_factory.py     # Avatar 后端工厂
+├── avatar_vts.py         # VTube Studio Avatar 适配器
+├── avatar_null.py        # 无形象测试/降级后端
+├── vts_client.py         # VTube Studio WebSocket 交互
 ├── vision_module.py      # 画面评论(可选)
 ├── dashboard.py          # 中控台(可选)
+├── tests/                # 离线单元测试
+├── benchmark/            # 离线回放、冻结数据与复算入口
 ├── wbi_sign.py           # B站 WBI 签名工具
 ├── persona.py            # 人格模板(自填)
 └── config.py             # 从 .env 读配置,无密钥
@@ -106,9 +113,10 @@ Every key number in the paper maps to one script and one result file below. All 
 | Offline top-k bound: greedy within 0.3% (0.0–1.1%), full_commit 2.1% | `benchmark/offline_optimal.py` | `results/offline_optimal.md` |
 | Verified mention: batch fidelity 58.3%/59.6% (λ=24), 64.0%/61.1% (λ=12, 43 batches, batch-level CIs) | `benchmark/merge_fidelity.py` + `benchmark/merge_fidelity_l12.py` | `results/merge_fidelity_check.md`, `results/merge_fidelity_l12_check.md` |
 | Precise-reply fidelity (ID 21.7%/15.0%, topic 67.3%/70.7%); VMR 46.7%→63.5% | `benchmark/precise_fidelity.py` | `results/precise_fidelity_check.md` + `precise_fidelity_samples.jsonl` |
-| Nominal-vs-verified gap analysis (23/37 points) | (analysis doc) | `results/greedy_fidelity_check.md` |
-| Per-bucket coverage (high-bucket 389/389 precise at λ=12; variant guard violations at λ=24) | `benchmark/redreview_v3_stats.py` (stdout) | `results/bucket_breakdown.md` |
-| Coverage denominator audit (N = all arrivals, drain tail counted) | `benchmark/coverage_audit.py` | `results/coverage_denominator_audit.md` |
+| Service-time calibration robustness (R1) | `benchmark/calibration_robustness.py` | `results/calibration_robustness.csv` |
+| Bursty on/off arrivals (R2) | `benchmark/arrival_robustness.py` | `results/arrival_robustness.csv` |
+| Batch-value objective and gift protection (R3) | `benchmark/objective_robustness.py` | `results/objective_robustness.csv` |
+| Independent R1–R3 recomputation | `benchmark/robustness_recompute.py` | `results/robustness_recalculation.json` |
 | Batch length curve d_batch(n): 49.8+2.12n chars, k=2 slots throughout | `benchmark/batch_length_curve.py` | `results/batch_length_curve.md` + `batch_length_samples.jsonl` |
 | Service-rate calibration: production replies 17.5 chars (P50 17) → ≈8.4 s occupancy | (log analysis doc) | `results/reply_length_check.md` |
 | TTS production speech rate 3.83±0.72 chars/s, first-packet P50 543 ms | `benchmark/tts_objective.py` | `results/tts_objective.md` (input: pre-filtered `data/tts_production_lines.txt`; full production logs are not shipped) |

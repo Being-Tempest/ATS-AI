@@ -49,13 +49,15 @@ _fh = logging.FileHandler(os.path.join(RESULTS_DIR, "replay_debug.log"), encodin
 _fh.setFormatter(logging.Formatter("%(asctime)s [%(levelname)-5s] %(name)s: %(message)s",
                                    datefmt="%H:%M:%S"))
 logging.root.addHandler(_fh)
+for _h in logging.root.handlers:
+    _h.setLevel(logging.WARNING)
 
 # 回放加速：回复句间停顿不真等（虚拟时钟下停顿无意义）
 S.REPLY_GAP_MIN = S.REPLY_GAP_MAX = 0.01
 
-# 占位回复 45 字 → 时长 9.0s/条，对齐 E3 实测服务率 μ≈6-7 条/分钟（见 preregistration.md §1）
+# 占位回复 45 字 → 时长 9.0s/条，对齐 E3 实测服务率 μ≈6-7 条/分钟
 STUB_REPLY = "（模拟回复占位文本，长度四十五字整，用于估算九秒播放时长，对齐实测服务率口径）"
-# 批量回应占位：字数按真实批量生成+TTS 抽测校准（preregistration §8.2 amendment）：
+# 批量回应占位：字数按真实批量生成与 TTS 抽测校准：
 # 实测批量生成均值 70 字、CosyVoice 实测 14.8s（4.72 字/s）；为保持单条 5.0 字/s 的 μ 口径统一，
 # 批量占位取 74 字 → 14.8s（时长与实测对齐，语速口径与单条一致）
 STUB_BATCH_REPLY = "（模拟批量回应占位文本，长度按真实批量生成与云端语音合成抽测校准：点名二到三个观众，概括大家聊的话题并且给出回应，对应十四点八秒的整段播放时长整哈）"
@@ -101,7 +103,7 @@ async def replay_scheduler(events: list[Event], scores: dict, tag: str,
                            strategy: str, fixed_threshold=None, variant=None,
                            disable_commit=False, batch_merge=False,
                            batch_q2d_min=None, batch_q2g_min=None,
-                           batch_q3_trigger=None, reply_fn=None):
+                           batch_q3_trigger=None, reply_fn=None, duration_fn=None):
     variant = variant or strategy
     clock = VirtualClock(events[0].ts if events else 0.0)
     decisions = []
@@ -153,8 +155,20 @@ async def replay_scheduler(events: list[Event], scores: dict, tag: str,
                       batch_merge=batch_merge,
                       batch_q2d_min=batch_q2d_min,
                       batch_q2g_min=batch_q2g_min,
-                      batch_q3_trigger=batch_q3_trigger)
+                      batch_q3_trigger=batch_q3_trigger,
+                      duration_fn=duration_fn)
     sched._tick = 0.01   # 回放加速：主循环节拍 0.1s → 0.01s（虚拟时钟下不影响语义）
+    pick_attempts = [0]
+    last_pick = {"t": None, "empty": False}
+    original_pick_next = sched._pick_next
+
+    def tracked_pick_next():
+        item = original_pick_next()
+        pick_attempts[0] += 1
+        last_pick.update(t=clock.now(), empty=item is None)
+        return item
+
+    sched._pick_next = tracked_pick_next
 
     last_threshold = [None]
 
@@ -205,11 +219,17 @@ async def replay_scheduler(events: list[Event], scores: dict, tag: str,
                                   (sched.q1_d, sched.q1_g, sched.q2_d,
                                    sched.q2_g, sched.q3_d, sched.q3_g))
             n_dec = len(decisions)
+            n_pick = pick_attempts[0]
             await asyncio.sleep(SETTLE_POLL * 3)
             if len(decisions) != n_dec or sched.playing_until > clock.now():
                 stable = 0
                 continue
             if queues_nonempty:
+                pick_finished = (pick_attempts[0] > n_pick
+                                 and last_pick["t"] == clock.now() and last_pick["empty"])
+                if not pick_finished:
+                    stable = 0
+                    continue
                 if t_limit is not None and clock.now() + SETTLE_STEP > t_limit:
                     return
                 clock.set(clock.now() + SETTLE_STEP)   # 推进级联等待 8s/20s
@@ -290,9 +310,9 @@ def _gift_score(ev: Event) -> int:
 PENDING_CAP = 35
 
 
-async def replay_baseline(events: list[Event], scores: dict, strategy: str):
-    """单通道模型：一次只回一条，回复时长与调度器策略同一口径（4s 占位）
-    greedy：LLM 评分 + 每轮取当前最高分（无队列/级联/自适应门槛），红审剥离基线"""
+async def replay_baseline(events: list[Event], scores: dict, strategy: str, duration_fn=None):
+    """单通道模型：一次只回一条，默认与调度器使用同一占位时长。
+    greedy：LLM 评分 + 每轮取当前最高分（无队列/级联/自适应门槛）"""
     pending: list[Event] = []
     decisions = []
     free_at = 0.0            # 频道何时空闲（虚拟时间）
@@ -326,7 +346,8 @@ async def replay_baseline(events: list[Event], scores: dict, strategy: str):
 
     def reply_at(item, start):
         nonlocal free_at, last_reply_end
-        duration = max(2, len(STUB_REPLY) / 5)
+        duration = (float(duration_fn(item, STUB_REPLY)) if duration_fn is not None
+                    else max(2, len(STUB_REPLY) / 5))
         decisions.append({
             "t": round(start, 2), "type": "gift" if item.type in ("gift", "sc") else item.type,
             "username": item.username,

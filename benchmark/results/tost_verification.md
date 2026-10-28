@@ -1,10 +1,10 @@
-# TOST 等价检验复核与归档（N4 红审）
+# TOST 等价检验与统计复核
 
-归档论文 §5.3（`paper/sections/results_selection.tex`）中 TOST 等价检验的完整溯源：脚本、输入、公式、输出、与论文数字对照。
+本文档记录 TOST 等价检验的脚本、输入、公式、输出和数字对照。
 
 ## 脚本
 
-`experiments/tost_and_greedy_wait.py`（commit `04f63ad` "Final-draft fixes" 引入）。运行方式：
+`benchmark/tost_and_greedy_wait.py`。运行方式：
 
 ```
 python -X utf8 experiments/tost_and_greedy_wait.py

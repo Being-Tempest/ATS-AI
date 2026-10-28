@@ -1,5 +1,5 @@
 """
-过载+漂移实验主跑器（预注册 benchmark/preregistration.md）
+过载+漂移实验主跑器
 
 6 策略 × 8 流 × 占坑双臂：
   - 基线（fifo/random/keyword/greedy）无占坑概念，每流跑一次
@@ -74,7 +74,7 @@ async def run_stream(src, cache, strategies=None, arms=("commit", "nocommit")):
             if st == "full":
                 tp = os.path.join(RESULTS_DIR, f"threshold_trace_ovl_{src}_{arm}.jsonl")
                 write_jsonl(tp, trace)
-    # ── 批量合并变体（预注册 §8，H5-H7）：full + batch_merge=True，占坑开臂 ──
+    # ── 批量合并变体（实验 §8，H5-H7）：full + batch_merge=True，占坑开臂 ──
     if strategies and "full_merge" in strategies:
         decisions, trace, sched = await replay_scheduler(
             events, scores, "ovl", "full", variant="full_merge_commit",

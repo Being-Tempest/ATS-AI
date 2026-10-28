@@ -1,4 +1,4 @@
-"""红审 v3 洞 2：精确回复保真度 f 实测（greedy / 主臂对称口径）。
+"""补充实测：精确回复保真度 f 实测（greedy / 主臂对称口径）。
 
 λ=12_drift 种子 42 的两臂精回消息各等距抽 60 条，用 DeepSeek 真实生成逐条回复
 （prompt 与生产管线同格式 "username：text"，persona 系统提示，温度 0.9），
@@ -90,7 +90,7 @@ async def main():
     verified_greedy_tp = GREEDY_COV * (fg["f_topic"] or 0)
 
     lines = [
-        "# 精确回复保真度 f 实测（红审 v3 洞 2，两臂对称口径）",
+        "# 精确回复保真度 f 实测（补充实测，两臂对称口径）",
         "",
         "- 此前 verified = 35.0%×f + 65.0%×0.583 中 f=1.0 只是结构论证；审稿人指出 f=0.90 时卖点归零",
         "- 方法：λ=12_drift 种子42，greedy 与主臂各自精回消息等距抽 60 条，DeepSeek 真实逐条生成",

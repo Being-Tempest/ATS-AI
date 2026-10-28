@@ -1,42 +1,50 @@
-"""
-Vision Module — 画面评论
-mss截图 → 豆包VLM描述 → 回调 → DS判断+生成 → 最高优先级入队
-"""
-import time
+"""屏幕截图 → DeepSeek V4.1 Flash 单次多模态评论。"""
 import base64
+import json
+import re
 import threading
-import requests
-import mss
+import time
+
+from openai import OpenAI
 from PIL import Image
 from io import BytesIO
-from config import VOLCANO_API_KEY, VOLCANO_VISION_MODEL, VOLCANO_BASE_URL
+
+from config import (DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, DEEPSEEK_MODEL,
+                    VISION_IMAGE_DETAIL)
+from persona import SYSTEM_PROMPT
 from logger import get_logger
 
 log = get_logger("vision")
 
-INTERVAL_NORMAL = 60   # 不开麦：1分钟
-INTERVAL_MIC = 180     # 开麦中：3分钟
+INTERVAL_NORMAL = 60
+INTERVAL_MIC = 180
+_EMOTIONS = {"default_smile", "happy", "shy", "touched", "thinking",
+             "surprised", "tsundere", "angry"}
+_PAREN_RE = re.compile(r'[（(][^）)]*[）)]')
+VISION_PROMPT = SYSTEM_PROMPT + """
 
-VISION_PROMPT = """用一句话（不超过30个字）描述画面中主要的内容。
-规则：
-- 忽略任务栏、时间、桌面图标
-- 只描述直播相关的内容（游戏画面、主播动作、弹幕等）
-- 如果画面没变化，回复"无变化"
-- 不要带时间戳"""
+## 画面评论任务
+直接观察用户提供的当前屏幕图像，忽略任务栏、时间、桌面图标。只有游戏动态、显著变化或有趣内容才评论；普通静止画面不要打扰观众。评论使用自然口语，不超过30字，不描述你看不见的内容。
+只输出 JSON：{"should_comment": true, "reply": "要说的话", "emotion": "happy"}。
+不值得评论时输出 {"should_comment": false, "reply": "", "emotion": "default_smile"}。
+emotion 只能是 default_smile、happy、shy、touched、thinking、surprised、tsundere、angry。
+"""
 
 
 class VisionModule:
-    """画面截图 → VLM描述 → 回调生成评论"""
+    """定时截图，一次请求完成视觉判断、评论和情绪选择。"""
 
     def __init__(self):
         self._running = False
         self._thread: threading.Thread | None = None
         self._mic_open = False
-        self._on_description = None  # callback(description_text)
-        self._last_capture = 0.0     # 上次截图时间戳，防重入
+        self._on_description = None
+        self._last_capture = 0.0
+        self._client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL,
+                              max_retries=2)
 
     def set_on_description(self, callback):
-        """设置回调：拿到VLM描述后调用 callback(description)"""
+        """设置 callback(reply, emotion)，保留旧方法名兼容现有入口。"""
         self._on_description = callback
 
     def set_mic_state(self, mic_open: bool):
@@ -88,37 +96,32 @@ class VisionModule:
 
     def _capture_and_process(self):
         self._last_capture = time.time()
-        # 1. 截图
-        png_data = self._screenshot()
-        if not png_data:
+        jpeg_data = self._screenshot()
+        if not jpeg_data:
             return
-
-        # 2. VLM 描述
-        description = self._call_vlm(png_data)
-        if not description:
+        result = self._call_vlm(jpeg_data)
+        if result is None:
             return
-        log.info(f"🖼 VLM: {description[:80]}")
-
-        # 3. 回调给外部（dashboard 负责 DS 判断 + 入队）
+        reply, emotion = result
+        log.info(f"🖼 DeepSeek 画面评论: {reply[:80]}")
         if self._on_description:
             try:
-                self._on_description(description)
+                self._on_description(reply, emotion)
             except Exception as e:
-                log.error(f"on_description 回调异常: {e}")
+                log.error(f"画面评论回调异常: {e}")
 
     def _screenshot(self) -> bytes | None:
-        """mss 截主屏 → 缩放到 720p → PNG bytes（省 token）"""
+        """截取主屏并缩放到 720p，返回 JPEG bytes。"""
         try:
+            import mss
             with mss.MSS() as sct:
                 monitor = sct.monitors[1]
                 img = sct.grab(monitor)
                 pil_img = Image.frombytes("RGB", img.size, img.rgb)
-                # 缩放到高度 720，保持比例，减少 VLM token 消耗
                 h = pil_img.height
                 if h > 720:
                     ratio = 720 / h
-                    new_w = int(pil_img.width * ratio)
-                    pil_img = pil_img.resize((new_w, 720), Image.LANCZOS)
+                    pil_img = pil_img.resize((int(pil_img.width * ratio), 720), Image.LANCZOS)
                 buf = BytesIO()
                 pil_img.save(buf, format="JPEG", quality=80)
                 return buf.getvalue()
@@ -126,53 +129,36 @@ class VisionModule:
             log.error(f"截图失败: {e}")
             return None
 
-    def _call_vlm(self, png_data: bytes) -> str | None:
-        """调用豆包 Responses API 描述画面"""
-        b64 = base64.b64encode(png_data).decode()
-        data_uri = f"data:image/png;base64,{b64}"
-
-        headers = {
-            "Authorization": f"Bearer {VOLCANO_API_KEY}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": VOLCANO_VISION_MODEL,
-            "input": [{
-                "role": "user",
-                "content": [
-                    {"type": "input_image", "image_url": data_uri},
-                    {"type": "input_text", "text": VISION_PROMPT},
-                ]
-            }],
-            "thinking": {"type": "disabled"},
-        }
-
+    def _call_vlm(self, jpeg_data: bytes) -> tuple[str, str] | None:
+        data_uri = "data:image/jpeg;base64," + base64.b64encode(jpeg_data).decode()
         try:
-            resp = requests.post(
-                f"{VOLCANO_BASE_URL}/responses",
-                headers=headers,
-                json=payload,
+            response = self._client.chat.completions.create(
+                model=DEEPSEEK_MODEL,
+                messages=[
+                    {"role": "system", "content": VISION_PROMPT},
+                    {"role": "user", "content": [
+                        {"type": "text", "text": "观察这张当前屏幕图像并按规定输出。"},
+                        {"type": "image_url", "image_url": {
+                            "url": data_uri, "detail": VISION_IMAGE_DETAIL}},
+                    ]},
+                ],
+                max_tokens=300,
+                temperature=0.7,
+                response_format={"type": "json_object"},
+                extra_body={"thinking": {"type": "disabled"}},
                 timeout=30,
             )
-            if resp.status_code != 200:
-                log.error(f"VLM API {resp.status_code}: {resp.text[:200]}")
+            raw = response.choices[0].message.content or ""
+            data = json.loads(raw)
+            if not data.get("should_comment"):
                 return None
-
-            result = resp.json()
-            # 解析 Responses API 返回
-            for item in result.get("output", []):
-                if item.get("type") == "message":
-                    for c in item.get("content", []):
-                        if c.get("type") == "output_text":
-                            return c.get("text", "").strip()
-
-            log.warning(f"VLM 返回格式未知: {str(result)[:200]}")
-            return None
-        except requests.exceptions.Timeout:
-            log.error("VLM API 超时")
-            return None
+            reply = re.sub(r"\s+", " ", _PAREN_RE.sub("", str(data["reply"]))).strip()
+            if not reply:
+                return None
+            emotion = data.get("emotion", "default_smile")
+            return reply[:150], emotion if emotion in _EMOTIONS else "default_smile"
         except Exception as e:
-            log.error(f"VLM API 异常: {e}")
+            log.error(f"DeepSeek 视觉评论失败: {e}")
             return None
 
 

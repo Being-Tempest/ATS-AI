@@ -3,7 +3,7 @@
 """
 
 from openai import AsyncOpenAI
-from config import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+from config import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, DEEPSEEK_MODEL
 from logger import get_logger
 
 log = get_logger("scorer")
@@ -39,7 +39,7 @@ async def score_danmaku(text: str) -> int:
     client = _get_client()
     try:
         response = await client.chat.completions.create(
-            model="deepseek-v4-flash",
+            model=DEEPSEEK_MODEL,
             messages=[
                 {"role": "system", "content": _JUDGE_PROMPT},
                 {"role": "user", "content": f"弹幕内容：{text}"},

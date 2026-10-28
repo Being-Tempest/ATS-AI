@@ -35,11 +35,12 @@ def _get(key: str, default: str = "") -> str:
 DEEPSEEK_API_KEY = _get("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = _get("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 DEEPSEEK_MODEL = _get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+UNIFIED_LLM = _get("UNIFIED_LLM", "true").lower() not in {"0", "false", "no", "off"}
+VISION_IMAGE_DETAIL = _get("VISION_IMAGE_DETAIL", "low")
 
-# ===== 火山引擎 Vision API(画面评论)=====
-VOLCANO_API_KEY = _get("VOLCANO_API_KEY")
-VOLCANO_VISION_MODEL = _get("VOLCANO_VISION_MODEL", "doubao-seed-2-0-mini-260428")
-VOLCANO_BASE_URL = _get("VOLCANO_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
+# ===== 虚拟形象后端 =====
+AVATAR_BACKEND = _get("AVATAR_BACKEND", "vts")
+AVATAR_SKIN = _get("AVATAR_SKIN")
 
 # ===== B站直播间 =====
 BILIBILI_ROOM_ID = int(_get("BILIBILI_ROOM_ID", "0") or 0)

@@ -1,12 +1,12 @@
 """TCSS 评审 A 组 6：TTS / Live2D 客观指标（生产日志统计，不需要人）。
 
-从 benchmark/data/tts_production_lines.txt（生产日志预筛出的相关行，不含完整日志）统计：
+从 logs/live-*.log 统计：
 - TTS：`synthesized N chars -> X s, 首包=Yms, RTF=Z` → 字符速率分布、首包 P50/P90、RTF 稳定性
 - 情绪标签：`▶ 播放: "..." (emotion)` 分布；`🎭 表情:` 映射成功 vs `表情失败` / `VTS 未连接，跳过表情`
 - Live2D 表情切换一致性 = 情绪标签→exp3 文件映射成功率；没有帧级日志的项如实记缺口
 
-用法：python -X utf8 -m benchmark.tts_objective
-输出：benchmark/results/tts_objective.md
+用法：python -X utf8 experiments/tts_objective.py
+输出：experiments/results/tts_objective.md
 """
 import glob
 import os
@@ -34,32 +34,26 @@ def main():
     emotions = []
     emo_map, emo_fail, vts_off = 0, 0, 0
     per_file = {}
-    # 输入：benchmark/data/tts_production_lines.txt——从生产日志中预先筛出的相关行
-    # （`# file: <name>` 标记分节；只含 synthesized/▶播放/🎭表情/表情失败/VTS未连接 五类行，
-    #  不含完整日志，避免人格文本与平台数据入库）
-    src = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                       "data", "tts_production_lines.txt")
-    name = None
-    for line in open(src, encoding="utf-8", errors="replace"):
-        if line.startswith("# file: "):
-            name = line.strip().split(": ", 1)[1]
-            per_file.setdefault(name, 0)
-            continue
-        m = TTS_RE.search(line)
-        if m:
-            tts.append(tuple(float(g) for g in m.groups()))
-            per_file[name] += 1
-            continue
-        m = PLAY_RE.search(line)
-        if m:
-            emotions.append(m.group(1))
-            continue
-        if EMO_RE.search(line):
-            emo_map += 1
-        elif EMO_FAIL_RE.search(line):
-            emo_fail += 1
-        elif VTS_OFF_RE.search(line):
-            vts_off += 1
+    for f in sorted(glob.glob("logs/live-*.log")):
+        name = os.path.basename(f)
+        cnt = 0
+        for line in open(f, encoding="utf-8", errors="replace"):
+            m = TTS_RE.search(line)
+            if m:
+                tts.append(tuple(float(g) for g in m.groups()))
+                cnt += 1
+                continue
+            m = PLAY_RE.search(line)
+            if m:
+                emotions.append(m.group(1))
+                continue
+            if EMO_RE.search(line):
+                emo_map += 1
+            elif EMO_FAIL_RE.search(line):
+                emo_fail += 1
+            elif VTS_OFF_RE.search(line):
+                vts_off += 1
+        per_file[name] = cnt
 
     chars = [t[0] for t in tts]
     durs = [t[1] for t in tts]
@@ -72,7 +66,7 @@ def main():
 
     lines = ["# TTS / Live2D 客观指标（TCSS A6，生产日志）",
              "",
-             f"- 来源：benchmark/data/tts_production_lines.txt（生产日志预筛行，34.9h 部署）；TTS 样本 n={len(tts)}",
+             f"- 来源：logs/live-*.log；TTS 样本 n={len(tts)}；包含精确回复、批量回复、进房欢迎及其他主动语音，不是观众输入的一一对应回复数",
              f"- 各文件 TTS 条数：{per_file}",
              "",
              "## TTS 合成（CosyVoice 3.5 云端）",

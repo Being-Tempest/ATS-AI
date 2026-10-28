@@ -3,7 +3,7 @@
 口径：无头回放（logs/ 真实弹幕，3× 加速注入，间隔封顶 6s），真实 DeepSeek 评分+回复、真实 DashScope CosyVoice 流式合成，播放替换为写 WAV（play_start=开始出声，voice_end_est=出声结束推算值）。
 LLM 调用为非流式（ai_chat.py 无 stream），故只有 LLM 完成点，无首 token 点；TTS 首包延迟取 DashScope get_first_package_delay()。
 
-**负载定性（红审修订）**：本轮注入 λ≈10 条/分钟 > μ≈7 条/分钟（实测服务率），属于**过载压力测试**，排队延迟是队列增长的必然结果，不是稳态延迟。观众体验的稳态口径见 λ=3 档负载扫描（e3_load_report.md）。
+**负载定性**：本轮注入 λ≈10 条/分钟 > μ≈7 条/分钟（实测服务率），属于**过载压力测试**，排队延迟是队列增长的必然结果，不是稳态延迟。观众体验的稳态口径见 λ=3 档负载扫描（e3_load_report.md）。
 
 **n 差异说明**：评分段及含评分的①行 n=75（仅弹幕），3 条礼物本地赋分零延迟（t_scored=t_arrive）不计入；占坑 commit 条目评分照常有 score_start/scored 段，不影响 n。本系统到达即评分，排队发生在评分完成之后，故①管线处理=评分+LLM+TTS 三段实耗之和。
 

@@ -1,9 +1,9 @@
 """
-过载 + 质量漂移合成流生成器（E1-ovl/E4-ovl，预注册见 benchmark/preregistration.md）
+过载 + 质量漂移合成流生成器（E1-ovl/E4-ovl）
 
 两阶段：
   A. 分三档意图让 DeepSeek 生成全新弹幕文本（高=有趣提问/梗/走心；中=普通聊天；低=灌水）
-  B. 全量评分（共享缓存）→ 按实测分入桶 → 按预注册漂移参数组装 8 条流
+  B. 全量评分（共享缓存）→ 按实测分入桶 → 按固定漂移参数组装 8 条流
 
 用法：
   python -m benchmark.overload_gen            # 生成文本池 + 评分 + 组装 8 流
@@ -27,7 +27,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 POOL_PATH = os.path.join(DATA_DIR, "ovl_text_pool.jsonl")
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# 预注册参数（preregistration.md §2/§3，写死不许改）
+# 固定实验参数：复现时保持一致
 LAMBDAS = {"l3": 3.0, "l6": 6.0, "l12": 12.0, "l24": 24.0}   # 条/分钟
 DURATION_MIN = {"l3": 60, "l6": 30, "l12": 30, "l24": 30}
 MIX_UNIFORM = {"high": 0.20, "mid": 0.45, "low": 0.35}
@@ -117,7 +117,7 @@ async def score_pool(pool):
 
 
 def build_streams(pool, seed=42):
-    """按预注册参数组装 8 条流。桶内文本有放回抽样（真实直播存在复读）。"""
+    """按实验参数组装 8 条流。桶内文本有放回抽样（真实直播存在复读）。"""
     buckets = {"high": [], "mid": [], "low": []}
     for r in pool:
         buckets[r["bucket"]].append(r["text"])

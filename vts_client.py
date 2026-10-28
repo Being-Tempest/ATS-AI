@@ -13,8 +13,8 @@ from logger import get_logger
 log = get_logger("vts")
 
 VTS_WS_URL = "ws://localhost:8001"
-PLUGIN_NAME = "AI主播"
-PLUGIN_DEV = "xjn"
+PLUGIN_NAME = "AI VTuber"
+PLUGIN_DEV = "Open Source"
 HEARTBEAT_INTERVAL = 20  # 心跳间隔（秒），用轻量 StatisticsRequest
 
 
@@ -235,18 +235,18 @@ class VTSClient:
         })
         return resp is not None and resp.get("messageType") == "ExpressionActivationResponse"
 
-    async def switch_expression(self, new_key: str):
+    async def switch_expression(self, new_key: str) -> bool:
         """切换表情：先用简称查 VTS_EXPRESSIONS 映射，再发请求。断连自动重连重试。"""
         from config import VTS_EXPRESSIONS
         new_file = VTS_EXPRESSIONS.get(new_key, new_key)
         log.info(f"🎭 切表情: {new_key} → {new_file}  (ready={self._ready}, current={self._current_expr})")
         if self._current_expr == new_file:
             log.info(f"  ⏭ 已是当前表情，跳过")
-            return
+            return True
         if not self._ready:
             await self._auto_reconnect()
             if not self._ready:
-                return
+                return False
         try:
             if self._current_expr:
                 await self.set_expression(self._current_expr, False)
@@ -254,12 +254,14 @@ class VTSClient:
             ok = await self.set_expression(new_file, True)
             if ok:
                 self._current_expr = new_file
-            else:
-                self._ready = False  # 标记断连，下次自动重连
-                log.warning(f"切表情失败: {new_file}")
+                return True
+            self._ready = False  # 标记断连，下次自动重连
+            log.warning(f"切表情失败: {new_file}")
+            return False
         except Exception as e:
             self._ready = False
             log.warning(f"切表情异常: {e}")
+            return False
 
     async def clear_expressions(self):
         """清除当前激活的表情"""

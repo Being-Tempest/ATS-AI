@@ -1,4 +1,4 @@
-# 批量回应时长校准（红审4.5 P0）
+# 批量回应时长校准
 
 - 样本：λ=24_drift full_merge smoke 的前 5 个真实批量场景，prompt 与 scheduler._batch_prompt 逐字相同
 - 生成：DeepSeek（禁 thinking，max_tokens 200），TTS：CosyVoice 3.5 云端（实测 5 条）

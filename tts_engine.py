@@ -123,10 +123,27 @@ class TTSEngine:
             sd.play(audio, target_sr, latency='low')
         return duration
 
+    def set_audio_tap(self, callback):
+        self._audio_tap = callback
+
+    def _emit_audio_level(self, level: float):
+        callback = getattr(self, "_audio_tap", None)
+        if callback is not None:
+            callback(level)
+
+    def prepare(self, text: str):
+        from tts_stream import PlaybackHandle
+        return PlaybackHandle(
+            text,
+            device_resolver=_get_cable_device,
+            fallback_player=self.play,
+            audio_tap=self._emit_audio_level,
+            sample_rate=self.sample_rate,
+        )
+
     def speak(self, text: str) -> float:
-        """合成 + 播放（一体式，向后兼容）"""
-        audio = self.synthesize(text)
-        return self.play(audio)
+        """首块流式合成 + 播放；设备不支持时回退整段播放。"""
+        return self.prepare(text).wait()
 
 
 # 全局单例

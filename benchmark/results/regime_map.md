@@ -2,7 +2,7 @@
 
 - λ ∈ {1.5,3,4.5,6,9,12,18,24,36}（ρ=λ/6.7）× {uniform,drift} × 种子 {42,1001,2002}
 - 指标：full−greedy 评判均分配对差（3 种子 mean±SD）、覆盖率、占坑率
-- 既有 λ 种子42 流与预注册流逐位一致（断言通过）；l3 时长 60min 沿用原设定，其余 30min
+- 既有 λ 种子42 流与实验流逐位一致（断言通过）；l3 时长 60min 沿用原设定，其余 30min
 - 脚本 `benchmark/regime_map.py`，数据 regime_map.csv
 
 | λ | ρ | profile | full−greedy (mean±SD) | 逐种子差 | greedy 覆盖 | full 覆盖 | 占坑率 |

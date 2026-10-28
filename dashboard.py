@@ -33,7 +33,7 @@ _loop: asyncio.AbstractEventLoop | None = None      # 后台 asyncio event loop
 _thread: threading.Thread | None = None              # 后台线程
 _chatbot = None                                       # ChatBot
 _tts = None                                           # TTSEngine
-_vts = None                                           # VTSClient
+_avatar = None                                        # AvatarPort
 _scheduler = None                                     # Scheduler
 _vision = None                                        # VisionModule
 _pool = concurrent.futures.ThreadPoolExecutor(max_workers=2)
@@ -81,16 +81,23 @@ def _read_subtitle_file():
 
 def _update_status():
     """后台线程：更新状态快照"""
-    global _scheduler, _vts, _danmaku_client
+    global _scheduler, _avatar, _danmaku_client
     with _status_lock:
-        if _vts:
-            _status["vts_connected"] = _vts.ready
+        if _avatar:
+            avatar_state = _avatar.state()
+            _status["vts_connected"] = avatar_state.ready
+            _status["avatar_backend"] = avatar_state.backend
+            _status["avatar_skin"] = avatar_state.skin
+            _status["avatar_capabilities"] = sorted(_avatar.capabilities)
+            _status["emotion"] = avatar_state.emotion
+        else:
+            _status["vts_connected"] = False
+            _status["avatar_backend"] = "none"
         if _scheduler:
             ss = _scheduler._status()
             _status["queue_count"] = sum(ss[k] for k in ['q1_d','q2_d','q3_d','q1_g','q2_g','q3_g'])
             _status["playing"] = ss["playing"]
         _status["subtitle"] = _read_subtitle_file()
-        # B站连接状态
         if _danmaku_client:
             _status["bilibili_connected"] = _danmaku_client.is_running
         _status["live_mode"] = _live_mode
@@ -251,32 +258,35 @@ def _stop_bilibili():
     log.info("👋 B站弹幕监听已停止")
 
 
-def _on_vision_description(description: str):
-    """从 Vision 线程桥接到 asyncio 线程 → 画面评论入队（最高优先）"""
+def _on_vision_description(reply: str, emotion: str):
+    """DeepSeek 已生成画面评论，桥接到 asyncio 线程入队。"""
     if _scheduler and _loop:
-        add_event("vision", f"画面: {description[:40]}...")
-        # enqueue_vision 是同步方法，但 ScoreQueue 非线程安全，桥接到 event loop 线程
+        add_event("vision", f"画面评论: {reply[:40]}...")
         asyncio.run_coroutine_threadsafe(
-            _async_vision_enqueue(description), _loop
+            _async_vision_enqueue(reply, emotion), _loop
         )
 
 
-async def _async_vision_enqueue(description: str):
-    """在 asyncio 线程里执行入队"""
-    _scheduler.enqueue_vision(description)
+async def _async_vision_enqueue(reply: str, emotion: str):
+    _scheduler.enqueue_vision(reply, reply=reply, emotion=emotion)
 
 
 # ═══════════════════════════════════════════
-# VTS 快捷表情切换（不经过队列）
+# Avatar 快捷表情切换（不经过队列）
 # ═══════════════════════════════════════════
 
 @socketio.on("set_expression")
 def on_set_expression(data):
     expr = data.get("expression", "default_smile")
-    if _vts and _vts.ready:
-        _run_async(_vts.switch_expression(expr))
+    if not _avatar or not _avatar.ready:
+        add_event("system", "⚠️ Avatar 未连接，无法切换表情")
+        return
+    ok = _run_async(_avatar.set_emotion(expr))
+    if not ok:
+        add_event("system", f"⚠️ 表情切换失败: {expr}")
+        return
     with _status_lock:
-        _status["emotion"] = expr
+        _status["emotion"] = _avatar.state().emotion
     add_event("system", f"表情 → {expr}")
 
 
@@ -303,24 +313,25 @@ async def _scheduler_main(mode: str = "simulated"):
     """后台线程入口：创建引擎 + 跑调度器
     mode: "simulated" = 模拟测试, "live" = 正式开播（含B站弹幕）
     """
-    global _loop, _chatbot, _tts, _vts, _scheduler, _live_mode
+    global _loop, _chatbot, _tts, _avatar, _scheduler, _live_mode
 
     _loop = asyncio.get_running_loop()
     _live_mode = (mode == "live")
     log.info(f"后台线程启动，模式: {mode}")
 
-    # ── VTS ──
-    from vts_client import VTSClient
-    _vts = VTSClient()
-    vts_ok = await _vts.connect()
-    if vts_ok:
-        log.info("✅ VTS 已连接")
+    from avatar_factory import create_avatar
+    _avatar = create_avatar()
+    avatar_ok = await _avatar.connect()
+    if avatar_ok:
+        log.info("Avatar 后端已连接: %s", _avatar.state().backend)
     else:
-        log.warning("⚠️ VTS 未连接，跳过表情")
+        log.warning("Avatar 后端未连接: %s", _avatar.state().backend)
 
     # ── TTS ──
     from tts_engine import get_engine
     _tts = get_engine()
+    if hasattr(_avatar, "submit_mouth_open"):
+        _tts.set_audio_tap(_avatar.submit_mouth_open)
 
     # ── AI ──
     from ai_chat import ChatBot
@@ -328,8 +339,7 @@ async def _scheduler_main(mode: str = "simulated"):
 
     # ── Scheduler ──
     from scheduler import Scheduler
-    vts_ref = _vts if vts_ok else None
-    _scheduler = Scheduler(_chatbot, _tts, vts_ref)
+    _scheduler = Scheduler(_chatbot, _tts, avatar=_avatar)
     _scheduler._pool = _pool
 
     # ── 正式开播：启动 B站弹幕 ──
@@ -345,12 +355,12 @@ async def _scheduler_main(mode: str = "simulated"):
     except asyncio.CancelledError:
         pass
     finally:
-        # 清理 B站连接
         if _live_mode:
             _stop_bilibili()
-        # 清理
-        if vts_ok:
-            await _vts.close()
+        if _scheduler:
+            await _scheduler.close()
+        if _avatar:
+            await _avatar.close()
         _chatbot.clear_history()
         _live_mode = False
         log.info("引擎已停止")
@@ -377,7 +387,7 @@ def _start_engine(mode: str = "simulated"):
 
 def _stop_engine():
     """停止后台线程（包括 B站连接）"""
-    global _loop, _thread, _scheduler, _vts, _chatbot, _tts, _live_mode
+    global _loop, _thread, _scheduler, _avatar, _chatbot, _tts, _live_mode
 
     _live_mode = False
 
@@ -390,7 +400,7 @@ def _stop_engine():
         _thread = None
 
     _scheduler = None
-    _vts = None
+    _avatar = None
     _chatbot = None
     _tts = None
     _loop = None
@@ -458,7 +468,7 @@ def _do_start(mode: str):
         _status["live"] = True
         _status["live_mode"] = (mode == "live")
         _status["tts_ready"] = _tts is not None
-        _status["vts_connected"] = _vts.ready if _vts else False
+        _status["vts_connected"] = _avatar.ready if _avatar else False
 
     emit("status", dict(_status))
 

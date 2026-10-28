@@ -1,9 +1,8 @@
-# 逐分数桶覆盖拆分表（红审 v3 洞 3）
+# 逐分数桶覆盖拆分表
 
-回答审稿人问题：主臂 65% 批量占比与 `BATCH_PRECISE_FLOOR=60`（高分保护）是否相容。
-数据：全部从 `experiments/results/decisions_merge_*.jsonl` 用 `experiments/metrics_ov.coverage_stats` 重算
-（脚本 `experiments/redreview_v3_stats.py`，2026-08-06）。桶 = 事件自带实测桶 tag（high=≥60 / mid / low）。
-"丢弃" = 未服务（溢出滚出 + 从未被选中），与 `coverage_denominator_audit.md` 口径一致；分母 = 全部到达。
+用于检查主臂批量占比与 `BATCH_PRECISE_FLOOR=60`（高分保护）是否相容。
+数据从 `benchmark/results/decisions_merge_*.jsonl` 用 `benchmark/metrics_ov.coverage_stats` 重算。
+桶 = 事件自带实测桶 tag（high=≥60 / mid / low）；"丢弃" = 未服务（溢出滚出 + 从未被选中）；分母 = 全部到达。
 
 ## λ=12 drift（N=360/种子，5 种子合计 N=1800）
 

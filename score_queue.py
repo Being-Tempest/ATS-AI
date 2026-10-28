@@ -16,6 +16,7 @@ class QueueItem:
     text: str = field(compare=False)        # 弹幕内容 或 礼物名称
     price: int = field(compare=False, default=0)       # 礼物电池数
     reply: str | None = field(compare=False, default=None)      # AI 回复缓存
+    emotion: str | None = field(compare=False, default=None)    # 与草稿同时生成的情绪
     audio: Any = field(compare=False, default=None)             # TTS 音频缓存
     covered: list | None = field(compare=False, default=None)   # 批量回应时被 drain 的条目（item_type="batch" 专用）
     meta: dict | None = field(compare=False, default=None)      # 回放注入的事件溯源信息（id/到达时间）

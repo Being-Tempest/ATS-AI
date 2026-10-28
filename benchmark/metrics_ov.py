@@ -64,7 +64,7 @@ def stats_of(decisions, events):
 
 
 def coverage_stats(decisions, events):
-    """三态覆盖统计（批量合并实验口径，预注册 §8）：
+    """三态覆盖统计（批量合并实验口径，实验 §8）：
     每条事件最终状态 = 精回（单独回复）/ 批量覆盖（被某次批量回应 drain）/ 无视。
     依赖 decisions 里的 ev_id / arrive_ts / covered（新版回放器输出）。
     分桶用事件自带 tag（ovl 流为实测桶 high/mid/low），缺 tag 时按决策分推定。"""
@@ -162,7 +162,7 @@ def main():
                 table[(src, st)] = stats_of(d, all_events[src])
                 decisions_cache[(src, st)] = d
 
-    lines = ["# 过载+质量漂移调度对比（E1-ovl，预注册 preregistration.md）", ""]
+    lines = ["# 过载+质量漂移调度对比（E1-ovl）", ""]
     lines.append("> 确定性重放：共享评分缓存 + 固定种子，策略间差异无采样随机性。"
                  "对比报配对差值与效应量（Cohen's d），不报 CI。"
                  "占位回复 9.0s/条（μ≈6.7 条/分钟，E3 实测口径）。"
