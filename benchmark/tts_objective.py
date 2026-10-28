@@ -1,12 +1,12 @@
-"""TCSS 评审 A 组 6：TTS / Live2D 客观指标（生产日志统计，不需要人）。
+"""TTS / Live2D 客观指标（生产日志统计，不需要人工评分）。
 
 从 logs/live-*.log 统计：
 - TTS：`synthesized N chars -> X s, 首包=Yms, RTF=Z` → 字符速率分布、首包 P50/P90、RTF 稳定性
 - 情绪标签：`▶ 播放: "..." (emotion)` 分布；`🎭 表情:` 映射成功 vs `表情失败` / `VTS 未连接，跳过表情`
 - Live2D 表情切换一致性 = 情绪标签→exp3 文件映射成功率；没有帧级日志的项如实记缺口
 
-用法：python -X utf8 experiments/tts_objective.py
-输出：experiments/results/tts_objective.md
+用法：python -X utf8 -m benchmark.tts_objective
+输出：benchmark/results/tts_objective.md
 """
 import glob
 import os
@@ -34,10 +34,29 @@ def main():
     emotions = []
     emo_map, emo_fail, vts_off = 0, 0, 0
     per_file = {}
-    for f in sorted(glob.glob("logs/live-*.log")):
+    files = sorted(glob.glob("logs/live-*.log"))
+    source = "logs/live-*.log"
+
+    def has_tts_samples(paths):
+        for path in paths:
+            with open(path, encoding="utf-8", errors="replace") as handle:
+                if any(TTS_RE.search(line) for line in handle):
+                    return True
+        return False
+
+    if not has_tts_samples(files):
+        files = [os.path.join(os.path.dirname(__file__), "data", "tts_production_lines.txt")]
+        source = "benchmark/data/tts_production_lines.txt（脱敏生产日志摘录）"
+    for f in files:
         name = os.path.basename(f)
         cnt = 0
         for line in open(f, encoding="utf-8", errors="replace"):
+            if line.startswith("# file:"):
+                if cnt or name in per_file:
+                    per_file[name] = cnt
+                name = line.split(":", 1)[1].strip()
+                cnt = per_file.get(name, 0)
+                continue
             m = TTS_RE.search(line)
             if m:
                 tts.append(tuple(float(g) for g in m.groups()))
@@ -64,9 +83,9 @@ def main():
     from collections import Counter
     emo_dist = Counter(emotions)
 
-    lines = ["# TTS / Live2D 客观指标（TCSS A6，生产日志）",
+    lines = ["# TTS / Live2D 客观指标（生产日志）",
              "",
-             f"- 来源：logs/live-*.log；TTS 样本 n={len(tts)}；包含精确回复、批量回复、进房欢迎及其他主动语音，不是观众输入的一一对应回复数",
+             f"- 来源：{source}；TTS 样本 n={len(tts)}；包含精确回复、批量回复、进房欢迎及其他主动语音，不是观众输入的一一对应回复数",
              f"- 各文件 TTS 条数：{per_file}",
              "",
              "## TTS 合成（CosyVoice 3.5 云端）",

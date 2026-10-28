@@ -194,12 +194,12 @@ def build_report(rows):
 
 def write_manifest(rows):
     root = os.path.dirname(os.path.dirname(__file__))
-    inputs = ["experiments/robustness_common.py", "experiments/objective_robustness.py",
-              "experiments/data/ovl_text_pool.jsonl", "experiments/cache/score_danmaku.jsonl"]
+    inputs = ["benchmark/robustness_common.py", "benchmark/objective_robustness.py",
+              "benchmark/data/ovl_text_pool.jsonl", "benchmark/cache/score_danmaku.jsonl"]
     for stream in all_streams():
-        inputs.append(f"experiments/data/{stream}.jsonl")
+        inputs.append(f"benchmark/data/{stream}.jsonl")
         for strategy in STRATEGIES:
-            inputs.append(f"experiments/results/decisions_merge_{stream}_{strategy}.jsonl")
+            inputs.append(f"benchmark/results/decisions_merge_{stream}_{strategy}.jsonl")
     outputs = ["objective_robustness.csv", "objective_robustness.md"]
     manifest = {
         "experiment": "R3_objective_robustness", "weights": WEIGHTS,

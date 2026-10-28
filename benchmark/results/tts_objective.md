@@ -1,6 +1,6 @@
-# TTS / Live2D 客观指标（TCSS A6，生产日志）
+# TTS / Live2D 客观指标（生产日志）
 
-- 来源：benchmark/data/tts_production_lines.txt（生产日志预筛行，34.9h 部署）；TTS 样本 n=681
+- 来源：benchmark/data/tts_production_lines.txt（脱敏生产日志摘录）；TTS 样本 n=681；包含精确回复、批量回复、进房欢迎及其他主动语音，不是观众输入的一一对应回复数
 - 各文件 TTS 条数：{'live-20260727.log': 64, 'live-20260728.log': 45, 'live-20260730.log': 572}
 
 ## TTS 合成（CosyVoice 3.5 云端）

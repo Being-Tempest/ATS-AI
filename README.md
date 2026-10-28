@@ -91,19 +91,69 @@ python main.py
 - **占坑(commit)机制** — 管线空闲时第一个到的消息评分前直接占坑,防异步评分竞速;实验臂可用 `disable_commit=True` 禁用
 - **高分保护(H6)** — 批量只卷 `<60` 分的弹幕,高分桶留队等升舱精回
 
-`benchmark/` 目录包含完整离线回放框架与论文全部实验数据(评分缓存 ~7,200 条 + 生成缓存 + 合成弹幕流 + 关键结果 CSV),**零真实 API 调用**即可复现。
+`benchmark/` 目录包含完整离线回放框架与论文实验数据(评分缓存 ~7,200 条 + 生成缓存 + 合成弹幕流 + 关键结果 CSV),**零真实 API 调用**即可复现。
 
-一条命令复现主表(λ∈{3,6,12,24} × uniform/drift,5 策略,输出 `benchmark/results/merge_summary.md` 与 `coverage_vs_load.csv`):
+### 复现环境与两种入口
+
+推荐使用 Python 3.12(本次验证版本为 3.12.10)。在仓库根目录安装依赖:
 
 ```bash
-python -X utf8 -m benchmark.merge_run
+pip install -r requirements.txt
 ```
 
-其他入口:`benchmark.overload_run`(六策略 × 占坑双臂主矩阵)、`benchmark.replay`(真实日志回放,需自备日志)。注意:离线回放仅需 `numpy` 等基础依赖,无需 B 站登录或任何 API 密钥。
+**快速复核**:不重新生成调度决策,直接检查代码并从冻结的事件和决策文件重算 R1–R3 指标。无需 B 站登录、VTube Studio、LLM 或 TTS 密钥。
+
+```bash
+python -X utf8 -m unittest discover -s tests -t . -v
+python -X utf8 benchmark/robustness_recompute.py
+```
+
+预期结果:`Ran 25 tests ... OK`,以及 `PASS: checked=330/330, mismatches=0`。复算明细写入 `benchmark/results/robustness_recalculation.json`。
+
+**完整重跑**:从冻结事件和评分缓存重新生成调度决策。命令顺序如下,R3 使用主回放生成的决策文件,因此放在主回放之后。
+
+```bash
+# 主回放:16 条流 × 5 策略
+python -X utf8 -m benchmark.merge_run
+
+# R1:3 种服务时间情景 × 2 档负载 × 5 种子 × 5 策略,共 150 次运行
+python -X utf8 -m benchmark.calibration_robustness
+
+# R2:2 种到达过程 × 2 档负载 × 5 种子 × 5 策略,共 100 次运行
+python -X utf8 -m benchmark.arrival_robustness
+
+# R3:16 条流 × 5 策略,共 80 次运行
+python -X utf8 -m benchmark.objective_robustness
+
+# 重跑完成后,独立重算并核对全部 330 行 R1–R3 结果
+python -X utf8 benchmark/robustness_recompute.py
+```
+
+主要输出均位于 `benchmark/results/`:
+
+| 实验 | 结果文件 | 数据行数(不含表头) |
+|---|---|---:|
+| 主回放 | `merge_summary.md`、`coverage_vs_load.csv`、`per_slot_coverage.csv` | 80 |
+| R1 服务时间稳健性 | `calibration_robustness.csv`、`calibration_robustness.md` | 150 |
+| R2 突发到达稳健性 | `arrival_robustness.csv`、`arrival_robustness.md` | 100 |
+| R3 替代目标与交互模式 | `objective_robustness.csv`、`objective_robustness.md` | 80 |
+
+### 指标口径与计算位置
+
+- **总覆盖率** = (精回弹幕数 + 批量覆盖弹幕数) / 全部弹幕到达数。分母是消息人数,不是生成调用次数;一次批量生成可以覆盖多条弹幕。见 `benchmark/metrics_ov.py` `coverage_stats()`。
+- **高分精回率** = 单独回复的高分弹幕数 / 全部高分弹幕到达数。高分桶为评分 ≥60。
+- **等待时间** = 回复时刻 − 该条弹幕自己的到达时刻,不是从仿真零点计时。等待均值只统计已回复消息;未回复消息单列在 `ignore_rate` / `ignored_n`,不混入等待均值。见 `benchmark/robustness_common.py` `run_metrics()`。
+- **R1**:精回占用分别为 7.8/9.0/9.0 s;三种情景的批量时长与 `k_batch=ceil(批量时长/精回时长)` 见 `benchmark/calibration_robustness.py`。
+- **R2**:Poisson 与 on/off 两状态到达过程对比;on/off 均值均为 30 s,on 期到达率为 2λ,off 期为 0。Fano = 窗口内弹幕计数的样本方差 / 均值,零窗计入。见 `benchmark/arrival_robustness.py` 与 `benchmark/robustness_common.py`。
+- **R3**:`U(wB)=[Σprecise score + wB·Σbatch score]/(80N)`;N 为全部弹幕到达数,未回复贡献 0,wB 取 0/0.25/0.5/0.75/1。它是覆盖加权判定分,不是观众满意度。见 `benchmark/objective_robustness.py`。
+
+其他入口:`benchmark.overload_run`(六策略 × 占坑双臂主矩阵)、`benchmark.replay`(真实日志回放,需自备日志)。离线回放仅需基础 Python 依赖,无需任何 API 密钥。
 
 ## Paper Experiment Reproduction (IST submission)
 
-Every key number in the paper maps to one script and one result file below. All scoring calls are served from frozen caches (`benchmark/cache/`, ~7,200 entries); every script runs with **zero live API calls** (scripts that generated replies during the study ship their generation caches too, and pass a placeholder key so they work without `.env`). Run from the repo root, e.g. `python -X utf8 -m benchmark.regime_map`.
+The table maps major paper results to their scripts and result files. Offline simulation scoring calls are served from frozen caches (`benchmark/cache/`, ~7,200 entries); these scripts run with **zero live API calls** (scripts that generated replies during the study ship their generation caches too, and pass a placeholder key so they work without `.env`). Run from the repo root, e.g. `python -X utf8 -m benchmark.regime_map`.
+
+The production reply-length entry is explicitly marked **summary-only**: the full 596 reply texts are not included in the public excerpt. Its sample definition and calculation are documented in the result file, but that particular statistic cannot be independently recomputed from the shipped raw texts. This exception does not affect the main replay or R1–R3 commands above.
 
 | Paper claim / number | Script | Result file |
 |---|---|---|
@@ -118,7 +168,7 @@ Every key number in the paper maps to one script and one result file below. All 
 | Batch-value objective and gift protection (R3) | `benchmark/objective_robustness.py` | `results/objective_robustness.csv` |
 | Independent R1–R3 recomputation | `benchmark/robustness_recompute.py` | `results/robustness_recalculation.json` |
 | Batch length curve d_batch(n): 49.8+2.12n chars, k=2 slots throughout | `benchmark/batch_length_curve.py` | `results/batch_length_curve.md` + `batch_length_samples.jsonl` |
-| Service-rate calibration: production replies 17.5 chars (P50 17) → ≈8.4 s occupancy | (log analysis doc) | `results/reply_length_check.md` |
+| Service-rate calibration: production replies 17.5 chars (P50 17) → ≈8.4 s occupancy | Summary-only; method documented in result file | `results/reply_length_check.md` |
 | TTS production speech rate 3.83±0.72 chars/s, first-packet P50 543 ms | `benchmark/tts_objective.py` | `results/tts_objective.md` (input: pre-filtered `data/tts_production_lines.txt`; full production logs are not shipped) |
 | Main aggregation tables (69.4%→100% at 1.8μ; frontier at 3.6μ) | `benchmark/merge_run.py` | `results/merge_summary.md`, `results/coverage_vs_load.csv` |
 

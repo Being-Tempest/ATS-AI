@@ -194,9 +194,9 @@ def build_report(rows, smoke):
 
 
 def write_manifest(output_dir, rows, smoke):
-    inputs = ["scheduler.py", "experiments/replay.py", "experiments/robustness_common.py",
-              "experiments/calibration_robustness.py", "experiments/data/ovl_text_pool.jsonl",
-              "experiments/cache/score_danmaku.jsonl"]
+    inputs = ["scheduler.py", "benchmark/replay.py", "benchmark/robustness_common.py",
+              "benchmark/calibration_robustness.py", "benchmark/data/ovl_text_pool.jsonl",
+              "benchmark/cache/score_danmaku.jsonl"]
     root = os.path.dirname(os.path.dirname(__file__))
     files = sorted(p for p in os.listdir(output_dir)
                    if p.startswith(("decisions_calibration_", "calibration_robustness"))
